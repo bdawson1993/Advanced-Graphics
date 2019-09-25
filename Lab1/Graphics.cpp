@@ -6,41 +6,22 @@ Graphics* Graphics::GetGraphicsContext()
 {
 	if (instance == 0)
 	{
-
 		instance = new Graphics();
 	}
 
 	return instance;
 }
 
-void Graphics::CreateShader(string name, char* vertexShader, char* fragmentShader)
-{
-	//append vertexShader
-	char* vertexShaderPath = new char[strlen(vertexShader) + strlen(".vertexshader")];
-	strcpy(vertexShaderPath, vertexShader);
-	strcat(vertexShaderPath, ".vertexshader");
-
-	//append fragment shader
-	char* fragmentShaderPath = new char[strlen(fragmentShader) + strlen(".fragmentshader")];
-	strcpy(fragmentShaderPath, vertexShader);
-	strcat(fragmentShaderPath, ".fragmentshader");
-
-	GLuint id = LoadShaders(vertexShaderPath, fragmentShaderPath);
-	cout << id << endl;
-	if (id != 0)
-	{
-		programIds.insert(pair<string, GLuint>(name, id));
-	}
-}
 
 void Graphics::Draw()
 {
+
 	do {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// Draw your coloured triangle here! 
 		// Use our shader
-		glUseProgram(programIds["Basic"]);
+		glUseProgram(programID);
 
 		// Send our transformation to the currently bound shader, 
 		// in the "MVP" uniform
@@ -115,7 +96,7 @@ Graphics::Graphics()
 		-1.0f, 1.0f,0.0f
 	};
 
-	CreateShader("Basic", "Lab1VertexShader", "Lab1FragmentShader");
+	
 
 	//create and bind a VAO
 	GLuint VertexArrayID;
@@ -145,10 +126,10 @@ Graphics::Graphics()
 	// create a vertex buffer object id and fill it with our data
 
 	// 1st attribute buffer : vertices
-	
-	
+	programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
+
 	// Get a handle for our "MVP" (model * view * projection) uniform
-	MatrixID = glGetUniformLocation(programIds["Basic"], "MVP");
+	MatrixID = glGetUniformLocation(programID, "MVP");
 
 	// Projection matrix : 45� Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
 	glm::mat4 Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);

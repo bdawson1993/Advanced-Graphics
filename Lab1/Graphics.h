@@ -21,14 +21,13 @@ private:
 	static Graphics* instance;
 	Graphics();
 	GLFWwindow* window;
-	map<string, GLuint> programIds;
+	GLuint programID;
 
 	GLuint MatrixID;
 	glm::mat4 MVP;
 
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
-	void CreateShader(string name, char* vertexShader, char* fragmentShader);
 	void Draw();
 	~Graphics();
 
