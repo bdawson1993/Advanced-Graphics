@@ -29,7 +29,8 @@ private:
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
 	int CreateGraphicsContext();
-	void Draw();
+	void AddShapeBuffer(const GLfloat vertices[], size_t size);
+	int Draw();
 	~Graphics();
 
 
