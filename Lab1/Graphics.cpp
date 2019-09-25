@@ -13,9 +13,52 @@ Graphics* Graphics::GetGraphicsContext()
 	return instance;
 }
 
+void Graphics::CreateShader(string name, char* vertexShader, char* fragmentShader)
+{
+	//append vertexShader
+	char* vertexShaderPath = new char[strlen(vertexShader) + strlen(".vertexshader")];
+	strcpy(vertexShaderPath, vertexShader);
+	strcat(vertexShaderPath, ".vertexshader");
+
+	//append fragment shader
+	char* fragmentShaderPath = new char[strlen(fragmentShader) + strlen(".fragmentshader")];
+	strcpy(fragmentShaderPath, vertexShader);
+	strcat(fragmentShaderPath, ".fragmentshader");
+
+	GLuint id = LoadShaders(vertexShaderPath, fragmentShaderPath);
+	cout << id << endl;
+	if (id != 0)
+	{
+		programIds.insert(pair<string, GLuint>(name, id));
+	}
+}
+
 void Graphics::Draw()
 {
+	do {
+		glClear(GL_COLOR_BUFFER_BIT);
 
+		// Draw your coloured triangle here! 
+		// Use our shader
+		glUseProgram(programIds["Basic"]);
+
+		// Send our transformation to the currently bound shader, 
+		// in the "MVP" uniform
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+		// Draw the triangle !
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		// Swap buffers
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+
+	} // Check if the ESC key was pressed or the window was closed
+	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
+		glfwWindowShouldClose(window) == 0);
+
+	// Close OpenGL window and terminate GLFW
+	glfwTerminate();
 }
 
 Graphics::~Graphics()
@@ -72,20 +115,7 @@ Graphics::Graphics()
 		-1.0f, 1.0f,0.0f
 	};
 
-	// define vertex colour data here (same as above, but 4 floats per vertex (RGBA values in range 0..1)
-
-
-	// now we need to let OpenGL know about the vertex data.. 
-	// the order is...
-	// 1) define a vertex array object (using glGenVertexArrays)
-	// 2) bind it as the active VAO (glBindVertexArray)
-	// 3) define a vertex buffer object (glGenBuffers)
-	// 4) bind it as the active buffer object (glBindBuffer)
-	// 5) fill the buffer with data (glBufferData)
-	// 6) enable the correct "vertex attribute array" (glEnableVertexAttribArray)
-	// 7) tell OpenGL where in the vertex buffer the attibute is found (glVertexAttribPointer)
-	// we then can draw the content by calling:
-	// 1) glDrawArrays and telling it to draw triangles! (check the opengl spec for parameters to all these calls)
+	CreateShader("Basic", "Lab1VertexShader", "Lab1FragmentShader");
 
 	//create and bind a VAO
 	GLuint VertexArrayID;
@@ -115,12 +145,10 @@ Graphics::Graphics()
 	// create a vertex buffer object id and fill it with our data
 
 	// 1st attribute buffer : vertices
-
-	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
-
+	
+	
 	// Get a handle for our "MVP" (model * view * projection) uniform
-	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+	MatrixID = glGetUniformLocation(programIds["Basic"], "MVP");
 
 	// Projection matrix : 45� Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
 	glm::mat4 Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
@@ -133,30 +161,5 @@ Graphics::Graphics()
 	// Model matrix : an identity matrix (model will be at the origin)
 	glm::mat4 Model = glm::mat4(1.0f);
 	// Our ModelViewProjection : multiplication of our 3 matrices
-	glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
-
-	do {
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		// Draw your coloured triangle here! 
-		// Use our shader
-		glUseProgram(programID);
-
-		// Send our transformation to the currently bound shader, 
-		// in the "MVP" uniform
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-
-		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-
-		// Swap buffers
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-
-	} // Check if the ESC key was pressed or the window was closed
-	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
-
-	// Close OpenGL window and terminate GLFW
-	glfwTerminate();
+	MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
 }
