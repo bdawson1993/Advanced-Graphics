@@ -28,6 +28,7 @@ private:
 
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
+	int CreateGraphicsContext();
 	void Draw();
 	~Graphics();
 
