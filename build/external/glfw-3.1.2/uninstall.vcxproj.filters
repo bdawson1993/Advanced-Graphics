@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\CMakeFiles\a79becbe57bb55d32993acf5f8c75705\uninstall.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\glfw-3.1.2\CMakeFiles\uninstall" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{FF785D92-B32C-367B-BBB4-58E947602C68}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

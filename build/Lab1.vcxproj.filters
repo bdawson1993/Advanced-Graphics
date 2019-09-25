@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\Lab1\Lab1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\Lab1\Graphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\Lab1\Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\common\shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\Lab1\Lab1VertexShader.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\Lab1\Lab1FragmentShader.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{161DB234-0F13-3B5E-B901-6F1BD2579EAB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{49287A80-9D2C-33AC-BB17-85E5744FD04C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{1D0BB603-A582-327F-AEDC-8FE46D6FF8E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{CC0344FF-952F-3AE0-BDA8-E34DD3659154}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

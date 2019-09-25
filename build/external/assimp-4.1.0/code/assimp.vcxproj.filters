@@ -1,0 +1,1692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Assimp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BaseImporter.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BaseProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PostStepRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ImporterRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DefaultIOStream.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DefaultIOSystem.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CInterfaceIOWrapper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Importer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SGSpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\VertexTriangleAdjacency.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SceneCombiner.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ScenePreprocessor.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SkeletonMeshBuilder.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SplitByBoneCountProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ScaleProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StandardShapes.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TargetAnimation.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RemoveComments.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Subdivision.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\scene.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Bitmap.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Version.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CreateAnimMesh.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DefaultLogger.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Exporter.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssimpCExport.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CalcTangentsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ComputeUVMappingProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ConvertToLHProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FindDegenerates.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FindInstancesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FindInvalidDataProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FixNormalsStep.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\GenFaceNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\GenVertexNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PretransformVertices.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ImproveCacheLocality.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\JoinVerticesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LimitBoneWeightsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RemoveRedundantMaterials.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RemoveVCProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SortByPTypeProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SplitLargeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TextureTransform.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TriangulateProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ValidateDataStructure.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OptimizeGraph.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OptimizeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DeboneProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ProcessHelper.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MakeVerboseFormat.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MaterialSystem.cpp">
+      <Filter>MaterialSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StepExporter.cpp">
+      <Filter>Step</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter_Geometry.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter_Material.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter_Postprocess.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3DSConverter.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3DSLoader.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3DSExporter.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ACLoader.cpp">
+      <Filter>AC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ASELoader.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ASEParser.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssbinExporter.cpp">
+      <Filter>ASSBIN</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssbinLoader.cpp">
+      <Filter>ASSBIN</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssxmlExporter.cpp">
+      <Filter>ASSXML</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\B3DImporter.cpp">
+      <Filter>B3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BVHLoader.cpp">
+      <Filter>BVH</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaLoader.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaParser.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaExporter.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DXFLoader.cpp">
+      <Filter>DXF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CSMLoader.cpp">
+      <Filter>CSM</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\HMPLoader.cpp">
+      <Filter>HMP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IRRMeshLoader.cpp">
+      <Filter>IRRMESH</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IRRShared.cpp">
+      <Filter>IRR</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IRRLoader.cpp">
+      <Filter>IRR</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOAnimation.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOBLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOMaterial.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWSLoader.cpp">
+      <Filter>LWS</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD2Loader.cpp">
+      <Filter>MD2</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD3Loader.cpp">
+      <Filter>MD3</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD5Loader.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD5Parser.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDCLoader.cpp">
+      <Filter>MDC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDLLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDLMaterialLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\NFFLoader.cpp">
+      <Filter>NFF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\NDOLoader.cpp">
+      <Filter>NDO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OFFLoader.cpp">
+      <Filter>OFF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileImporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileMtlImporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileParser.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjExporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreImporter.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreStructs.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreBinarySerializer.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreXmlSerializer.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreMaterial.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OpenGEXExporter.cpp">
+      <Filter>OPENGEX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OpenGEXImporter.cpp">
+      <Filter>OPENGEX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PlyLoader.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PlyParser.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PlyExporter.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MS3DLoader.cpp">
+      <Filter>MS3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\COBLoader.cpp">
+      <Filter>COB</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderLoader.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderDNA.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderScene.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderModifier.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderBMesh.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderTessellator.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCLoader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCReaderGen1.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCReaderGen2.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCUtil.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCGeometry.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCMaterial.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCProfile.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCCurve.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCBoolean.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCOpenings.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STEPFileReader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STEPFileEncoding.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XGLLoader.cpp">
+      <Filter>XGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXImporter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXParser.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXTokenizer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXConverter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXUtil.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXDocument.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXProperties.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXMeshGeometry.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXMaterial.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXModel.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXAnimation.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXNodeAttribute.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXDeformer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXBinaryTokenizer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXDocumentUtil.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3DLoader.cpp">
+      <Filter>Q3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPFileParser.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPFileImporter.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPZipArchive.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RawLoader.cpp">
+      <Filter>RAW</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SIBImporter.cpp">
+      <Filter>SIB</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SMDLoader.cpp">
+      <Filter>SMD</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STLLoader.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STLExporter.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TerragenLoader.cpp">
+      <Filter>TERRAGEN</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\UnrealLoader.cpp">
+      <Filter>3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileImporter.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileParser.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileExporter.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DExporter.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Geometry2D.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Geometry3D.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Group.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Light.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Metadata.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Networking.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Postprocess.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Rendering.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Shape.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Texturing.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FIReader.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DVocabulary.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFImporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFExporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2Importer.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2Exporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\D3MFImporter.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\D3MFExporter.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\D3MFOpcPackage.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDImporter.cpp">
+      <Filter>MMD</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDPmxParser.cpp">
+      <Filter>MMD</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\unzip\ioapi.c">
+      <Filter>unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\unzip\unzip.c">
+      <Filter>unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\common\shapes.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\advancing_front.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\cdt.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep_context.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\clipper\clipper.cpp">
+      <Filter>Clipper</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\code\OpenDDLParser.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\code\DDLNode.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\code\OpenDDLCommon.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\code\OpenDDLExport.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\code\Value.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\code\OpenDDLStream.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcArithmeticCodec.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTools.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleFans.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\zip\src\zip.c">
+      <Filter>ziplib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\fast_atof.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\qnan.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BaseImporter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BaseProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Importer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ScenePrivate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ByteSwapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DefaultProgressHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CInterfaceIOWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Hash.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFF.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MemoryIOWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ParsingUtils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StreamReader.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StreamWriter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StringComparison.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StringUtils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SGSpatialSort.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\VertexTriangleAdjacency.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\GenericProperty.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SpatialSort.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ScenePreprocessor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SkeletonMeshBuilder.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SplitByBoneCountProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ScaleProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SmoothingGroups.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StandardShapes.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TargetAnimation.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RemoveComments.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Subdivision.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Vertex.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LineSplitter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TinyFormatter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Profiler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LogAux.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Bitmap.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XMLTools.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IOStreamBuffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CreateAnimMesh.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\DefaultLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\LogStream.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Logger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\NullLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Win32DebugLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FileLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StdOStreamLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlobIOSystem.h">
+      <Filter>Exporter</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CalcTangentsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ComputeUVMappingProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ConvertToLHProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FindDegenerates.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FindInstancesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FindInvalidDataProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FixNormalsStep.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\GenFaceNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\GenVertexNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PretransformVertices.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ImproveCacheLocality.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\JoinVerticesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LimitBoneWeightsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RemoveRedundantMaterials.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RemoveVCProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SortByPTypeProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SplitLargeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TextureTransform.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TriangulateProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ValidateDataStructure.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OptimizeGraph.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OptimizeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DeboneProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ProcessHelper.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PolyTools.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MakeVerboseFormat.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MaterialSystem.h">
+      <Filter>MaterialSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\StepExporter.h">
+      <Filter>Step</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter_Macro.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AMFImporter_Node.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3DSHelper.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3DSLoader.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3DSExporter.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ACLoader.h">
+      <Filter>AC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ASELoader.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ASEParser.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssbinExporter.h">
+      <Filter>ASSBIN</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssbinLoader.h">
+      <Filter>ASSBIN</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\AssxmlExporter.h">
+      <Filter>ASSXML</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\B3DImporter.h">
+      <Filter>B3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BVHLoader.h">
+      <Filter>BVH</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaHelper.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaLoader.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaParser.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ColladaExporter.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DXFLoader.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\DXFHelper.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\CSMLoader.h">
+      <Filter>CSM</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\HMPFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\HMPLoader.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\HalfLifeFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IRRMeshLoader.h">
+      <Filter>IRRMESH</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IRRShared.h">
+      <Filter>IRR</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IRRLoader.h">
+      <Filter>IRR</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOAnimation.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOFileData.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWOLoader.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\LWSLoader.h">
+      <Filter>LWS</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD2FileData.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD2Loader.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD2NormalTable.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD3FileData.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD3Loader.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD5Loader.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MD5Parser.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDCFileData.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDCLoader.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDCNormalTable.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDLDefaultColorMap.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDLFileData.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MDLLoader.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\NFFLoader.h">
+      <Filter>NFF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\NDOLoader.h">
+      <Filter>NDO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OFFLoader.h">
+      <Filter>OFF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileData.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileImporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileMtlImporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjFileParser.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjTools.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\ObjExporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreImporter.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreStructs.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreParsingUtils.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreBinarySerializer.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OgreXmlSerializer.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OpenGEXExporter.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OpenGEXImporter.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\OpenGEXStructs.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PlyLoader.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PlyParser.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\PlyExporter.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MS3DLoader.h">
+      <Filter>MS3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\COBLoader.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\COBScene.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderLoader.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderDNA.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderDNA.inl">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderScene.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderSceneGen.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderIntermediate.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderModifier.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderBMesh.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\BlenderTessellator.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCLoader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCReaderGen.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\IFCUtil.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STEPFile.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STEPFileReader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STEPFileEncoding.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XGLLoader.h">
+      <Filter>XGL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXCompileConfig.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXImporter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXParser.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXTokenizer.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXImportSettings.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXConverter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXUtil.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXDocument.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXProperties.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FBXMeshGeometry.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3DLoader.h">
+      <Filter>Q3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPFileData.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPFileParser.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPFileImporter.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\Q3BSPZipArchive.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\RawLoader.h">
+      <Filter>RAW</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SIBImporter.h">
+      <Filter>SIB</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\SMDLoader.h">
+      <Filter>SMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STLLoader.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\STLExporter.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\TerragenLoader.h">
+      <Filter>TERRAGEN</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\UnrealLoader.h">
+      <Filter>3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileHelper.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileImporter.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileParser.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\XFileExporter.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DExporter.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Macro.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\X3DImporter_Node.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\FIReader.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFAsset.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFAsset.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFAssetWriter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFAssetWriter.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFImporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTFExporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2Asset.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2Asset.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2AssetWriter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2AssetWriter.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2Importer.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\glTF2Exporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\D3MFImporter.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\D3MFExporter.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\D3MFOpcPackage.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\3MFXmlTags.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDCpp14.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDImporter.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDPmdParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDPmxParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\MMDVmdParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\code\irrXMLWrapper.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\unzip\crypt.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\unzip\ioapi.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\unzip\unzip.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\common\shapes.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\common\utils.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\advancing_front.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\cdt.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep_context.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\clipper\clipper.hpp">
+      <Filter>Clipper</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLParser.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLExport.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLStream.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\DDLNode.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\openddlparser\include\openddlparser\Value.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcAdjacencyInfo.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcArithmeticCodec.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcBinaryStream.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcCommon.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcDVEncodeParams.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVector.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcFIFO.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcIndexedFaceSet.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcIndexedFaceSet.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCDecoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCEncoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTimer.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleFans.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListDecoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListDecoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListEncoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListEncoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcVector.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\Open3DGC\o3dgcVector.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\zip\src\miniz.h">
+      <Filter>ziplib</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\contrib\zip\src\zip.h">
+      <Filter>ziplib</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\ai_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\color4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\color4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\include\assimp\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\cfileio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\material.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\matrix3x3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\matrix3x3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\matrix4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\matrix4x4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\postprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\metadata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\vector2.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\vector3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\cimport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\importerdesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Importer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\ProgressHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\IOStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\IOSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\cexport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Exporter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\DefaultIOStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\DefaultIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\SceneCombiner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Compiler\pushpack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Compiler\poppack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include\assimp\Compiler\pstdint.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="3D">
+      <UniqueIdentifier>{D841D898-02BD-3BF4-B5DC-077644DBB174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DS">
+      <UniqueIdentifier>{7D3493F0-2B1D-3FA4-92B2-EE0F2EDF5163}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3MF">
+      <UniqueIdentifier>{BC803957-1845-3D52-982F-5977131E0869}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AC">
+      <UniqueIdentifier>{303162A5-8D87-36C0-9753-8B446F150A81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AMF">
+      <UniqueIdentifier>{6E44F9AE-980C-3A53-ADD7-C962E92559F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASE">
+      <UniqueIdentifier>{6B78DFD5-5072-3C21-AAD7-6C798E44BEC4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSBIN">
+      <UniqueIdentifier>{5C5DB47E-C32D-3DE4-B6CD-5ED890822BB7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSXML">
+      <UniqueIdentifier>{7A070ED1-CBC5-34E2-B4DA-2D0BD3186F9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="B3D">
+      <UniqueIdentifier>{2B75DD6E-3CFC-33EF-8C23-19A7EBD948C2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BLEND">
+      <UniqueIdentifier>{866D4A35-72A8-36A3-A331-7DED40618F96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BVH">
+      <UniqueIdentifier>{80E598F5-D597-3C1A-BC8C-C076C3AC4201}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COB">
+      <UniqueIdentifier>{1CAD754E-F715-3A7B-B0A1-4C21E9A9644D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COLLADA">
+      <UniqueIdentifier>{77B9E7D9-9B59-39F8-B257-5E08A35421FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSM">
+      <UniqueIdentifier>{FA077C86-EC61-318E-A7FD-B50F4D24856F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Clipper">
+      <UniqueIdentifier>{8E588FA9-9927-34D2-9C7E-1CF2D321A1CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{3ACBEA06-1A77-38B1-AACA-DC825B468BB2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Compiler">
+      <UniqueIdentifier>{DE5DCDFF-388D-3938-BC2B-9D61C384D083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DXF">
+      <UniqueIdentifier>{DFB81452-9F8D-3520-A4BF-379C1435C228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter">
+      <UniqueIdentifier>{826F4F81-7E76-32CB-BBA5-EEBE3074CFE3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FBX">
+      <UniqueIdentifier>{CD5E7EDD-7C67-3863-847F-3785B78CD1D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLTF">
+      <UniqueIdentifier>{77DBDED1-8BD7-3A60-9EED-6F543BAE4EF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HMP">
+      <UniqueIdentifier>{94A94EA4-AE0A-3826-8FA9-9293DB8A82FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{161DB234-0F13-3B5E-B901-6F1BD2579EAB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IFC">
+      <UniqueIdentifier>{BFCCB55E-4BD4-33FA-A311-0725B7589379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IRR">
+      <UniqueIdentifier>{6E86DAD9-39FF-3688-9930-BEB7CB28C723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IRRMESH">
+      <UniqueIdentifier>{3B5D29A2-08DD-3D1A-9BE7-C359B87393F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IrrXML">
+      <UniqueIdentifier>{2B15DEA6-F611-3AB5-98C2-9AF9E2480D8D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWO">
+      <UniqueIdentifier>{850EA26D-828A-375F-9090-4FF0243F81F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWS">
+      <UniqueIdentifier>{74AE6AFB-FBBD-3EC2-A7A8-6FF58C33FA02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{E87AC593-19A2-3EA1-9C28-D08AEA03EB41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD2">
+      <UniqueIdentifier>{D0703803-ED4A-3607-B08D-3BB57C07E820}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD3">
+      <UniqueIdentifier>{FC0221E5-025C-3247-89BC-B0B3CA3C5A99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{B4B91403-4EF5-37B7-9A2A-BF9B3D522BDB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDC">
+      <UniqueIdentifier>{C7637030-EEB3-35BB-953B-38F85FBB44F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDL">
+      <UniqueIdentifier>{8B26F062-49A8-3BA5-9960-846F23D7CB8F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MMD">
+      <UniqueIdentifier>{9F490C37-145F-3F99-A2CA-82B2553005CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MS3D">
+      <UniqueIdentifier>{5ED89286-67FC-3841-9810-B19B1CBA4245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MaterialSystem">
+      <UniqueIdentifier>{92C4388A-97C3-30E4-9997-E01E790E6D5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NDO">
+      <UniqueIdentifier>{58CC498A-FC4C-3380-825A-2FBE35F70558}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NFF">
+      <UniqueIdentifier>{754F2E97-849C-3B95-830E-DDFAAD4929E3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OBJ">
+      <UniqueIdentifier>{6552DF2E-8247-3CC3-9CF0-F25F5BA519C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OFF">
+      <UniqueIdentifier>{311243A5-84FA-303B-8D5B-624899A7A573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OGRE">
+      <UniqueIdentifier>{C5BA040D-F34B-3255-B899-9C599CCA7144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OPENGEX">
+      <UniqueIdentifier>{E93B6715-FC1E-36E6-BCD3-93E1A34CF0A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLY">
+      <UniqueIdentifier>{69E51F7E-A951-3C2A-86F4-9582C0B03F8C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Poly2Tri">
+      <UniqueIdentifier>{6FC641DB-6FB0-315B-8249-88D301539053}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcessing">
+      <UniqueIdentifier>{A6B9690C-4BA3-3608-BED2-3090802A665F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3BSP">
+      <UniqueIdentifier>{36B31C47-F582-3416-A2B7-5999B54A4C36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3D">
+      <UniqueIdentifier>{D8F46A19-4F4C-35AF-80F5-8999E2023FAA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RAW">
+      <UniqueIdentifier>{347294F1-E2C0-3C56-A5EC-683986495D63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SIB">
+      <UniqueIdentifier>{EEEB4518-E1D2-3563-9D00-BEBFFEC73090}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMD">
+      <UniqueIdentifier>{38EA9B83-49DA-3551-83D6-AFEDA69F3DC7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{41FD7BCA-83E7-3272-B7D7-C88994E2EA32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{49287A80-9D2C-33AC-BB17-85E5744FD04C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Step">
+      <UniqueIdentifier>{F5E529E2-0EDE-3938-ABAD-198C63403B03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TERRAGEN">
+      <UniqueIdentifier>{CDEBDD40-F4E9-30F6-B1FE-00952DE6A693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X">
+      <UniqueIdentifier>{4F334A9A-53B8-302E-943E-BA8E1BC51216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X3D">
+      <UniqueIdentifier>{FEC5ADFA-A910-37D3-B2A3-7A7F33F0F645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XGL">
+      <UniqueIdentifier>{791EF70F-A1E2-3702-B11F-F47518C46DF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="open3dgc">
+      <UniqueIdentifier>{BF281823-0C9E-3D40-A469-B0B1561459F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="openddl_parser">
+      <UniqueIdentifier>{2EC829FF-DD93-3D21-BF0E-4746FDBADD95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unzip">
+      <UniqueIdentifier>{AC985278-6C41-3D29-AF1E-EB99522A5983}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ziplib">
+      <UniqueIdentifier>{7DBDD03E-E900-363F-A9ED-01B84AB765AA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

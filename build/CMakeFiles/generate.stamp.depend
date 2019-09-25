@@ -1,0 +1,32 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/FindOpenGL.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/Platform/WindowsPaths.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/CMakeLists.txt
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/build/CMakeFiles/3.15.3/CMakeCCompiler.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/build/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/build/CMakeFiles/3.15.3/CMakeRCCompiler.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/build/CMakeFiles/3.15.3/CMakeSystem.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/rpavlik-cmake-modules-fe2273/CleanDirectoryList.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/rpavlik-cmake-modules-fe2273/CreateLaunchers.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/rpavlik-cmake-modules-fe2273/ListCombinations.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/rpavlik-cmake-modules-fe2273/MSVCMultipleProcessCompile.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/rpavlik-cmake-modules-fe2273/launcher-templates/targetlauncher.cmd.in
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/rpavlik-cmake-modules-fe2273/launcher-templates/vcxproj.user.in

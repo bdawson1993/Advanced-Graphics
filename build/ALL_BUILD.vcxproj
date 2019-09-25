@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9C33AF2E-5324-3E06-A837-B8208A63D917}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glfw-3.1.2\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glm-0.9.7.1;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glew-1.13.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\soil2\src;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glfw-3.1.2\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glm-0.9.7.1;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glew-1.13.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\soil2\src;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glfw-3.1.2\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glm-0.9.7.1;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glew-1.13.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\soil2\src;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glfw-3.1.2\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glm-0.9.7.1;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\glew-1.13.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\external\soil2\src;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\include;D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\GLEW_1130.vcxproj">
+      <Project>{C1827C69-DE87-3771-B975-F6233E2D61B6}</Project>
+      <Name>GLEW_1130</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\contrib\irrXML\IrrXML.vcxproj">
+      <Project>{09854F3B-8C35-3066-A933-01925421287A}</Project>
+      <Name>IrrXML</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\Lab1.vcxproj">
+      <Project>{7BC0A178-95A4-3952-A61A-37419B94112A}</Project>
+      <Name>Lab1</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\Lab2.vcxproj">
+      <Project>{414C4AE5-1E0E-384F-A3D4-0871E5497232}</Project>
+      <Name>Lab2</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\SOIL2.vcxproj">
+      <Project>{07C9BC28-83E1-32DA-9E7D-6267C9514093}</Project>
+      <Name>SOIL2</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\code\assimp.vcxproj">
+      <Project>{EF9A2CA0-AA48-3838-80D4-874C8932754B}</Project>
+      <Name>assimp</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\glfw-3.1.2\src\glfw.vcxproj">
+      <Project>{6F37E8D4-33EC-3B75-953D-D3BE0328AC43}</Project>
+      <Name>glfw</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\contrib\zlib\zlib.vcxproj">
+      <Project>{BE9920C6-0E82-3893-A26F-70A831CF0102}</Project>
+      <Name>zlib</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Libraries\Documents\ogl-labs - Week 1\ogl-labs - Week 1\build\external\assimp-4.1.0\contrib\zlib\zlibstatic.vcxproj">
+      <Project>{0F5592E4-93CD-368A-AD60-7D07DD2EB620}</Project>
+      <Name>zlibstatic</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

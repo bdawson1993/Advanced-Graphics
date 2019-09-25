@@ -1,0 +1,9 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.15/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.15/Modules/CheckTypeSize.cmake
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/assimp-4.1.0/contrib/zlib/CMakeLists.txt
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/assimp-4.1.0/contrib/zlib/zconf.h.cmakein
+D:/Libraries/Documents/ogl-labs - Week 1/ogl-labs - Week 1/external/assimp-4.1.0/contrib/zlib/zlib.pc.cmakein
