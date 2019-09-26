@@ -104,7 +104,7 @@ int Graphics::BeginDraw()
 			// in the "MVP" uniform
 			glUniformMatrix4fv(IT->GetMatrixID(), 1, GL_FALSE, &MVP[0][0]);
 			
-
+			
 			// Draw the triangle !
 			glDrawArrays(GL_TRIANGLES, 0, 3);
 			

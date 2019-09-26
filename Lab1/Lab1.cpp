@@ -14,14 +14,16 @@ int main( void )
 	{
 		1.0f,-1.0f, 0.0f,
 		-1.0f, -1.0f, 0.0f,
-		-2.0f, 1.0f, 0.0f
+		-2.0f, 1.0f, 0.0f
+
 	};
 
 	static const GLfloat g_vertex_buffer_data2[] =
 	{
 		1.0f,-1.0f, 0.0f,
 		-1.0f,-1.0f, 0.0f,
--		1.0f, 1.0f, 0.0f
+-		1.0f, 1.0f, 0.0f
+
 	};
 
 	Shape* triangle = new Shape(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), graphics->GetProgramID());

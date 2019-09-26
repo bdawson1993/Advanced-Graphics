@@ -17,7 +17,7 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 
 	//fill VBO with data
 	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
-
+	
 
 	//setup shader
 	glEnableVertexAttribArray(0);
@@ -29,9 +29,6 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 		0, // stride
 		(void*)0 // array buffer offset
 	);
-
-	
-
 
 	// Get a handle for our "MVP" (model * view * projection) uniform
 	this->programID = programID;
