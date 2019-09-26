@@ -69,6 +69,8 @@ add_executable(${LABNAME}
 	${LABNAME}/Lab1.cpp
 	${LABNAME}/Graphics.cpp
 	${LABNAME}/Graphics.h
+	${LABNAME}/Shape.h
+	${LABNAME}/Shape.cpp
 	common/shader.cpp
 	common/shader.hpp
 	${LABNAME}/Lab1VertexShader.vertexshader
