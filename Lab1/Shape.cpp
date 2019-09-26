@@ -2,6 +2,7 @@
 
 Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 {
+
 	//create a VAO
 	glGenVertexArrays(1, &vertexArrayID);
 	glBindVertexArray(vertexArrayID);

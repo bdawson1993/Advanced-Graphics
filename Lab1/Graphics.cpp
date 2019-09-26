@@ -144,16 +144,18 @@ int Graphics::BeginDraw()
 	cout << scenceShapes.size() << endl;
 	int count = 0;
 
-	glClear(GL_COLOR_BUFFER_BIT);
+	
 
 	do {
+		glClear(GL_COLOR_BUFFER_BIT);
+
 		//iteraye through shapes in scene vector
 		vector<Shape>::iterator IT;
 		for (IT = scenceShapes.begin(); IT != scenceShapes.end(); IT++)
 		{
 			//IT->Scale();
-			//glBindVertexArray(IT->GetVertexArrayID());
-			//glBindBuffer(GL_ARRAY_BUFFER, IT->GetVertexBufferID());
+			glBindVertexArray(IT->GetVertexArrayID());
+			glBindBuffer(GL_ARRAY_BUFFER, IT->GetVertexBufferID());
 
 			glUseProgram(IT->GetProgramID());
 
