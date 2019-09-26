@@ -37,7 +37,7 @@ public:
 	void AddShapeToScene(Shape shape);
 	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
 	GLuint GetProgramID();
-	int Draw();
+	int BeginDraw();
 	~Graphics();
 
 

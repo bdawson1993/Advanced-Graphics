@@ -8,8 +8,11 @@
 #include <string>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
+#include <common/shader.hpp>
 
 using namespace glm;
+using namespace std;
 
 class Shape
 {
@@ -17,15 +20,12 @@ private:
 	GLuint vertexArrayID;
 	GLuint vertexBufferID;
 	GLuint matrixID;
-	glm::mat4 MVP;
+	GLuint programID;
 
 public:
-	Shape(const GLfloat vertices[], size_t size, int programID);
+	Shape(const GLfloat vertices[], size_t size, GLuint programID);
 	GLuint GetVertexArrayID();
 	GLuint GetVertexBufferID();
+	GLuint GetProgramID();
 	GLuint GetMatrixID();
-	glm::mat4 GetMVP();
-	
-	
-
 };
