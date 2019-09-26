@@ -1,4 +1,5 @@
 #pragma once
+#
 #include <stdio.h>
 #include <stdlib.h>
 #include <map>
@@ -8,6 +9,9 @@
 #include <string>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <vector>
+
+#include "Shape.h"
 
 using namespace glm;
 using namespace std;
@@ -22,6 +26,7 @@ private:
 	Graphics();
 	GLFWwindow* window;
 	GLuint programID;
+	vector<Shape> scenceShapes;
 
 	GLuint MatrixID;
 	glm::mat4 MVP;
@@ -29,7 +34,9 @@ private:
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
 	int CreateGraphicsContext();
-	void AddShapeBuffer(const GLfloat vertices[], size_t size);
+	void AddShapeToScene(Shape shape);
+	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
+	GLuint GetProgramID();
 	int Draw();
 	~Graphics();
 
