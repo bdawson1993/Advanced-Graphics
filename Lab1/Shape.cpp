@@ -2,7 +2,7 @@
 
 Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 {
-
+	//setup buffers
 	//create a VAO
 	glGenVertexArrays(1, &vertexArrayID);
 	glBindVertexArray(vertexArrayID);
@@ -11,10 +11,15 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 	glGenBuffers(1, &vertexBufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
 
+	GLuint colorBufferId;
+	glGenBuffers(1, &colorBufferId);
+	glBindBuffer(GL_ARRAY_BUFFER, colorBufferId);
+
 	//fill VBO with data
 	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 
-	//setup vertewx attribute pointers
+
+	//setup shader
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(
 		0, // attribute index
@@ -25,11 +30,12 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 		(void*)0 // array buffer offset
 	);
 
+	
+
+
 	// Get a handle for our "MVP" (model * view * projection) uniform
 	this->programID = programID;
 	matrixID = glGetUniformLocation(programID, "MVP");
-	
-	
 }
 
 GLuint Shape::GetVertexArrayID()
@@ -50,6 +56,11 @@ GLuint Shape::GetProgramID()
 GLuint Shape::GetMatrixID()
 {
 	return matrixID;
+}
+
+GLuint Shape::GetColorID()
+{
+	return colorID;
 }
 
 

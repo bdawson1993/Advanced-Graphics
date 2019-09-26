@@ -21,6 +21,7 @@ private:
 	GLuint vertexBufferID;
 	GLuint matrixID;
 	GLuint programID;
+	GLuint colorID;
 
 public:
 	Shape(const GLfloat vertices[], size_t size, GLuint programID);
@@ -28,4 +29,5 @@ public:
 	GLuint GetVertexBufferID();
 	GLuint GetProgramID();
 	GLuint GetMatrixID();
+	GLuint GetColorID();
 };

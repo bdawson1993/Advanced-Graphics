@@ -7,7 +7,7 @@ out vec3 color;
 
 void main()
 {
-	color = vec3(1.0,0.0,0.0);
+	color = vec3(1.0,1.0,1.0);
 	// once you have the vertex colour passed through, return that instead of the solid red colour above!
 
 }
