@@ -334,3 +334,4 @@ ASALocalRun/
 #exclude build contents
 build/
 !build/.gitkeep
+Lab1/Lab1.exe

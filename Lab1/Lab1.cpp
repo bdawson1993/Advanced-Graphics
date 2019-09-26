@@ -1,5 +1,6 @@
 
 #include "Graphics.h"
+#include "Shape.h"
 
 int main( void )
 {
@@ -16,16 +17,11 @@ int main( void )
 		-1.0f, 1.0f,0.0f
 	};
 
-	static const GLfloat g_vertex_buffer_data2[] =
-	{
-		2.0f, -1.0f,0.0f,
-		-1.0f,-1.0f, 0.0f,
-		-1.0f, 1.0f,0.0f
-	};
+	Shape triangle = Shape(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), graphics->GetProgramID());
 
-	graphics->AddShapeBuffer(g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
-	graphics->AddShapeBuffer(g_vertex_buffer_data2, sizeof(g_vertex_buffer_data));
 
+	//graphics->AddShapeBuffer(g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
+	graphics->AddShapeToScene(triangle);
 
 	graphics->Draw();
 }
