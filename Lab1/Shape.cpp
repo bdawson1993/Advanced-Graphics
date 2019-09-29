@@ -85,4 +85,14 @@ glm::mat4 Shape::GetMVP()
 	return MVP;
 }
 
+glm::vec3 Shape::GetColor()
+{
+	return color;
+}
+
+void Shape::SetColor(float r, float g, float b)
+{
+	color = glm::vec3(r, g, b);
+}
+
 

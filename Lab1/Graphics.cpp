@@ -95,6 +95,7 @@ int Graphics::BeginDraw()
 {
 	glm::vec3 color = glm::vec3(1.0f, 1.0f, 0.2f);
 	scenceShapes[0].Translate();
+	scenceShapes[0].SetColor(1.0f, 1.0f, 1.0f);
 	do {
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -110,7 +111,7 @@ int Graphics::BeginDraw()
 			// Send our transformation to the currently bound shader, 
 			// in the "MVP" uniform
 			glUniformMatrix4fv(IT->GetMatrixID(), 1, GL_FALSE, &IT->GetMVP()[0][0]);
-			glUniform3f(IT->GetColorID(), color.r, color.g, color.b);
+			glUniform3f(IT->GetColorID(), IT->GetColor().r, IT->GetColor().g, IT->GetColor().b);
 			
 			
 			// Draw the triangle !
