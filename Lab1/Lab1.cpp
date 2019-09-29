@@ -4,6 +4,15 @@
 
 int main( void )
 {
+	int* x = new int();
+	*x = 10;
+	int& y = *x;
+
+
+	*x =+ 1;
+	cout << *x << " " << y << endl;
+
+
 	Graphics* graphics = Graphics::GetGraphicsContext();
 	if (graphics->CreateGraphicsContext() == -1)
 	{
