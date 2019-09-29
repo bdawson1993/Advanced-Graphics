@@ -59,6 +59,7 @@ int Graphics::CreateGraphicsContext()
 
 		// Projection matrix : 45� Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
 		Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
+
 		// Camera matrix
 		View = glm::lookAt(
 			glm::vec3(0, 0, 6), // Camera is at (0,0,6), in World Space
@@ -66,8 +67,12 @@ int Graphics::CreateGraphicsContext()
 			glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
 		);
 		
+		
 		//load basic shader
 		programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
+		cout << "Three Mem Address" << endl;
+		cout << &View << endl;
+		
 	}
 }
 
@@ -96,10 +101,11 @@ int Graphics::BeginDraw()
 	glm::vec3 color = glm::vec3(1.0f, 1.0f, 0.2f);
 	scenceShapes[0].Translate();
 	scenceShapes[0].SetColor(1.0f, 1.0f, 1.0f);
+	int x = 0;
 	do {
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT); //clear buffers
 
-		//iteraye through shapes in scene vector
+		//iterare through shapes in scene vector
 		vector<Shape>::iterator IT;
 		for (IT = scenceShapes.begin(); IT != scenceShapes.end(); IT++)
 		{
@@ -113,14 +119,16 @@ int Graphics::BeginDraw()
 			glUniform3f(IT->GetColorID(), IT->GetColor().r, IT->GetColor().g, IT->GetColor().b);
 			
 			
-			// Draw the triangle !
+			//draw
 			glDrawArrays(GL_TRIANGLES, 0, 3);
 			
 		}
 		
 		//update
 		if (glfwGetKey(window, GLFW_KEY_W))
+		{
 			scenceShapes[1].Translate();
+		}
 		
 		// Swap buffers
 		glfwSwapBuffers(window);

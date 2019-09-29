@@ -25,13 +25,13 @@ private:
 
 
 	glm::mat4 model = glm::mat4(1.0f);
-	glm::mat4* view;
-	glm::mat4* projection;
+	glm::mat4 view;
+	glm::mat4 projection;
 	glm::mat4 MVP;
 	glm::vec3 color;
 
 public:
-	Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4* view, glm::mat4* projection);
+	Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4& view, glm::mat4& projection);
 	void Translate();
 
 
