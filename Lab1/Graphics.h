@@ -28,17 +28,25 @@ private:
 	GLuint programID;
 	vector<Shape> scenceShapes;
 
+	glm::mat4 Projection;
+	glm::mat4 View;
 	GLuint MatrixID;
-	glm::mat4 MVP;
+	
+
+
 
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
 	int CreateGraphicsContext();
 	void AddShapeToScene(Shape shape);
 	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
-	GLuint GetProgramID();
 	int BeginDraw();
 	~Graphics();
+
+	//get accesors
+	GLuint GetProgramID();
+	glm::mat4 GetProjection();
+	glm::mat4 GetView();
 
 
 };

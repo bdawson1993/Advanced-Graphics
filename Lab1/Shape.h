@@ -21,13 +21,22 @@ private:
 	GLuint vertexBufferID;
 	GLuint matrixID;
 	GLuint programID;
-	GLuint colorID;
+	//GLuint colorID;
+	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4* view;
+	glm::mat4* projection;
+	glm::mat4 MVP;
 
 public:
-	Shape(const GLfloat vertices[], size_t size, GLuint programID);
+	Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4* view, glm::mat4* projection);
+	void Translate();
+
+
+	//get accessors
 	GLuint GetVertexArrayID();
 	GLuint GetVertexBufferID();
 	GLuint GetProgramID();
 	GLuint GetMatrixID();
 	GLuint GetColorID();
+	glm::mat4 GetMVP();
 };

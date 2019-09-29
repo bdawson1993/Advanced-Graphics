@@ -58,18 +58,15 @@ int Graphics::CreateGraphicsContext()
 		glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
 		// Projection matrix : 45� Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-		glm::mat4 Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
+		Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
 		// Camera matrix
-		glm::mat4 View = glm::lookAt(
+		View = glm::lookAt(
 			glm::vec3(0, 0, 6), // Camera is at (0,0,6), in World Space
 			glm::vec3(0, 0, 0), // and looks at the origin
 			glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
 		);
-		// Model matrix : an identity matrix (model will be at the origin)
-		glm::mat4 Model = glm::mat4(1.0f);
-		// Our ModelViewProjection : multiplication of our 3 matrices
-		MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
-
+		
+		//load basic shader
 		programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
 	}
 }
@@ -84,10 +81,20 @@ GLuint Graphics::GetProgramID()
 	return programID;
 }
 
+glm::mat4 Graphics::GetProjection()
+{
+	return Projection;
+}
+
+glm::mat4 Graphics::GetView()
+{
+	return View;
+}
+
 int Graphics::BeginDraw()
 {
 	vec3 color = vec3(1.0f, 0.0f, 0.0f);
-
+	scenceShapes[0].Translate();
 	do {
 		glClear(GL_COLOR_BUFFER_BIT);
 
@@ -102,7 +109,7 @@ int Graphics::BeginDraw()
 
 			// Send our transformation to the currently bound shader, 
 			// in the "MVP" uniform
-			glUniformMatrix4fv(IT->GetMatrixID(), 1, GL_FALSE, &MVP[0][0]);
+			glUniformMatrix4fv(IT->GetMatrixID(), 1, GL_FALSE, &IT->GetMVP()[0][0]);
 			
 			
 			// Draw the triangle !
@@ -110,6 +117,9 @@ int Graphics::BeginDraw()
 			
 		}
 		
+		//update
+		if (glfwGetKey(window, GLFW_KEY_W))
+			scenceShapes[1].Translate();
 		
 		// Swap buffers
 		glfwSwapBuffers(window);
@@ -118,6 +128,7 @@ int Graphics::BeginDraw()
 	} // Check if the ESC key was pressed or the window was closed
 	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(window) == 0);
+	
 
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();

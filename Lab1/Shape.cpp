@@ -1,6 +1,6 @@
 ﻿#include "Shape.h"
 
-Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
+Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4* view, glm::mat4* projection)
 {
 	//setup buffers
 	//create a VAO
@@ -33,6 +33,17 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID)
 	// Get a handle for our "MVP" (model * view * projection) uniform
 	this->programID = programID;
 	matrixID = glGetUniformLocation(programID, "MVP");
+
+	//set up view informatio and compute MVP
+	this->view = view;
+	this->projection = projection;
+	MVP = *this->projection * *this->view * model;
+}
+
+void Shape::Translate()
+{
+	model = glm::translate(model, vec3(0.1f, 0.1f, 0.1f));
+	MVP = *this->projection * *this->view * model;
 }
 
 GLuint Shape::GetVertexArrayID()
@@ -55,9 +66,14 @@ GLuint Shape::GetMatrixID()
 	return matrixID;
 }
 
-GLuint Shape::GetColorID()
+//GLuint Shape::GetColorID()
+//{
+//	return colorID;
+//}
+
+glm::mat4 Shape::GetMVP()
 {
-	return colorID;
+	return MVP;
 }
 
 
