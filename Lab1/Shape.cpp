@@ -11,10 +11,6 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4*
 	glGenBuffers(1, &vertexBufferID);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
 
-	GLuint colorBufferId;
-	glGenBuffers(1, &colorBufferId);
-	glBindBuffer(GL_ARRAY_BUFFER, colorBufferId);
-
 	//fill VBO with data
 	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 	
@@ -30,14 +26,27 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4*
 		(void*)0 // array buffer offset
 	);
 
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(
+		1, // attribute index
+		3, // size
+		GL_FLOAT, // type
+		GL_FALSE, // normalized?
+		0, // stride
+		(void*)0 // array buffer offset
+	);
+
 	// Get a handle for our "MVP" (model * view * projection) uniform
 	this->programID = programID;
 	matrixID = glGetUniformLocation(programID, "MVP");
+	colorID = glGetUniformLocation(programID, "inColor");
 
-	//set up view informatio and compute MVP
+
+	//set up view information and compute MVP
 	this->view = view;
 	this->projection = projection;
 	MVP = *this->projection * *this->view * model;
+	
 }
 
 void Shape::Translate()
@@ -66,10 +75,10 @@ GLuint Shape::GetMatrixID()
 	return matrixID;
 }
 
-//GLuint Shape::GetColorID()
-//{
-//	return colorID;
-//}
+GLuint Shape::GetColorID()
+{
+	return colorID;
+}
 
 glm::mat4 Shape::GetMVP()
 {

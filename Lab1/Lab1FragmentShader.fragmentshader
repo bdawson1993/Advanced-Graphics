@@ -3,11 +3,11 @@
 // Ouput data
 out vec3 fcolor;
 // declare the "in" parameter passed from our vertex shader here (same name and type with "in" instead of "out")
-
+in vec3 color;
 
 void main()
 {
-	fcolor = vec3(1.0,1.0,1.0);
+	fcolor = color;
 	// once you have the vertex colour passed through, return that instead of the solid red colour above!
 
 }
