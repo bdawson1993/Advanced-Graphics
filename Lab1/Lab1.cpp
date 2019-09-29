@@ -26,8 +26,8 @@ int main( void )
 
 	};
 
-	Shape* triangle = new Shape(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), graphics->GetProgramID());
-	Shape* triangle2 = new Shape(g_vertex_buffer_data2, sizeof(g_vertex_buffer_data2), graphics->GetProgramID());
+	Shape* triangle = new Shape(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), graphics->GetProgramID(), &graphics->GetView(), &graphics->GetProjection());
+	Shape* triangle2 = new Shape(g_vertex_buffer_data2, sizeof(g_vertex_buffer_data2), graphics->GetProgramID(), &graphics->GetView(), &graphics->GetProjection());
 
 	//graphics->AddShapeBuffer(g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
 	graphics->AddShapeToScene(*triangle);
