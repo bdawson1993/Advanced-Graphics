@@ -108,8 +108,7 @@ int Graphics::BeginDraw()
 			glBindBuffer(GL_ARRAY_BUFFER, IT->GetVertexBufferID());
 			glUseProgram(IT->GetProgramID());
 
-			// Send our transformation to the currently bound shader, 
-			// in the "MVP" uniform
+			//send shader uniform data
 			glUniformMatrix4fv(IT->GetMatrixID(), 1, GL_FALSE, &IT->GetMVP()[0][0]);
 			glUniform3f(IT->GetColorID(), IT->GetColor().r, IT->GetColor().g, IT->GetColor().b);
 			

@@ -43,5 +43,7 @@ public:
 	GLuint GetColorID();
 	glm::mat4 GetMVP();
 	glm::vec3 GetColor();
+
+	//set accesors
 	void SetColor(float r, float g, float b);
 };
