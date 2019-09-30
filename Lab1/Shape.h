@@ -11,26 +11,29 @@
 #include <iostream>
 #include <common/shader.hpp>
 #include "WindowCamera.h"
+#include "ShaderInfo.h"
 
 using namespace glm;
 using namespace std;
 
-class Shape
+class Shape : public ShaderInfo
 {
 private:
 	//ids
-	GLuint vertexArrayID;
-	GLuint vertexBufferID;
-	GLuint matrixID;
-	GLuint programID;
-	GLuint colorID;
+	//GLuint vertexArrayID;
+	//GLuint vertexBufferID;
+	//GLuint matrixID;
+	//GLuint programID;
+	//GLuint colorID;
 
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 MVP;
 	glm::vec3 color;
+	GLuint programID;
 
 public:
 	Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam);
+
 	void Translate();
 	void Update(glm::mat4* view, glm::mat4* projection);
 
