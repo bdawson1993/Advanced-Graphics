@@ -1,6 +1,6 @@
 ﻿#include "Shape.h"
 
-Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4& view, glm::mat4& projection)
+Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam)
 {
 	//setup buffers
 	//create a VAO
@@ -43,16 +43,19 @@ Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, glm::mat4&
 
 
 	//set up view information and compute MVP
-	this->view = view;
-	this->projection = projection;
-	MVP = this->projection * this->view * model;
+	MVP = cam.GetProjection() * cam.GetView() * model;
 
 }
 
 void Shape::Translate()
 {
 	model = glm::translate(model, vec3(0.1f, 0.1f, 0.1f));
-	MVP = this->projection * this->view * model;
+	
+}
+
+void Shape::Update(glm::mat4* view, glm::mat4* projection)
+{
+	MVP = MVP = *projection * *view * model;
 }
 
 GLuint Shape::GetVertexArrayID()
