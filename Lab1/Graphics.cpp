@@ -57,22 +57,12 @@ int Graphics::CreateGraphicsContext()
 		// Dark blue background
 		glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
 
-		// Projection matrix : 45� Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-		Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
-
-		// Camera matrix
-		View = glm::lookAt(
-			glm::vec3(0, 0, 6), // Camera is at (0,0,6), in World Space
-			glm::vec3(0, 0, 0), // and looks at the origin
-			glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
-		);
+		
 		
 		
 		//load basic shader
 		programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
 		cout << "Three Mem Address" << endl;
-		cout << &View << endl;
-		
 	}
 }
 
@@ -86,15 +76,11 @@ GLuint Graphics::GetProgramID()
 	return programID;
 }
 
-glm::mat4 Graphics::GetProjection()
+WindowCamera& Graphics::GetCamera()
 {
-	return Projection;
+	return *cam;
 }
 
-glm::mat4 Graphics::GetView()
-{
-	return View;
-}
 
 int Graphics::BeginDraw()
 {
@@ -121,14 +107,42 @@ int Graphics::BeginDraw()
 			
 			//draw
 			glDrawArrays(GL_TRIANGLES, 0, 3);
+			IT->Update(&cam->GetView(), &cam->GetProjection());
 			
 		}
 		
 		//update
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			scenceShapes[1].Translate();
+			//scenceShapes[1].Translate();
+			//View = glm::translate(View, vec3(0.0f, 0.1f, 0.0f));
+			cam->Translate(vec3_up);
+			
 		}
+
+		if (glfwGetKey(window, GLFW_KEY_S))
+		{
+			//scenceShapes[1].Translate();
+			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
+			cam->Translate(glm::vec3(0, -0.1, 0.0));
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_A))
+		{
+			//scenceShapes[1].Translate();
+			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
+			cam->Translate(vec3_left);
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_D))
+		{
+			//scenceShapes[1].Translate();
+			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
+			cam->Translate(vec3_right);
+		}
+
+
+		
 		
 		// Swap buffers
 		glfwSwapBuffers(window);

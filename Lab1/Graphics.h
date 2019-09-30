@@ -1,5 +1,4 @@
 #pragma once
-#
 #include <stdio.h>
 #include <stdlib.h>
 #include <map>
@@ -12,6 +11,7 @@
 #include <vector>
 
 #include "Shape.h"
+#include "WindowCamera.h"
 
 using namespace glm;
 using namespace std;
@@ -27,10 +27,14 @@ private:
 	GLFWwindow* window;
 	GLuint programID;
 	vector<Shape> scenceShapes;
-
-	glm::mat4 Projection;
-	glm::mat4 View;
 	GLuint MatrixID;
+	WindowCamera* cam = new WindowCamera();
+
+	//vector macros
+	#define vec3_up glm::vec3(0.0,0.1,0.0)
+	#define vec3_down glm::vec3(0.0,-0.1,0.0)
+	#define vec3_right glm::vec3(0.1,0.0,0.0)
+	#define vec3_left glm::vec3(-0.1,0.0,0.0)
 	
 
 
@@ -45,8 +49,7 @@ public:
 
 	//get accesors
 	GLuint GetProgramID();
-	glm::mat4 GetProjection();
-	glm::mat4 GetView();
+	WindowCamera& GetCamera();
 
 
 };
