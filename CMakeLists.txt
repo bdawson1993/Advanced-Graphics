@@ -70,6 +70,8 @@ add_executable(${LABNAME}
 	${LABNAME}/Graphics.cpp
 	${LABNAME}/Graphics.h
 	${LABNAME}/Shape.h
+	${LABNAME}/ShaderInfo.h
+	${LABNAME}/ShaderInfo.cpp
 	${LABNAME}/Shape.cpp
 	${LABNAME}/WindowCamera.cpp
 	${LABNAME}/WindowCamera.h
