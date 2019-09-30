@@ -28,7 +28,6 @@ private:
 	GLFWwindow* window;
 	GLuint programID;
 	vector<Shape> scenceShapes;
-	GLuint MatrixID;
 	WindowCamera* cam = new WindowCamera();
 
 	//vector macros

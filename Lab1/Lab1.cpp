@@ -42,7 +42,6 @@ int main()
 
 	delete(triangle);
 	delete(triangle2);
-	delete(graphics);
 	return 0;
 }
 

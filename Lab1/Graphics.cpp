@@ -62,7 +62,6 @@ int Graphics::CreateGraphicsContext()
 		
 		//load basic shader
 		programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
-		cout << "Three Mem Address" << endl;
 	}
 }
 
@@ -96,13 +95,13 @@ int Graphics::BeginDraw()
 		for (IT = scenceShapes.begin(); IT != scenceShapes.end(); IT++)
 		{
 			//bind needed ID and set program to use
-			glBindVertexArray(IT->GetVertexArrayID());
-			glBindBuffer(GL_ARRAY_BUFFER, IT->GetVertexBufferID());
+			glBindVertexArray(IT->GetID("vertexarray"));
+			glBindBuffer(GL_ARRAY_BUFFER, IT->GetID("vertexbuffer"));
 			glUseProgram(IT->GetProgramID());
 
 			//send shader uniform data
-			glUniformMatrix4fv(IT->GetMatrixID(), 1, GL_FALSE, &IT->GetMVP()[0][0]);
-			glUniform3f(IT->GetColorID(), IT->GetColor().r, IT->GetColor().g, IT->GetColor().b);
+			glUniformMatrix4fv(IT->GetID("MVP"), 1, GL_FALSE, &IT->GetMVP()[0][0]);
+			glUniform3f(IT->GetID("inColor"), IT->GetColor().r, IT->GetColor().g, IT->GetColor().b);
 			
 			
 			//draw
