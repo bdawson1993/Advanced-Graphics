@@ -81,7 +81,6 @@ WindowCamera& Graphics::GetCamera()
 	return *cam;
 }
 
-
 int Graphics::BeginDraw()
 {
 	glm::vec3 color = glm::vec3(1.0f, 1.0f, 0.2f);
@@ -91,6 +90,7 @@ int Graphics::BeginDraw()
 	do {
 		glClear(GL_COLOR_BUFFER_BIT); //clear buffers
 
+		
 		//iterare through shapes in scene vector
 		vector<Shape>::iterator IT;
 		for (IT = scenceShapes.begin(); IT != scenceShapes.end(); IT++)
@@ -111,7 +111,7 @@ int Graphics::BeginDraw()
 			
 		}
 		
-		//update
+		//update logic
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
 			//scenceShapes[1].Translate();

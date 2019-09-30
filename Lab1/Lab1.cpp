@@ -2,22 +2,15 @@
 #include "Graphics.h"
 #include "Shape.h"
 
-int main( void )
+int main()
 {
-	int* x = new int();
-	*x = 10;
-	int& y = *x;
-
-
-	*x =+ 1;
-	cout << *x << " " << y << endl;
+	
 
 
 	Graphics* graphics = Graphics::GetGraphicsContext();
-	if (graphics->CreateGraphicsContext() == -1)
-	{
-		return -1;
-	}
+	graphics->CreateGraphicsContext();
+	
+	
 
 	static const GLfloat g_vertex_buffer_data[] =
 	{
@@ -49,5 +42,7 @@ int main( void )
 
 	delete(triangle);
 	delete(triangle2);
+	delete(graphics);
+	return 0;
 }
 
