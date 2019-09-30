@@ -19,13 +19,6 @@ using namespace std;
 class Shape : public ShaderInfo
 {
 private:
-	//ids
-	//GLuint vertexArrayID;
-	//GLuint vertexBufferID;
-	//GLuint matrixID;
-	//GLuint programID;
-	//GLuint colorID;
-
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 MVP;
 	glm::vec3 color;
@@ -38,11 +31,7 @@ public:
 	void Update(glm::mat4* view, glm::mat4* projection);
 
 	//get accessors
-	GLuint GetVertexArrayID();
-	GLuint GetVertexBufferID();
 	GLuint GetProgramID();
-	GLuint GetMatrixID();
-	GLuint GetColorID();
 	glm::mat4 GetMVP();
 	glm::vec3 GetColor();
 

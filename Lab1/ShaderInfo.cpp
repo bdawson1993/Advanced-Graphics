@@ -26,13 +26,20 @@ void ShaderInfo::CreateBuffer(string name)
 	GLuint id;
 	glGenBuffers(1, &id);
 	ids.insert(pair<string, GLuint>(name, id));
+	
 }
 
-//bind the named bind and fill it with data
+//bind the named buffer and fill it with data
 void ShaderInfo::FillBuffer(string name, const GLfloat data[], size_t size)
 {
-	//prevent binding current bound buffer
-	glBindBuffer(GL_ARRAY_BUFFER, GetID(name));
+	//bind if buffer is not currently bound -- prevents rebounding
+	GLuint id = GetID(name);
+	if (id != currentBoundId)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, id);
+	}
+
+	
 	glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 }
 
@@ -46,7 +53,13 @@ void ShaderInfo::GetUniform(string name)
 //Create a new Shader attribe  
 void ShaderInfo::SetupShaderAttribute(string bufferName, GLuint size, GLenum type)
 {
-	glBindBuffer(GL_ARRAY_BUFFER, GetID(bufferName));
+	//bind if buffer is not currently bound -- prevents rebounding
+	GLuint id = GetID(bufferName);
+	if (id != currentBoundId)
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, id);
+	}
+
 	glEnableVertexAttribArray(currentAttId);
 	glVertexAttribPointer(
 		currentAttId, // attribute index
