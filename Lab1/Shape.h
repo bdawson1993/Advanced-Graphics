@@ -26,8 +26,7 @@ private:
 	GLsizei size;
 
 public:
-	Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam, GLsizei count);
-	Shape() {};
+	Shape(size_t size, GLuint programID, WindowCamera& cam, GLsizei count);
 	void Translate();
 	void Update(glm::mat4* view, glm::mat4* projection);
 

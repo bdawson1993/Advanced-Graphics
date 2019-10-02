@@ -90,6 +90,7 @@ void ShaderInfo::ListIds()
 		std::cout << it->first << " => " << it->second << '\n';
 }
 
+
 GLuint ShaderInfo::GetID(string name)
 {
 	return ids.find(name)->second;

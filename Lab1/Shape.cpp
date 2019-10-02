@@ -1,15 +1,9 @@
 ﻿#include "Shape.h"
 
-Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam, GLsizei count) : ShaderInfo::ShaderInfo(programID)
+Shape::Shape(size_t size, GLuint programID, WindowCamera& cam, GLsizei count) : ShaderInfo::ShaderInfo(programID)
 {
 	this->size = size;
-	
 	this->programID = programID;
-
-	//get uniforms
-	GetUniform("MVP");
-	GetUniform("inColor");
-
 
 	//set up view information and compute MVP
 	MVP = cam.GetProjection() * cam.GetView() * model;

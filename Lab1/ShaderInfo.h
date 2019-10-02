@@ -7,7 +7,10 @@
 #include <vector>
 #include <SOIL2.h>
 
+
 using namespace std;
+
+
 
 class ShaderInfo
 {
