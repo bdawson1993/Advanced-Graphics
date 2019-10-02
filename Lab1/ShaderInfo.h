@@ -13,6 +13,7 @@ class ShaderInfo
 {
 public:
 		ShaderInfo(GLuint shaderID);
+		ShaderInfo() {};
 		~ShaderInfo() {};
 		GLuint GetID(string name);
 

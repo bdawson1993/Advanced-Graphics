@@ -33,10 +33,7 @@ int Graphics::CreateGraphicsContext()
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 
-		// Enable depth test
-		glEnable(GL_DEPTH_TEST);
-		// Accept fragment if it closer to the camera than the former one
-		glDepthFunc(GL_LESS);
+		
 
 		// Open a window and create its OpenGL context
 		window = glfwCreateWindow(1024, 768, "Test", NULL, NULL);

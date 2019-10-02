@@ -51,7 +51,6 @@ void ShaderInfo::FillBuffer(string name, const GLfloat data[], size_t size)
 		glBindBuffer(GL_ARRAY_BUFFER, id);
 	}
 
-	
 	glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 }
 

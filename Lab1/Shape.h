@@ -27,7 +27,7 @@ private:
 
 public:
 	Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam, GLsizei count);
-
+	Shape() {};
 	void Translate();
 	void Update(glm::mat4* view, glm::mat4* projection);
 
@@ -40,4 +40,7 @@ public:
 	//set accesors
 	void SetColor(float r, float g, float b);
 	GLsizei GetSize();
+
+protected:
+	void Draw() {};
 };

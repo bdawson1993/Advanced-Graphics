@@ -3,11 +3,7 @@
 Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam, GLsizei count) : ShaderInfo::ShaderInfo(programID)
 {
 	this->size = size;
-	//fill buffer with data
-	FillBuffer("vertexbuffer", vertices, size);
-
-	//set up shader attributes
-	SetupShaderAttribute("vertexbuffer", count, GL_FLOAT);
+	
 	this->programID = programID;
 
 	//get uniforms

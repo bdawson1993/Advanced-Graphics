@@ -75,6 +75,8 @@ add_executable(${LABNAME}
 	${LABNAME}/Shape.cpp
 	${LABNAME}/WindowCamera.cpp
 	${LABNAME}/WindowCamera.h
+	${LABNAME}/Traingle.h
+	${LABNAME}/Traingle.cpp
 	common/shader.cpp
 	common/shader.hpp
 	${LABNAME}/Lab1VertexShader.vertexshader
