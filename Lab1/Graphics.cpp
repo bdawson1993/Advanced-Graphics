@@ -110,7 +110,7 @@ int Graphics::BeginDraw()
 			
 			
 			//draw
-			glDrawArrays(GL_TRIANGLES, 0, 12*3);
+			glDrawArrays(GL_TRIANGLES, 0, 3);
 			IT->Update(&cam->GetView(), &cam->GetProjection());
 			
 		}

@@ -15,18 +15,18 @@ using namespace std;
 class ShaderInfo
 {
 public:
-		ShaderInfo(GLuint shaderID);
-		ShaderInfo() {};
+		ShaderInfo();
 		~ShaderInfo() {};
 		GLuint GetID(string name);
+		GLuint GetProgramID();
 
 private:
 	map<string, GLuint> ids;
 	GLuint currentAttId = 0;
-	GLuint shaderId;
-	GLuint currentBoundId;
+	GLuint currentBoundId = 0;
 
 protected:
+	GLuint shaderID = 0;
 	void CreateBuffer(string name);
 	void CreateBuffer(string name, string path);
 	void FillBuffer(string name, const GLfloat data[], size_t size);

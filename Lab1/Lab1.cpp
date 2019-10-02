@@ -4,9 +4,6 @@
 
 int main()
 {
-	
-
-
 	Graphics* graphics = Graphics::GetGraphicsContext();
 	graphics->CreateGraphicsContext();
 	
@@ -52,11 +49,12 @@ int main()
 	};
 
 	Triangle* tri = new Triangle(graphics->GetProgramID(), graphics->GetCamera());
+	graphics->AddShapeToScene((Shape)*tri);
 	graphics->BeginDraw();
 
 
 
-
+	
 	delete(tri);
 	//delete(triangle2);
 	return 0;

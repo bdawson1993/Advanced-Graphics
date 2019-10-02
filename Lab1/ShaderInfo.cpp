@@ -1,7 +1,7 @@
 #include "ShaderInfo.h"
 
 //create the basic VAO and VBO
-ShaderInfo::ShaderInfo(GLuint shaderID)
+ShaderInfo::ShaderInfo()
 {
 	//create VAO
 	GLuint vertexID;
@@ -15,9 +15,6 @@ ShaderInfo::ShaderInfo(GLuint shaderID)
 	ids.insert(pair<string, GLuint>("vertexbuffer", vertesBufferID));
 	glBindBuffer(GL_ARRAY_BUFFER, vertesBufferID);
 	currentBoundId = vertesBufferID;
-
-
-	this->shaderId = shaderID;
 }
 
 //create a new buffer
@@ -49,6 +46,7 @@ void ShaderInfo::FillBuffer(string name, const GLfloat data[], size_t size)
 	if (id != currentBoundId)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, id);
+		currentBoundId = id;
 	}
 
 	glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
@@ -57,7 +55,7 @@ void ShaderInfo::FillBuffer(string name, const GLfloat data[], size_t size)
 //Get the id of a uniform from the shader
 void ShaderInfo::GetUniform(string name)
 {
-	GLuint id = glGetUniformLocation(shaderId, name.c_str());
+	GLuint id = glGetUniformLocation(shaderID, name.c_str());
 	ids.insert(pair<string, GLuint>(name, id));
 }
 
@@ -69,6 +67,7 @@ void ShaderInfo::SetupShaderAttribute(string bufferName, GLuint size, GLenum typ
 	if (id != currentBoundId)
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, id);
+		currentBoundId = id;
 	}
 
 	glEnableVertexAttribArray(currentAttId);
@@ -94,4 +93,9 @@ void ShaderInfo::ListIds()
 GLuint ShaderInfo::GetID(string name)
 {
 	return ids.find(name)->second;
+}
+
+GLuint ShaderInfo::GetProgramID()
+{
+	return shaderID;
 }
