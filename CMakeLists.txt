@@ -75,10 +75,13 @@ add_executable(${LABNAME}
 	${LABNAME}/Shape.cpp
 	${LABNAME}/WindowCamera.cpp
 	${LABNAME}/WindowCamera.h
-	${LABNAME}/Triangle.cpp
-	${LABNAME}/Triangle.h
 	${LABNAME}/IGameObject.h
 	
+	mesh/Triangle.cpp
+	mesh/Triangle.h
+	mesh/Cube.h
+	mesh/Cube.cpp
+
 	common/shader.cpp
 	common/shader.hpp
 	${LABNAME}/Lab1VertexShader.vertexshader
@@ -130,5 +133,7 @@ add_custom_command(
 
 
 SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
+SOURCE_GROUP(common REGULAR_EXPRESSION ".*/mesh/.*" )
 SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
+
 

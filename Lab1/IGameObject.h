@@ -5,7 +5,7 @@ class IGameObject : public Shape
 {
 
 public:
-	IGameObject(WindowCamera& cam) : Shape(cam) {};
+	IGameObject(Shape shape) : Shape(shape) {};
 	~IGameObject() {} ;
 
 protected:

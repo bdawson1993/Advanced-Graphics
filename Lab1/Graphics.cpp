@@ -128,7 +128,7 @@ int Graphics::BeginDraw()
 		{
 			//scenceShapes[1].Translate();
 			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
-			cam->Translate(glm::vec3(0, -0.1, 0.0));
+			cam->Translate(vec3_down);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))
