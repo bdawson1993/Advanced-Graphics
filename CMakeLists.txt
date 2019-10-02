@@ -77,6 +77,7 @@ add_executable(${LABNAME}
 	${LABNAME}/WindowCamera.h
 	${LABNAME}/Triangle.cpp
 	${LABNAME}/Triangle.h
+	${LABNAME}/IGameObject.h
 	
 	common/shader.cpp
 	common/shader.hpp
