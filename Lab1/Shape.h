@@ -24,7 +24,7 @@ private:
 	glm::vec3 color;
 
 public:
-	Shape(WindowCamera& cam, GLsizei count);
+	Shape(WindowCamera& cam);
 	void Translate();
 	void Update(glm::mat4* view, glm::mat4* projection);
 

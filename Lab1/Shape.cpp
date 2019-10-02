@@ -1,6 +1,6 @@
 ﻿#include "Shape.h"
 
-Shape::Shape(WindowCamera& cam, GLsizei count) : ShaderInfo::ShaderInfo()
+Shape::Shape(WindowCamera& cam) : ShaderInfo::ShaderInfo()
 {
 	MVP = cam.GetProjection() * cam.GetView() * model;
 }
@@ -15,7 +15,6 @@ void Shape::Update(glm::mat4* view, glm::mat4* projection)
 {
 	MVP = MVP = *projection * *view * model;
 }
-
 
 glm::mat4 Shape::GetMVP()
 {

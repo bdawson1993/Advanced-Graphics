@@ -33,8 +33,8 @@ private:
 	//vector macros
 	#define vec3_up glm::vec3(0.0,0.1,0.0)
 	#define vec3_down glm::vec3(0.0,-0.1,0.0)
-	#define vec3_right glm::vec3(0.1,0.0,0.0)
-	#define vec3_left glm::vec3(-0.1,0.0,0.0)
+	#define vec3_right glm::vec3(-0.1,0.0,0.0)
+	#define vec3_left glm::vec3(0.1,0.0,0.0)
 	
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class

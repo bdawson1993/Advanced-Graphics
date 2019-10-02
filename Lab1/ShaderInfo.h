@@ -6,9 +6,11 @@
 #include <iostream>
 #include <vector>
 #include <SOIL2.h>
-
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 using namespace std;
+using namespace glm;
 
 
 
@@ -33,4 +35,6 @@ protected:
 	void GetUniform(string name);
 	void SetupShaderAttribute(string bufferName, GLuint size, GLenum type);
 	void ListIds();
+	void CalculateNormals(const GLfloat* vertices, float* normalbuffer)
+
 };

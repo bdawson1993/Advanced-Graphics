@@ -5,5 +5,5 @@ class Triangle : public Shape
 {
 
 public:
-	Triangle(GLuint programId, WindowCamera cam);
+	Triangle(GLuint programId, WindowCamera& cam);
 };

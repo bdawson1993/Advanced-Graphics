@@ -110,7 +110,7 @@ int Graphics::BeginDraw()
 			
 			
 			//draw
-			glDrawArrays(GL_TRIANGLES, 0, 3);
+			glDrawArrays(GL_TRIANGLES, 0, IT->GetSize());
 			IT->Update(&cam->GetView(), &cam->GetProjection());
 			
 		}
@@ -145,9 +145,6 @@ int Graphics::BeginDraw()
 			cam->Translate(vec3_right);
 		}
 
-
-		
-		
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();

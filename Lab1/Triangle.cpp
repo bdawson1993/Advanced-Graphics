@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(GLuint programId, WindowCamera cam) : Shape(cam, 3)
+Triangle::Triangle(GLuint programId, WindowCamera& cam) : Shape(cam)
 {
 	shaderID = programId;
 	static const GLfloat g_vertex_buffer_data[] =
@@ -11,13 +11,10 @@ Triangle::Triangle(GLuint programId, WindowCamera cam) : Shape(cam, 3)
 	};
 	FillBuffer("vertexbuffer", g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
 	SetupShaderAttribute("vertexbuffer", 3, GL_FLOAT);
+	size = 3;
 
-	Shape::size = sizeof(g_vertex_buffer_data);
-
-	
-	
+	//size = sizeof(g_vertex_buffer_data);
 	GetUniform("MVP");
 	GetUniform("inColor");
-
 	SetColor(1, 1, 1);
 }
