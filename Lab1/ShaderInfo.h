@@ -35,6 +35,6 @@ protected:
 	void GetUniform(string name);
 	void SetupShaderAttribute(string bufferName, GLuint size, GLenum type);
 	void ListIds();
-	void CalculateNormals(const GLfloat* vertices, float* normalbuffer)
+	void CalculateNormals(const GLfloat* vertices, float* normalbuffer);
 
 };

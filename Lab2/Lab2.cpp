@@ -10,12 +10,14 @@
 
 // Include GLFW
 #include <GLFW/glfw3.h>
+#include <iostream>
 GLFWwindow* window;
 
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 using namespace glm;
+using namespace std;
 
 // we're using shaders so need this for the "LoadShaders" function
 #include <common/shader.hpp>
@@ -202,9 +204,13 @@ int main(void)
 
 	// note we don't want this const as we're going to calculate it!!
 	static float g_normal_buffer_data[36 * 3];
+	cout << g_normal_buffer_data[0] << endl;
 
 	// calculate the normals per face and store them in vertex order (one normal per vertex)
 	CalculateNormals(g_vertex_buffer_data, g_normal_buffer_data);
+
+
+	cout << g_normal_buffer_data[0] << endl;
 
 	// Two UV coordinates for each vertex. They were created with Blender. <- from opengl-tutorials.com
 	// incidentally these UV's are kind of dumb :)

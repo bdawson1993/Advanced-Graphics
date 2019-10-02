@@ -89,20 +89,7 @@ void ShaderInfo::ListIds()
 		std::cout << it->first << " => " << it->second << '\n';
 }
 
-GLuint ShaderInfo::GetID(string name)
-{
-	return ids.find(name)->second;
-}
-
-GLuint ShaderInfo::GetProgramID()
-{
-	return shaderID;
-}
-
-// function to calculate vertex normals by taking three vertices of triangle and using two edges to get the normal via cross product
-// WARNING THIS IS BAD CODE!! (doesn't check input ranges, doesn't check for null pointer inputs, writes into a buffer unguarded.. EVIL EVIL EVIL)
-// but who cares as this is only practice code!! :)
-void CalculateNormals(const GLfloat* vertices, float* normalbuffer)
+void ShaderInfo::CalculateNormals(const GLfloat* vertices, float* normalbuffer)
 {
 	unsigned int output = 0;
 	unsigned int input = 0;
@@ -141,3 +128,15 @@ void CalculateNormals(const GLfloat* vertices, float* normalbuffer)
 
 	}
 }
+
+GLuint ShaderInfo::GetID(string name)
+{
+	return ids.find(name)->second;
+}
+
+GLuint ShaderInfo::GetProgramID()
+{
+	return shaderID;
+}
+
+
