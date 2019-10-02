@@ -8,6 +8,5 @@ in vec3 color;
 void main()
 {
 	fcolor = color;
-	// once you have the vertex colour passed through, return that instead of the solid red colour above!
 
 }

@@ -23,9 +23,10 @@ private:
 	glm::mat4 MVP;
 	glm::vec3 color;
 	GLuint programID;
+	GLsizei size;
 
 public:
-	Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam);
+	Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam, GLsizei count);
 
 	void Translate();
 	void Update(glm::mat4* view, glm::mat4* projection);
@@ -35,6 +36,8 @@ public:
 	glm::mat4 GetMVP();
 	glm::vec3 GetColor();
 
+
 	//set accesors
 	void SetColor(float r, float g, float b);
+	GLsizei GetSize();
 };

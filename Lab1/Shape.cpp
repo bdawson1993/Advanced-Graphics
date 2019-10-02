@@ -1,12 +1,13 @@
 ﻿#include "Shape.h"
 
-Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam) : ShaderInfo::ShaderInfo(programID)
+Shape::Shape(const GLfloat vertices[], size_t size, GLuint programID, WindowCamera& cam, GLsizei count) : ShaderInfo::ShaderInfo(programID)
 {
+	this->size = size;
 	//fill buffer with data
 	FillBuffer("vertexbuffer", vertices, size);
 
 	//set up shader attributes
-	SetupShaderAttribute("vertexbuffer", 3, GL_FLOAT);
+	SetupShaderAttribute("vertexbuffer", count, GL_FLOAT);
 	this->programID = programID;
 
 	//get uniforms
@@ -29,12 +30,10 @@ void Shape::Update(glm::mat4* view, glm::mat4* projection)
 	MVP = MVP = *projection * *view * model;
 }
 
-
 GLuint Shape::GetProgramID()
 {
 	return programID;
 }
-
 
 glm::mat4 Shape::GetMVP()
 {
@@ -49,6 +48,11 @@ glm::vec3 Shape::GetColor()
 void Shape::SetColor(float r, float g, float b)
 {
 	color = glm::vec3(r, g, b);
+}
+
+GLsizei Shape::GetSize()
+{
+	return size;
 }
 
 

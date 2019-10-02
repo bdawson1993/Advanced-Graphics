@@ -12,13 +12,45 @@ int main()
 	
 	
 
-	static const GLfloat g_vertex_buffer_data[] =
-	{
-		1.0f,-1.0f, 0.0f,
-		-1.0f, -1.0f, 0.0f,
-		-2.0f, 1.0f, 0.0f
-
+	static const GLfloat g_vertex_buffer_data[] = {
+		-1.0f,-1.0f,-1.0f,
+		-1.0f,-1.0f, 1.0f,
+		-1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f,-1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f, 1.0f,
+		-1.0f,-1.0f,-1.0f,
+		1.0f,-1.0f,-1.0f,
+		1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f,-1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f, 1.0f,
+		-1.0f,-1.0f, 1.0f,
+		-1.0f,-1.0f,-1.0f,
+		-1.0f, 1.0f, 1.0f,
+		-1.0f,-1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f,-1.0f,
+		1.0f, 1.0f,-1.0f,
+		1.0f,-1.0f,-1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f,-1.0f,
+		-1.0f, 1.0f,-1.0f,
+		1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f,-1.0f,
+		-1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f
 	};
+
 
 	static const GLfloat g_vertex_buffer_data2[] =
 	{
@@ -28,10 +60,10 @@ int main()
 
 	};
 
-	Shape* triangle = new Shape(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), graphics->GetProgramID(), graphics->GetCamera());
-	Shape* triangle2 = new Shape(g_vertex_buffer_data2, sizeof(g_vertex_buffer_data2), graphics->GetProgramID(), graphics->GetCamera());
+	Shape* triangle = new Shape(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), graphics->GetProgramID(), graphics->GetCamera(), 3);
+	Shape* triangle2 = new Shape(g_vertex_buffer_data2, sizeof(g_vertex_buffer_data2), graphics->GetProgramID(), graphics->GetCamera(), 3);
 
-	//graphics->AddShapeBuffer(g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
+	
 	graphics->AddShapeToScene(*triangle);
 	graphics->AddShapeToScene(*triangle2);
 
@@ -41,7 +73,7 @@ int main()
 
 
 	delete(triangle);
-	delete(triangle2);
+	//delete(triangle2);
 	return 0;
 }
 

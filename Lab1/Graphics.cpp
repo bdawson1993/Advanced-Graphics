@@ -32,6 +32,12 @@ int Graphics::CreateGraphicsContext()
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+
+		// Enable depth test
+		glEnable(GL_DEPTH_TEST);
+		// Accept fragment if it closer to the camera than the former one
+		glDepthFunc(GL_LESS);
+
 		// Open a window and create its OpenGL context
 		window = glfwCreateWindow(1024, 768, "Test", NULL, NULL);
 		if (window == NULL) {
@@ -53,6 +59,8 @@ int Graphics::CreateGraphicsContext()
 
 		// Ensure we can capture the escape key being pressed below
 		glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+
+		
 
 		// Dark blue background
 		glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
@@ -105,7 +113,7 @@ int Graphics::BeginDraw()
 			
 			
 			//draw
-			glDrawArrays(GL_TRIANGLES, 0, 3);
+			glDrawArrays(GL_TRIANGLES, 0, 12*3);
 			IT->Update(&cam->GetView(), &cam->GetProjection());
 			
 		}

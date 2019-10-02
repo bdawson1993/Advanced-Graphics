@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <vector>
+#include <SOIL2.h>
 
 using namespace std;
 
@@ -23,13 +24,9 @@ private:
 
 protected:
 	void CreateBuffer(string name);
+	void CreateBuffer(string name, string path);
 	void FillBuffer(string name, const GLfloat data[], size_t size);
 	void GetUniform(string name);
 	void SetupShaderAttribute(string bufferName, GLuint size, GLenum type);
 	void ListIds();
-	
-
-	
-
-
 };
