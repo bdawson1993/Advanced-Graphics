@@ -9,6 +9,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+
 using namespace std;
 using namespace glm;
 
@@ -29,6 +30,8 @@ private:
 
 protected:
 	GLuint shaderID = 0;
+	GLsizei size = 3;
+
 	void CreateBuffer(string name);
 	void CreateBuffer(string name, string path);
 	void FillBuffer(string name, const GLfloat data[], size_t size);
@@ -36,5 +39,6 @@ protected:
 	void SetupShaderAttribute(string bufferName, GLuint size, GLenum type);
 	void ListIds();
 	void CalculateNormals(const GLfloat* vertices, float* normalbuffer);
+	
 
 };

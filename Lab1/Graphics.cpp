@@ -70,9 +70,9 @@ int Graphics::CreateGraphicsContext()
 	}
 }
 
-void Graphics::AddShapeToScene(Shape shape)
+void Graphics::AddObjectToScene(IGameObject* object)
 {
-	scenceShapes.push_back(shape);
+	scenceShapes.push_back(object);
 }
 
 GLuint Graphics::GetProgramID()
@@ -88,30 +88,19 @@ WindowCamera& Graphics::GetCamera()
 int Graphics::BeginDraw()
 {
 	glm::vec3 color = glm::vec3(1.0f, 1.0f, 0.2f);
-	scenceShapes[0].Translate();
-	scenceShapes[0].SetColor(1.0f, 1.0f, 1.0f);
+	scenceShapes[0]->Translate();
+	scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	int x = 0;
 	do {
 		glClear(GL_COLOR_BUFFER_BIT); //clear buffers
 
 		
 		//iterare through shapes in scene vector
-		vector<Shape>::iterator IT;
-		for (IT = scenceShapes.begin(); IT != scenceShapes.end(); IT++)
+		for(int i = 0; i != scenceShapes.size(); i++)
 		{
-			//bind needed ID and set program to use
-			glBindVertexArray(IT->GetID("vertexarray"));
-			glBindBuffer(GL_ARRAY_BUFFER, IT->GetID("vertexbuffer"));
-			glUseProgram(IT->GetProgramID());
-
-			//send shader uniform data
-			glUniformMatrix4fv(IT->GetID("MVP"), 1, GL_FALSE, &IT->GetMVP()[0][0]);
-			glUniform3f(IT->GetID("inColor"), IT->GetColor().r, IT->GetColor().g, IT->GetColor().b);
 			
-			
-			//draw
-			glDrawArrays(GL_TRIANGLES, 0, IT->GetSize());
-			IT->Update(&cam->GetView(), &cam->GetProjection());
+			scenceShapes[i]->Draw();
+			scenceShapes[i]->Update();
 			
 		}
 		

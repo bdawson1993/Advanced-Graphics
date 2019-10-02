@@ -1,8 +1,7 @@
 #include "Triangle.h"
 
-Triangle::Triangle(GLuint programId, WindowCamera& cam) : Shape(cam)
+Triangle::Triangle(GLuint programId, WindowCamera& cam) : IGameObject(cam,programId)
 {
-	shaderID = programId;
 	static const GLfloat g_vertex_buffer_data[] =
 	{
 		1.0f,-1.0f, 0.0f,

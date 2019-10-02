@@ -11,7 +11,7 @@
 #include <vector>
 #include <random>
 
-#include "Shape.h"
+#include "IGameObject.h"
 #include "WindowCamera.h"
 
 using namespace glm;
@@ -27,7 +27,7 @@ private:
 	Graphics();
 	GLFWwindow* window;
 	GLuint programID;
-	vector<Shape> scenceShapes;
+	vector<IGameObject*> scenceShapes;
 	WindowCamera* cam = new WindowCamera();
 
 	//vector macros
@@ -39,7 +39,7 @@ private:
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
 	int CreateGraphicsContext();
-	void AddShapeToScene(Shape shape);
+	void AddObjectToScene(IGameObject* object);
 	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
 	int BeginDraw();
 	~Graphics();

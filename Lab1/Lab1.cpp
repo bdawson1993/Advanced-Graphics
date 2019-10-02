@@ -6,18 +6,23 @@
 
 int main()
 {
+
 	Graphics* graphics = Graphics::GetGraphicsContext();
 	graphics->CreateGraphicsContext();
 	
-	Triangle* tri = new Triangle(graphics->GetProgramID(), graphics->GetCamera());
-	Cube* cub = new Cube(graphics->GetProgramID(), graphics->GetCamera());
+	//create shapes
+	Cube* cub = new Cube(graphics->GetCamera(), graphics->GetProgramID());
 
-	graphics->AddShapeToScene((Shape)*tri);
-	graphics->AddShapeToScene((Shape)*cub);
+
+
+	
+
+	graphics->AddObjectToScene(cub);
+	//graphics->AddShapeToScene((Shape)*cub);
 	graphics->BeginDraw();
 
 
-	delete(tri);
+	delete(cub);
 	//delete(triangle2);
 	return 0;
 }

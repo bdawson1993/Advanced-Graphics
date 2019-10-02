@@ -1,7 +1,7 @@
 #pragma once
-#include "Shape.h"
+#include "IGameObject.h"
 
-class Triangle : public Shape
+class Triangle : public IGameObject
 {
 
 public:

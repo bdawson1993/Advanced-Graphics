@@ -1,12 +1,13 @@
 #pragma once 
-#include "Shape.h"
+#include "IGameObject.h"
 
 
-class Cube : public Shape
+class Cube : public IGameObject
 {
 public:
-	Cube(GLuint programId, WindowCamera& cam);
-	~Cube();
+	Cube(WindowCamera& cam, GLuint programId);
+	~Cube() {};
+	void Draw();
 
 private:
 

@@ -77,13 +77,18 @@ add_executable(${LABNAME}
 	${LABNAME}/WindowCamera.h
 	${LABNAME}/IGameObject.h
 	
-	mesh/Triangle.cpp
-	mesh/Triangle.h
-	mesh/Cube.h
-	mesh/Cube.cpp
+	${LABNAME}/Triangle.cpp
+	${LABNAME}/Triangle.h
+	${LABNAME}/Cube.h
+	${LABNAME}/Cube.cpp
 
 	common/shader.cpp
 	common/shader.hpp
+	common/texture.cpp
+	common/texture.hpp
+	common/GLError.h
+	common/GLError.cpp
+
 	${LABNAME}/Lab1VertexShader.vertexshader
 	${LABNAME}/Lab1FragmentShader.fragmentshader
 )
@@ -133,7 +138,6 @@ add_custom_command(
 
 
 SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
-SOURCE_GROUP(common REGULAR_EXPRESSION ".*/mesh/.*" )
 SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
 
 

@@ -1,19 +1,14 @@
 ﻿#include "Shape.h"
 
-Shape::Shape(WindowCamera& cam) : ShaderInfo::ShaderInfo()
+Shape::Shape() : ShaderInfo::ShaderInfo()
 {
-	MVP = cam.GetProjection() * cam.GetView() * model;
+
 }
 
 void Shape::Translate()
 {
 	model = glm::translate(model, vec3(0.1f, 0.1f, 0.1f));
 	
-}
-
-void Shape::Update(glm::mat4* view, glm::mat4* projection)
-{
-	MVP = MVP = *projection * *view * model;
 }
 
 glm::mat4 Shape::GetMVP()

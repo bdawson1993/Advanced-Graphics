@@ -19,14 +19,11 @@ using namespace std;
 class Shape : public ShaderInfo
 {
 private:
-	glm::mat4 model = glm::mat4(1.0f);
-	glm::mat4 MVP;
-	glm::vec3 color;
+	
 
 public:
-	Shape(WindowCamera& cam);
+	Shape();
 	void Translate();
-	void Update(glm::mat4* view, glm::mat4* projection);
 
 	//get accessors
 	glm::mat4 GetMVP();
@@ -36,8 +33,11 @@ public:
 	//set accesors
 	void SetColor(float r, float g, float b);
 	GLsizei GetSize();
+	virtual void Draw() {};
 
 protected:
-	void Draw() {};
-	GLsizei size = 3;
+	WindowCamera* camera;
+	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 MVP;
+	glm::vec3 color;
 };

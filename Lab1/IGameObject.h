@@ -5,10 +5,11 @@ class IGameObject : public Shape
 {
 
 public:
-	IGameObject(Shape shape) : Shape(shape) {};
+	IGameObject(WindowCamera& cam, GLuint programID) : Shape() { camera = &cam; shaderID = programID; };
 	~IGameObject() {} ;
 
-protected:
-	virtual void Start() = 0;
-	virtual void Update() = 0;
+public:
+	virtual void Start() {};
+	virtual void Update() {  MVP = camera->GetProjection() * camera->GetView() * model; };
+	virtual void Draw() {};
 };
