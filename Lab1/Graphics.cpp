@@ -107,30 +107,25 @@ int Graphics::BeginDraw()
 		//update logic
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			//scenceShapes[1].Translate();
+			//scenceShapes[0]->Translate();
 			//View = glm::translate(View, vec3(0.0f, 0.1f, 0.0f));
 			cam->Translate(vec3_up);
+
 			
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			//scenceShapes[1].Translate();
-			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
 			cam->Translate(vec3_down);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
-			//scenceShapes[1].Translate();
-			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
 			cam->Translate(vec3_left);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
-			//scenceShapes[1].Translate();
-			//View = glm::translate(View, vec3(0.0f, -0.1f, 0.0f));
 			cam->Translate(vec3_right);
 		}
 
@@ -145,6 +140,7 @@ int Graphics::BeginDraw()
 
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
+	
 	
 
 	return 0;
