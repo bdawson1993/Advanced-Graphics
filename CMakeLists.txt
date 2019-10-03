@@ -66,7 +66,7 @@ add_definitions(
 set (LABNAME Lab1)
 # Lab 1 Starting point for lab 1
 add_executable(${LABNAME} 
-	${LABNAME}/Lab1.cpp
+	${LABNAME}/main.cpp
 	${LABNAME}/Graphics.cpp
 	${LABNAME}/Graphics.h
 	${LABNAME}/Shape.h
