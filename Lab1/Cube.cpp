@@ -56,8 +56,7 @@ void Cube::Draw()
 	glUseProgram(shaderID);
 	glBindVertexArray(GetID("vertexarray"));
 	glBindBuffer(GL_ARRAY_BUFFER, GetID("vertexbuffer"));
-	glUseProgram(shaderID);
-
+	
 	//send shader uniform data
 	glUniformMatrix4fv(GetID("MVP"), 1, GL_FALSE, &GetMVP()[0][0]);
 	glUniform3f(GetID("inColor"), GetColor().r, GetColor().g, GetColor().b);

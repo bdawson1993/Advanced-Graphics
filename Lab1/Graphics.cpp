@@ -59,14 +59,16 @@ int Graphics::CreateGraphicsContext()
 
 		
 
-		// Dark blue background
+		// Dark blue background - and enable depth testing
 		glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
-
+		glEnable(GL_DEPTH_TEST);
+		// Accept fragment if it closer to the camera than the former one
+		glDepthFunc(GL_LESS);
 		
 		
 		
 		//load basic shader
-		programID = LoadShaders("Lab1VertexShader.vertexshader", "Lab1FragmentShader.fragmentshader");
+		programID = LoadShaders("texture.vertexshader", "texture.fragmentshader");
 	}
 }
 
@@ -92,16 +94,14 @@ int Graphics::BeginDraw()
 	scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	int x = 0;
 	do {
-		glClear(GL_COLOR_BUFFER_BIT); //clear buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 
 		
 		//iterare through shapes in scene vector
 		for(int i = 0; i != scenceShapes.size(); i++)
 		{
-			
 			scenceShapes[i]->Draw();
 			scenceShapes[i]->Update();
-			
 		}
 		
 		//update logic
