@@ -67,8 +67,11 @@ set (LABNAME Lab1)
 # Lab 1 Starting point for lab 1
 add_executable(${LABNAME} 
 	${LABNAME}/main.cpp
+
+
 	${LABNAME}/Graphics.cpp
 	${LABNAME}/Graphics.h
+	
 	${LABNAME}/Shape.h
 	${LABNAME}/ShaderInfo.h
 	${LABNAME}/ShaderInfo.cpp
@@ -81,6 +84,8 @@ add_executable(${LABNAME}
 	${LABNAME}/Triangle.h
 	${LABNAME}/Cube.h
 	${LABNAME}/Cube.cpp
+	${LABNAME}/TexturedCube.h
+	${LABNAME}/TexturedCube.cpp
 
 	common/shader.cpp
 	common/shader.hpp
@@ -89,8 +94,10 @@ add_executable(${LABNAME}
 	common/GLError.h
 	common/GLError.cpp
 
-	${LABNAME}/Lab1VertexShader.vertexshader
-	${LABNAME}/Lab1FragmentShader.fragmentshader
+	${LABNAME}/basicColor.vertexshader
+	${LABNAME}/basicColor.fragmentshader
+	${LABNAME}/texture.vertexshader
+	${LABNAME}/texture.fragmentshader
 )
 target_link_libraries(${LABNAME}
 	${ALL_LIBS}
