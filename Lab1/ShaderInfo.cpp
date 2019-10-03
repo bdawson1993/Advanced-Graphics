@@ -31,11 +31,13 @@ void ShaderInfo::CreateBuffer(string name)
 //create texture buffer
 void ShaderInfo::CreateBuffer(string name, string path)
 {
-	GLuint id = SOIL_load_OGL_texture(path.c_str(), SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID,
-		SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB);
+	GLuint id = SOIL_load_OGL_texture(path.c_str(), 
+		SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS | 
+		SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB);
+
 	ids.insert(pair<string, GLuint>(name, id));
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, id);
+
+	
 }
 
 //bind the named buffer and fill it with data

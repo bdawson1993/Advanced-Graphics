@@ -33,7 +33,6 @@ public:
 	//set accesors
 	void SetColor(float r, float g, float b);
 	GLsizei GetSize();
-	virtual void Draw() {};
 
 protected:
 	WindowCamera* camera;

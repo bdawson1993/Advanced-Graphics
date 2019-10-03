@@ -126,10 +126,10 @@ int main(void)
 	GLuint programID = LoadShaders("TransformVertexShader.vertexshader", "TextureFragmentShader.fragmentshader");
 
 	// Get a handle for our "MVP" (model * view * projection) uniform
-	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+	GLuint MatrixID = glGetUniformLocation(programID, "MVP"); //
 
 	// get the "model" matrix which is eventually part of our MVP so we can use it in shaders for calculating worldspace positions
-	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
+	GLuint ModelMatrixID = glGetUniformLocation(programID, "M"); //
 
 
 	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
@@ -150,14 +150,14 @@ int main(void)
 	GLuint Texture = SOIL_load_OGL_texture("..//3dcontent//textures//texture_diffuse1.jpg", SOIL_LOAD_RGB,SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB);
 
 	// Get a handle for our texture sampler uniform 
-	GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");
+	GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");//
 	// get a handle for the light position uniform
-	GLuint LightPosID = glGetUniformLocation(programID, "LightPositionWorldSpace");
+	GLuint LightPosID = glGetUniformLocation(programID, "LightPositionWorldSpace");//
 	// get a handle for the light direction uniform
-	GLuint LightDirID = glGetUniformLocation(programID, "LightDirectionWorldSpace");
+	GLuint LightDirID = glGetUniformLocation(programID, "LightDirectionWorldSpace"); //
 
 	// generate a vertex array object ID and bind it as the current VAO
-	GLuint VertexArrayID;
+	GLuint VertexArrayID;//
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
@@ -200,17 +200,15 @@ int main(void)
 		1.0f, 1.0f, 1.0f,
 		-1.0f, 1.0f, 1.0f,
 		1.0f,-1.0f, 1.0f
-	};
+	};//
 
 	// note we don't want this const as we're going to calculate it!!
 	static float g_normal_buffer_data[36 * 3];
-	cout << g_normal_buffer_data[0] << endl;
+	//cout << g_normal_buffer_data[0] << endl;
 
 	// calculate the normals per face and store them in vertex order (one normal per vertex)
 	CalculateNormals(g_vertex_buffer_data, g_normal_buffer_data);
 
-
-	cout << g_normal_buffer_data[0] << endl;
 
 	// Two UV coordinates for each vertex. They were created with Blender. <- from opengl-tutorials.com
 	// incidentally these UV's are kind of dumb :)

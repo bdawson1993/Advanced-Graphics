@@ -1,6 +1,7 @@
 
 #include "Graphics.h"
 #include "Triangle.h"
+#include "TexturedCube.h"
 #include "Cube.h"
 
 
@@ -9,20 +10,20 @@ int main()
 
 	Graphics* graphics = Graphics::GetGraphicsContext();
 	graphics->CreateGraphicsContext();
+
+
 	
 	//create shapes
-	Cube* cub = new Cube(graphics->GetCamera(), graphics->GetProgramID());
+	TexturedCube* cube = new TexturedCube(graphics->GetCamera(), graphics->GetProgramID());
+	//Cube* cube = new Cube(graphics->GetCamera(), graphics->GetProgramID());
 
 
-
-	
-
-	graphics->AddObjectToScene(cub);
+	graphics->AddObjectToScene(cube);
 	//graphics->AddShapeToScene((Shape)*cub);
 	graphics->BeginDraw();
 
 
-	delete(cub);
+	delete(cube);
 	//delete(triangle2);
 	return 0;
 }

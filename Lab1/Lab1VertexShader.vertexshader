@@ -18,7 +18,4 @@ void main()
 	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
 	// pass through the vertex colour here
 	color = inColor;
-	
-	
 }
-
