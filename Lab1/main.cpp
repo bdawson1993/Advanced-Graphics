@@ -4,7 +4,6 @@
 #include "TexturedCube.h"
 #include "Cube.h"
 
-
 int main()
 {
 
