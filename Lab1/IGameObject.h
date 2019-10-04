@@ -10,6 +10,8 @@ public:
 
 public:
 	virtual void Start() {};
-	virtual void Update() { MVP = camera->GetProjection() * camera->GetView() * model; };
+	virtual void Update() { 
+		MVP = camera->GetProjection() * camera->GetView() * model;  
+	};
 	virtual void Draw() {};
 };

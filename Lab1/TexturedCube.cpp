@@ -1,6 +1,6 @@
 #include "TexturedCube.h"
 
-TexturedCube::TexturedCube(WindowCamera cam, GLuint id) : IGameObject(cam, id)
+TexturedCube::TexturedCube(WindowCamera& cam, GLuint id) : IGameObject(cam, id)
 {
 	
 	static const GLfloat g_vertex_buffer_data[] = {
@@ -80,12 +80,13 @@ TexturedCube::TexturedCube(WindowCamera cam, GLuint id) : IGameObject(cam, id)
 		1.000004f, 1.0f - 0.671847f,
 		0.667979f, 1.0f - 0.335851f
 	};
+
 	CalculateNormals(g_vertex_buffer_data, g_normal_buffer_data);
 
 	//fill the vertex buffer
-	FillBuffer("vertexbuffer", 
-		g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
+	FillBuffer("vertexbuffer", g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
 	SetupShaderAttribute("vertexbuffer", 3, GL_FLOAT);
+	size = 12 * 3;
 
 
 	//create and fill other buffers
@@ -98,14 +99,14 @@ TexturedCube::TexturedCube(WindowCamera cam, GLuint id) : IGameObject(cam, id)
 		sizeof(g_uv_buffer_data));
 	SetupShaderAttribute("uvbuffer", 2, GL_FLOAT);
 
-	//create normal buffer
+	///create normal buffer
 	CreateBuffer("normalbuffer");
 	FillBuffer("normalbuffer", g_normal_buffer_data, 
 		sizeof(g_normal_buffer_data));
-	SetupShaderAttribute("normalbuffer", 2, GL_FLOAT);
+	SetupShaderAttribute("normalbuffer", 3, GL_FLOAT);
 
 	
-	//fill buffers
+	//get uniforms
 	GetUniform("MVP");
 	GetUniform("M");
 	GetUniform("myTextureSampler");
@@ -116,31 +117,34 @@ TexturedCube::TexturedCube(WindowCamera cam, GLuint id) : IGameObject(cam, id)
 
 void TexturedCube::Draw()
 {
+	//cout << "Doing stuff" << endl;
+	glUseProgram(shaderID);
 	glBindVertexArray(GetID("vertexarray"));
 	glBindBuffer(GL_ARRAY_BUFFER, GetID("vertexbuffer"));
-	glUseProgram(shaderID);
-	
-	
 
-	glm::vec3 LightPos(4.0f, 3.0f, 3.0f);
-	glm::vec3 LightDir(0.0f, -1.0f, 0.0f);
+	//send shader uniform data
+	glUniformMatrix4fv(GetID("MVP"), 1, GL_FALSE, &MVP[0][0]);
+
+	glDrawArrays(GL_TRIANGLES, 0, size);
+
+
+	//bind buffers
+	glUseProgram(shaderID);
+	glBindVertexArray(GetID("vertexarray"));
+	glBindBuffer(GL_ARRAY_BUFFER, GetID("vertexbuffer"));
+	
 	LightDir = glm::normalize(LightPos - glm::vec3(0.0f, 0.0f, 0.0f));
 
-	glUniformMatrix4fv(GetID("MVP"), 1, GL_FALSE, &MVP[0][0]);
+	glUniformMatrix4fv(GetID("MVP"), 1, GL_FALSE, &GetMVP()[0][0]);
 	glUniformMatrix4fv(GetID("M"), 1, GL_FALSE, &model[0][0]);
 	glUniform3f(GetID("LightDirectionWorldSpace"), LightDir.x, LightDir.y, 
 		LightDir.z);
-	glUniform3f(GetID("LightPostionWorldSpace"), LightDir.x, LightDir.y,
-		LightDir.z);
+	glUniform3f(GetID("LightPostionWorldSpace"), LightPos.x, LightPos.y,
+		LightPos.z);
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, GetID("texture"));
 	glUniform1i(GetID("myTextureSampler"), 0);
-
-	
-
-	glDrawArrays(GL_TRIANGLES, 0, 12*3);
-
-
+	glDrawArrays(GL_TRIANGLES, 0, size);
 }
 

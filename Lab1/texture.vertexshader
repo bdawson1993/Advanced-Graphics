@@ -19,10 +19,13 @@ void main(){
 
 	// Output position of the vertex, in clip space : MVP * position
 	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
+
 	// output position of the vertex in world space so we can use it in fragment shader
 	FragPosWorldSpace = vec3(M * vec4(vertexPosition_modelspace, 1));
+
 	// pass through normal into interpolators in the rasterizer! the inverse+transpose deal with non uniform scaling of normals
 	Normal = mat3(transpose(inverse(M))) * normalPosition_modelspace; 
+
 	// UV of the vertex. Pass through to interpolators
 	UV = vertexUV;
 }

@@ -33,8 +33,6 @@ int Graphics::CreateGraphicsContext()
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 
-		
-
 		// Open a window and create its OpenGL context
 		window = glfwCreateWindow(1024, 768, "Test", NULL, NULL);
 		if (window == NULL) {
@@ -89,10 +87,8 @@ WindowCamera& Graphics::GetCamera()
 
 int Graphics::BeginDraw()
 {
-	glm::vec3 color = glm::vec3(1.0f, 1.0f, 0.2f);
-	scenceShapes[0]->Translate();
-	scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
-	int x = 0;
+	//scenceShapes[0]->Translate();
+	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 
@@ -107,11 +103,8 @@ int Graphics::BeginDraw()
 		//update logic
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			//scenceShapes[0]->Translate();
-			//View = glm::translate(View, vec3(0.0f, 0.1f, 0.0f));
 			cam->Translate(vec3_up);
-
-			
+			//scenceShapes[0]->Translate();
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_S))

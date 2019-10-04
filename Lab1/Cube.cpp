@@ -53,12 +53,13 @@ Cube::Cube(WindowCamera& cam, GLuint programId) : IGameObject(cam, programId)
 
 void Cube::Draw()
 {
+	//cout << "Doing stuff" << endl;
 	glUseProgram(shaderID);
 	glBindVertexArray(GetID("vertexarray"));
 	glBindBuffer(GL_ARRAY_BUFFER, GetID("vertexbuffer"));
 	
 	//send shader uniform data
-	glUniformMatrix4fv(GetID("MVP"), 1, GL_FALSE, &GetMVP()[0][0]);
+	glUniformMatrix4fv(GetID("MVP"), 1, GL_FALSE, &MVP[0][0]);
 	glUniform3f(GetID("inColor"), GetColor().r, GetColor().g, GetColor().b);
 
 	glDrawArrays(GL_TRIANGLES, 0, size);

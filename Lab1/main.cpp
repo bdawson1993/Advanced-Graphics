@@ -12,18 +12,18 @@ int main()
 	graphics->CreateGraphicsContext();
 
 
-	
+	GLuint id = LoadShaders("basicColor.vertexshader", "basicColor.fragmentshader");
 	//create shapes
 	TexturedCube* cube = new TexturedCube(graphics->GetCamera(), graphics->GetProgramID());
-	//Cube* cube = new Cube(graphics->GetCamera(), graphics->GetProgramID());
+	//Cube* cube2 = new Cube(graphics->GetCamera(), id);
 
 
 	graphics->AddObjectToScene(cube);
-	//graphics->AddShapeToScene((Shape)*cub);
+	//graphics->AddObjectToScene(cube2);
 	graphics->BeginDraw();
 
 
-	delete(cube);
+	//delete(cube);
 	//delete(triangle2);
 	return 0;
 }

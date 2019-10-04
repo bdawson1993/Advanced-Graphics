@@ -4,6 +4,7 @@
 in vec2 UV;
 in vec3 Normal;
 in vec3 FragPosWorldSpace;
+
 // Ouput data
 out vec3 color;
 
@@ -12,6 +13,11 @@ uniform sampler2D myTextureSampler;
 uniform vec3 LightDirectionWorldSpace;
 uniform vec3 LightPositionWorldSpace;
 
+
 void main(){
+	vec3 norm = normalize(Normal);
+	vec3 lightVec = normalize(LightPositionWorldSpace - FragPosWorldSpace);
+	float diffuse = max(dot(norm, lightVec),0.0);
+
 	color = texture(myTextureSampler, UV).rgb;
 }

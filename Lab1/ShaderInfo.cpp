@@ -36,8 +36,6 @@ void ShaderInfo::CreateBuffer(string name, string path)
 		SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB);
 
 	ids.insert(pair<string, GLuint>(name, id));
-
-	
 }
 
 //bind the named buffer and fill it with data
