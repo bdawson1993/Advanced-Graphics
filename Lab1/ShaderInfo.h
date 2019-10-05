@@ -1,4 +1,5 @@
 #pragma once
+#include "Graphics.fwd.h"
 #include <map>
 #include <string>
 #include <GL/glew.h>
@@ -8,6 +9,8 @@
 #include <SOIL2.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "WindowCamera.h"
+
 
 
 using namespace std;
@@ -22,6 +25,7 @@ public:
 		~ShaderInfo() {};
 		GLuint GetID(string name);
 		GLuint GetProgramID();
+		
 
 private:
 	map<string, GLuint> ids;
@@ -31,6 +35,7 @@ private:
 protected:
 	GLuint shaderID = 0;
 	GLsizei size = 3;
+	WindowCamera* camera;
 
 	void CreateBuffer(string name);
 	void CreateBuffer(string name, string path);
