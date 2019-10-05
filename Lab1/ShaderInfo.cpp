@@ -1,5 +1,4 @@
 #include "ShaderInfo.h"
-#include "Graphics.h"
 
 //create the basic VAO and VBO
 ShaderInfo::ShaderInfo()
@@ -16,10 +15,6 @@ ShaderInfo::ShaderInfo()
 	ids.insert(pair<string, GLuint>("vertexbuffer", vertesBufferID));
 	glBindBuffer(GL_ARRAY_BUFFER, vertesBufferID);
 	currentBoundId = vertesBufferID;
-
-	Graphics* grap = Graphics::GetGraphicsContext();
-	camera = &grap->GetCamera();
-	
 }
 
 //create a new buffer

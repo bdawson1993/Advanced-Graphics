@@ -1,5 +1,4 @@
 #pragma once
-#include "Graphics.fwd.h"
 #include <map>
 #include <string>
 #include <GL/glew.h>
@@ -10,8 +9,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "WindowCamera.h"
-
-
 
 using namespace std;
 using namespace glm;

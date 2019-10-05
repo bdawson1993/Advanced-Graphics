@@ -72,6 +72,7 @@ int Graphics::CreateGraphicsContext()
 
 void Graphics::AddObjectToScene(IGameObject* object)
 {
+	object->Start(*cam);
 	scenceShapes.push_back(object);
 }
 

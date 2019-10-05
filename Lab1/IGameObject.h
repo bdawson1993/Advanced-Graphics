@@ -9,7 +9,7 @@ public:
 	~IGameObject() {} ;
 
 public:
-	virtual void Start() {};
+	virtual void Start(WindowCamera& cam) { camera = &cam; };
 	virtual void Update() { 
 		MVP = camera->GetProjection() * camera->GetView() * model;  
 	};
