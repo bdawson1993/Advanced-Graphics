@@ -1,6 +1,6 @@
 #include "Cube.h"
 
-Cube::Cube(WindowCamera& cam, GLuint programId) : IGameObject(cam, programId)
+Cube::Cube(GLuint programId) : IGameObject(programId)
 {
 	static const GLfloat g_vertex_buffer_data[] = {
 		-1.0f,-1.0f,-1.0f,

@@ -10,7 +10,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include <common/shader.hpp>
-#include "WindowCamera.h"
 #include "ShaderInfo.h"
 
 using namespace glm;
@@ -35,7 +34,6 @@ public:
 	GLsizei GetSize();
 
 protected:
-	WindowCamera* camera;
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 MVP;
 	glm::vec3 color;

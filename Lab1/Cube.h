@@ -5,7 +5,7 @@
 class Cube : public IGameObject
 {
 public:
-	Cube(WindowCamera& cam, GLuint programId);
+	Cube(GLuint programId);
 	~Cube() {};
 	void Draw();
 

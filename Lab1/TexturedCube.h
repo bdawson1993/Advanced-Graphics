@@ -4,7 +4,7 @@
 class TexturedCube : public IGameObject
 {
 public:
-	TexturedCube(WindowCamera& cam, GLuint id);
+	TexturedCube(GLuint id);
 	~TexturedCube() {};
 	void Draw();
 

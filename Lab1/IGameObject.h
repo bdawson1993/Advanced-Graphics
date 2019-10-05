@@ -5,7 +5,7 @@ class IGameObject : public Shape
 {
 
 public:
-	IGameObject(WindowCamera& cam, GLuint programID) : Shape() { camera = &cam; shaderID = programID; };
+	IGameObject(GLuint programID) : Shape() {shaderID = programID; };
 	~IGameObject() {} ;
 
 public:

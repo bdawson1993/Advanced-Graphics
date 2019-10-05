@@ -1,6 +1,6 @@
 #include "TexturedCube.h"
 
-TexturedCube::TexturedCube(WindowCamera& cam, GLuint id) : IGameObject(cam, id)
+TexturedCube::TexturedCube(GLuint id) : IGameObject(id)
 {
 	
 	static const GLfloat g_vertex_buffer_data[] = {

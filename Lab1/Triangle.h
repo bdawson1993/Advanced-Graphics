@@ -5,5 +5,5 @@ class Triangle : public IGameObject
 {
 
 public:
-	Triangle(WindowCamera& cam,GLuint programId);
+	Triangle(GLuint programId);
 };

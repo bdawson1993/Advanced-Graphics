@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(WindowCamera& cam, GLuint programId) : IGameObject(cam,programId)
+Triangle::Triangle(GLuint programId) : IGameObject(programId)
 {
 	static const GLfloat g_vertex_buffer_data[] =
 	{

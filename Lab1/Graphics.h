@@ -10,15 +10,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 #include <random>
-
 #include "IGameObject.h"
 #include "WindowCamera.h"
+#include "ShaderInfo.h"
+#include <common/shader.hpp>
 
 using namespace glm;
 using namespace std;
-
-// we're using shaders so need this for the "LoadShaders" function
-#include <common/shader.hpp>
 
 class Graphics
 {
