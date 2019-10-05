@@ -71,7 +71,7 @@ add_executable(${LABNAME}
 
 	${LABNAME}/Graphics.cpp
 	${LABNAME}/Graphics.h
-	
+	${LABNAME}/Graphics.fwd.h
 	${LABNAME}/Shape.h
 	${LABNAME}/ShaderInfo.h
 	${LABNAME}/ShaderInfo.cpp
@@ -80,6 +80,7 @@ add_executable(${LABNAME}
 	${LABNAME}/WindowCamera.h
 	${LABNAME}/IGameObject.h
 	
+
 	${LABNAME}/Triangle.cpp
 	${LABNAME}/Triangle.h
 	${LABNAME}/Cube.h
