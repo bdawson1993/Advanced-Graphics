@@ -34,6 +34,8 @@ public:
 	GLsizei GetSize();
 
 protected:
+	vector<GLfloat> vertices;
+
 	glm::mat4 model = glm::mat4(1.0f);
 	glm::mat4 MVP;
 	glm::vec3 color;

@@ -52,6 +52,8 @@ void ShaderInfo::FillBuffer(string name, const GLfloat data[], size_t size)
 	glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 }
 
+
+
 //Get the id of a uniform from the shader
 void ShaderInfo::GetUniform(string name)
 {

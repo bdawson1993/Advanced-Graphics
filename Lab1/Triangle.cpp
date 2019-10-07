@@ -2,13 +2,13 @@
 
 Triangle::Triangle(GLuint programId) : IGameObject(programId)
 {
-	static const GLfloat g_vertex_buffer_data[] =
+	vertices =
 	{
 		1.0f,-1.0f, 0.0f,
 		-1.0f,-1.0f, 0.0f,
 		-1.0f, 1.0f, 0.0f
 	};
-	FillBuffer("vertexbuffer", g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
+	FillBuffer("vertexbuffer", &vertices[0], sizeof(vertices));
 	SetupShaderAttribute("vertexbuffer", 3, GL_FLOAT);
 	size = 3;
 

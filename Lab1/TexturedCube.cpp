@@ -2,8 +2,8 @@
 
 TexturedCube::TexturedCube(GLuint id) : IGameObject(id)
 {
-	
-	static const GLfloat g_vertex_buffer_data[] = {
+	//108
+	vertices = {
 		-1.0f,-1.0f,-1.0f,
 		-1.0f,-1.0f, 1.0f,
 		-1.0f, 1.0f, 1.0f,
@@ -81,10 +81,10 @@ TexturedCube::TexturedCube(GLuint id) : IGameObject(id)
 		0.667979f, 1.0f - 0.335851f
 	};
 
-	CalculateNormals(g_vertex_buffer_data, g_normal_buffer_data);
+	CalculateNormals(&vertices[0], g_normal_buffer_data);
 
 	//fill the vertex buffer
-	FillBuffer("vertexbuffer", g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
+	FillBuffer("vertexbuffer", &vertices[0], sizeof(vertices) * vertices.size() - 1);
 	SetupShaderAttribute("vertexbuffer", 3, GL_FLOAT);
 	size = 12 * 3;
 
