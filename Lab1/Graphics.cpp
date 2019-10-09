@@ -66,7 +66,10 @@ int Graphics::CreateGraphicsContext()
 		
 		
 		//load basic shader
-		programID = LoadShaders("texture.vertexshader", "texture.fragmentshader");
+		// TODO: you should create a PhongSpec lighting model in these shaders
+		StandardShader = Shader("StandardShading.vertexshader", "StandardShading.fragmentshader");
+		matModel = Model("../3dcontent/models/mat_scaled/mat_scaled.obj");
+		
 	}
 }
 
@@ -92,15 +95,16 @@ int Graphics::BeginDraw()
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
+		StandardShader.use();
 
-		
-		//iterare through shapes in scene vector
-		for(int i = 0; i != scenceShapes.size(); i++)
-		{
-			scenceShapes[i]->Draw();
-			scenceShapes[i]->Update();
-		}
-		
+		matModel.Render(cam->GetView(), cam->GetProjection(), StandardShader);
+		////iterare through shapes in scene vector
+		//for(int i = 0; i != scenceShapes.size(); i++)
+		//{
+		//	scenceShapes[i]->Draw();
+		//	scenceShapes[i]->Update();
+		//}
+		//
 		//update logic
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{

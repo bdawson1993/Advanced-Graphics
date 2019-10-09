@@ -96,11 +96,15 @@ private:
 	bool bDumpDebugOnLoad = false;
 public:
 	// constructor, expects a filepath to a 3D model.
+	Model() {};
 	Model(std::string const &path, bool bDebug = false)
 	{
 		bDumpDebugOnLoad = bDebug;
 		LoadModelFromFile(path);
 	}
+
+	
+
 	void LoadModelFromFile(std::string filename);
 	void ProcessNode(aiNode * node, const aiScene *scene);
 	void DebugWriteMesh(aiMesh * mesh, const aiScene * scene);

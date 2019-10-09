@@ -1,5 +1,4 @@
-#ifndef SHADER_H
-#define SHADER_H
+#pragma once
 
 // PAC Note: I can't remember which tutorial I got most of this from.. but it's not the best debug output in the world.
 // I suggest you improve this so that it actually outputs useful information (like which shader its compiling and any error/success)
@@ -104,7 +103,8 @@ public:
             glDeleteShader(geometry);
 
     }
-    // activate the shader
+	Shader() {};
+	// activate the shader
     // ------------------------------------------------------------------------
     void use() 
     { 
@@ -204,4 +204,3 @@ private:
         }
     }
 };
-#endif

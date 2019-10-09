@@ -12,8 +12,11 @@
 #include <random>
 #include "IGameObject.h"
 #include "WindowCamera.h"
-#include "ShaderInfo.h"
-#include <common/shader.hpp>
+// the code for both of these is adapted from examples on LearnOpenGL.com
+#include "common/model.h"
+#include "common/shader.h"
+// can't remember where this comes from.. there are lots of examples on the internet of similar code
+#include "common/GLError.h"
 
 using namespace glm;
 using namespace std;
@@ -27,6 +30,9 @@ private:
 	GLuint programID;
 	vector<IGameObject*> scenceShapes;
 	WindowCamera* cam = new WindowCamera();
+
+	Shader StandardShader;
+	Model matModel;
 
 	//vector macros
 	#define vec3_up glm::vec3(0.0,-0.1,0.0)
