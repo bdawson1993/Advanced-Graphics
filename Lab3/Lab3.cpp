@@ -91,6 +91,8 @@ int main( void )
 
 	// TODO: Try loading different models here.. also, maybe add more models? check out the model class code
 	Model matModel("../3dcontent/models/mat_scaled/mat_scaled.obj");
+	
+
 	//ourModel.GetMesh(0)->SetScale(glm::vec3(2.0f, 2.0f, 2.0f));
 	
 	check_gl_error();
@@ -109,8 +111,7 @@ int main( void )
 
 	do{
 		glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
-	
+		
 		// update view matrix with new camera position
 		View = glm::lookAt(cameraPosition,glm::vec3(0, 0.5f, 0),glm::vec3(0, 1, 0));
 
@@ -118,7 +119,7 @@ int main( void )
 		StandardShader.use();
 
 		// bind shader uniforms here.. have a look at the Shader class for helper function names
-		// eg StandardShader.setFloat("name",0.1f);
+		//StandardShader.setFloat("name",0.1f);
 
 		// you probably want to update any uniforms you need to before calling render!
 

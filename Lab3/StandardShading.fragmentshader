@@ -7,7 +7,20 @@ in vec3 FragmentPosition_WorldSpace;
 
 uniform sampler2D texture_diffuse1;
 
+vec3 viewDir = normalize(-FragmentPosition_WorldSpace);
+vec3 lightDir = vec3(0,-1,0);
+vec3 reflectDir = normalize(reflect(Normal, lightDir));
+
+float alpha = 0.20;
+vec3 ambient = vec3(1,0,0) * 0.45;
+vec3 diffuse = vec3(1,0,0) * max(0.0, dot(lightDir, Normal)) * 0.6;
+vec3 specular = vec3(1) * pow(max(0.0, dot(viewDir, reflectDir)), alpha) * 1.0;
+
+
+
 void main()
-{    
-    FragColor = texture(texture_diffuse1, UV);
+{    FragColor = texture(texture_diffuse1, UV);
+
+
+    FragColor += vec4(ambient + ambient + specular,1.0);
 }

@@ -207,7 +207,6 @@ void Mesh::SetupMesh()
 
 
 // Should be reasonably understandable what this does
-
 void Model::LoadModelFromFile(std::string filename)
 {
 	Assimp::Importer import;
@@ -309,7 +308,6 @@ void Model::DebugWriteMesh(aiMesh * mesh, const aiScene * scene)
 
 
 }
-
 
 // this is the function that actually retrieves the data from the ASSIMP aiScene/aiMesh nodes and stores it in mesh object as vertex data
 Mesh Model::ProcessMesh(aiMesh * mesh, const aiScene * scene)
@@ -488,6 +486,7 @@ void Model::Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader & shader)
 		
 }
 
+
 void Model::SetPosition(glm::vec3 newpos)
 {
 	for (unsigned int i = 0; i < meshes.size(); i++)
@@ -495,6 +494,7 @@ void Model::SetPosition(glm::vec3 newpos)
 		meshes[i].SetPosition(newpos);
 	}
 }
+
 
 Mesh * Model::GetMesh(unsigned int index)
 {
