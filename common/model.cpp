@@ -119,90 +119,90 @@ void Mesh::SetupMesh()
 	// create a vertex array object ID for this mesh
 	//glewIsSupported("GL_ARB_Vertex_Array")
 	glGenVertexArrays(1, &VAO);
-	check_gl_error();
+	//check_gl_error();
 	
 	// and create a vertex buffer object ID
 	glGenBuffers(1, &VBO);
-	check_gl_error();
+	//check_gl_error();
 	
 	// and create an element (index) buffer object ID
 	glGenBuffers(1, &EBO);
-	check_gl_error();
+	//check_gl_error();
 	
 	// make the VAO the current one (remember OGL is a state machine so any new buffers that are bound are bound to this VAO)
 	glBindVertexArray(VAO);
-	check_gl_error();
+	//check_gl_error();
 
 	// bind the VBO buffer so we can add data to it
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	check_gl_error();
+	//check_gl_error();
 
 	// and add the data
 	unsigned int size = (unsigned int)vertices.size() * sizeof(MeshVertex);
 	glBufferData(GL_ARRAY_BUFFER, (GLsizei)vertices.size() * sizeof(MeshVertex), &vertices[0], GL_STATIC_DRAW);
-	check_gl_error();
+	//check_gl_error();
 
 	// bind the index buffer
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	check_gl_error();
+	//check_gl_error();
 	// now add the data to it
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER,(GLsizei)indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
-	check_gl_error();
+	//check_gl_error();
 
 	// now we have to setup where the offsets into the vertex are for each attribute (position, normal, uv0, uv1 and colour)
 	// attribute 0 - position!
 	glEnableVertexAttribArray(0);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at 0 and end at 3 (i.e. three floats for position vector)
 	// note that we use sizeof(MeshVertex) as the "stride" so it knows how to compute the offsets for each element (last element is 0)
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)0);
-	check_gl_error();
+	//check_gl_error();
 
 	// attribute 1 - Normal!
 	glEnableVertexAttribArray(1);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at 3 end at correct offset stride is still size off the whole struct
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)offsetof(MeshVertex, Normal));
-	check_gl_error();
+	//check_gl_error();
 
 	// attribute 2 - UV0!
 	glEnableVertexAttribArray(2);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at correct offset stride is still size off the whole struct
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)offsetof(MeshVertex, UV0));
-	check_gl_error();
+	//check_gl_error();
 
 	// attribute 3 - UV1!
 	glEnableVertexAttribArray(3);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at correct offset stride is still size off the whole struct
 	glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)offsetof(MeshVertex, UV1));
-	check_gl_error();
+	//check_gl_error();
 
 	// attribute 4 - Colour!
 	glEnableVertexAttribArray(4);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at correct offset stride is still size off the whole struct
 	glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)offsetof(MeshVertex, Colour));
-	check_gl_error();
+	//check_gl_error();
 
 	// attribute 5 - Tangent
 	glEnableVertexAttribArray(5);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at correct offset stride is still size off the whole struct
 	glVertexAttribPointer(5, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)offsetof(MeshVertex, Tangent));
-	check_gl_error();
+	//check_gl_error();
 
 	// attribute 6 - Bitangent
 	glEnableVertexAttribArray(6);
-	check_gl_error();
+	//check_gl_error();
 	// setup the attrib pointer to start at correct offset stride is still size off the whole struct
 	glVertexAttribPointer(6, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)offsetof(MeshVertex, Bitangent));
-	check_gl_error();
+	//check_gl_error();
 
 	// finally, bind vertex array 0 so that we know the state is reset
 	glBindVertexArray(0);
-	check_gl_error();
+	//check_gl_error();
 }
 
 
@@ -492,6 +492,14 @@ void Model::SetPosition(glm::vec3 newpos)
 	for (unsigned int i = 0; i < meshes.size(); i++)
 	{
 		meshes[i].SetPosition(newpos);
+	}
+}
+
+void Model::SetRotation(glm::quat newRot)
+{
+	for (unsigned int i = 0; i < meshes.size(); i++)
+	{
+		meshes[i].SetRotation(newRot);
 	}
 }
 

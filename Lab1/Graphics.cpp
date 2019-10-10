@@ -122,6 +122,17 @@ int Graphics::BeginDraw()
 		{
 			cam->Translate(vec3_right);
 		}
+
+		if (glfwGetKey(window, GLFW_KEY_Q))
+		{
+			cam->Rotate(vec3_left);
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_E))
+		{
+			cam->Rotate(vec3_right);
+		}
+
 #pragma endregion Cam_Update
 
 		// Swap buffers

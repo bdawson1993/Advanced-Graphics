@@ -112,6 +112,7 @@ public:
 	std::vector<MeshTexture> loadMaterialTextures(aiMaterial * mat, aiTextureType type, std::string typeName);
 	void Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader & shader);
 	void SetPosition(glm::vec3 newpos);
+	void SetRotation(glm::quat newRot);
 	Mesh * GetMesh(unsigned int index);
 };
 

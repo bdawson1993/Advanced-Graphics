@@ -15,6 +15,7 @@ public:
 	~WindowCamera();
 
 	void Translate(vec3 vector);
+	void Rotate(vec3 rotat);
 	glm::mat4 GetView();
 	glm::mat4 GetProjection();
 
@@ -22,4 +23,5 @@ private:
 	glm::mat4 view;
 	glm::mat4 projection;
 	glm::vec3 position = glm::vec3(4, 3, 3);
+	glm::vec3 lookingAt = glm::vec3(0, 0, 0);
 };
