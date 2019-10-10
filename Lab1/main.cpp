@@ -1,5 +1,6 @@
 #pragma once
 #include "Graphics.h"
+#include "IGameObject.h"
 
 int main()
 {
@@ -8,13 +9,11 @@ int main()
 	graphics->CreateGraphicsContext();
 
 
-	//GLuint id = LoadShaders("basicColor.vertexshader", "basicColor.fragmentshader");
-	//create shapes
-	//TexturedCube* cube = new TexturedCube(graphics->GetProgramID());
-	//Cube* cube2 = new Cube(graphics->GetCamera(), id);
+	IGameObject* mat = new IGameObject("../3dcontent/models/mat_scaled/mat_scaled.obj",
+		"StandardShading");
 
 
-	//graphics->AddObjectToScene(cube);
+	graphics->AddObjectToScene(mat);
 	//graphics->AddObjectToScene(cube2);
 	graphics->BeginDraw();
 

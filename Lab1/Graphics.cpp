@@ -67,15 +67,13 @@ int Graphics::CreateGraphicsContext()
 		
 		//load basic shader
 		// TODO: you should create a PhongSpec lighting model in these shaders
-		StandardShader = Shader("StandardShading.vertexshader", "StandardShading.fragmentshader");
-		matModel = Model("../3dcontent/models/mat_scaled/mat_scaled.obj");
+		
 		
 	}
 }
 
 void Graphics::AddObjectToScene(IGameObject* object)
 {
-	object->Start(*cam);
 	scenceShapes.push_back(object);
 }
 
@@ -95,21 +93,19 @@ int Graphics::BeginDraw()
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
-		StandardShader.use();
-
-		matModel.Render(cam->GetView(), cam->GetProjection(), StandardShader);
-		////iterare through shapes in scene vector
-		//for(int i = 0; i != scenceShapes.size(); i++)
-		//{
-		//	scenceShapes[i]->Draw();
-		//	scenceShapes[i]->Update();
-		//}
-		//
+		
+		//iterare through shapes in scene vector
+		for(int i = 0; i != scenceShapes.size(); i++)
+		{
+			scenceShapes[i]->Draw(cam);
+			scenceShapes[i]->Update();
+		}
+		
 		//update logic
+#pragma region
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
 			cam->Translate(vec3_up);
-			//scenceShapes[0]->Translate();
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_S))
@@ -126,6 +122,7 @@ int Graphics::BeginDraw()
 		{
 			cam->Translate(vec3_right);
 		}
+#pragma endregion Cam_Update
 
 		// Swap buffers
 		glfwSwapBuffers(window);

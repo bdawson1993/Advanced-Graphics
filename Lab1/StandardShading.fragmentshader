@@ -12,15 +12,24 @@ vec3 lightDir = vec3(0,-1,0);
 vec3 reflectDir = normalize(reflect(Normal, lightDir));
 
 float alpha = 0.20;
-vec3 ambient = vec3(1,0,0) * 0.45;
-vec3 diffuse = vec3(1,0,0) * max(0.0, dot(lightDir, Normal)) * 0.6;
+vec3 ambient = vec3(1,1,1) * 0.45;
+vec3 diffuse = vec3(1,1,1) * max(0.0, dot(lightDir, Normal)) * 0.6;
 vec3 specular = vec3(1) * pow(max(0.0, dot(viewDir, reflectDir)), alpha) * 1.0;
 
 
 
 void main()
-{    FragColor = texture(texture_diffuse1, UV);
+{    
+
+	vec3 nNormal = normalize(Normal);
+	vec3 s = normalize(vec3(1,0,0) - FragmentPosition_WorldSpace);
+	float sDotN = max(dot(s,nNormal), 0.0);
+
+	vec3 toon = vec3(ambient + 0.45 * diffuse);
 
 
-    FragColor += vec4(ambient + ambient + specular,1.0);
+	FragColor = texture(texture_diffuse1, UV);
+
+
+    FragColor += vec4(toon,1.0);
 }
