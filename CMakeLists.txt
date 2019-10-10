@@ -71,24 +71,9 @@ add_executable(${LABNAME}
 
 	${LABNAME}/Graphics.cpp
 	${LABNAME}/Graphics.h
-	${LABNAME}/Graphics.fwd.h
-	${LABNAME}/Shape.h
-	${LABNAME}/ShaderInfo.h
-	${LABNAME}/ShaderInfo.cpp
-	${LABNAME}/Shape.cpp
 	${LABNAME}/WindowCamera.cpp
 	${LABNAME}/WindowCamera.h
 	${LABNAME}/IGameObject.h
-	
-
-	${LABNAME}/Triangle.cpp
-	${LABNAME}/Triangle.h
-	${LABNAME}/Cube.h
-	${LABNAME}/Cube.cpp
-	${LABNAME}/TexturedCube.h
-	${LABNAME}/TexturedCube.cpp
-
-
 	
 	common/controls.hpp
 	common/controls.cpp
