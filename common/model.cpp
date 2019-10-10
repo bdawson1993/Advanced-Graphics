@@ -503,6 +503,14 @@ void Model::SetRotation(glm::quat newRot)
 	}
 }
 
+void Model::SetScale(glm::vec3 scale)
+{
+	for (unsigned int i = 0; i < meshes.size(); i++)
+	{
+		meshes[i].SetScale(scale);
+	}
+}
+
 
 Mesh * Model::GetMesh(unsigned int index)
 {

@@ -4,7 +4,10 @@ out vec3 FragColor;
 in vec2 UV;
 smooth in vec3 Normal;
 in vec3 FragmentPosition_WorldSpace;
+
+
 uniform sampler2D texture_diffuse1;
+uniform vec3 lightPos;
 
 vec3 BlinnPhongShading(vec3 color)
 {
@@ -23,13 +26,13 @@ vec3 BlinnPhongShading(vec3 color)
 
 vec3 toonshade()
 {
+	vec3 lightToEye = lightPos - -FragmentPosition_WorldSpace;
+
 	vec3 n = normalize(Normal);
-	vec3 s = normalize(vec3(0,1,0) - FragmentPosition_WorldSpace);
+	vec3 s = normalize(normalize(lightToEye));
 	vec3 ambient = vec3(0.45) * vec3(0.6);
 	float sDotN = max(dot(s, n), 0.0);
-
-	vec3 diffuse = vec3(0.45) * floor(sDotN * 3) * 1.0;
-
+	vec3 diffuse = vec3(0.45) * ceil(sDotN * 3) * 1.0;
 	return ambient + vec3(0.45) * diffuse;
 }
 
@@ -45,5 +48,5 @@ void main()
 	//FragColor = texture(texture_diffuse1, UV);
     //FragColor += vec4(toon,1.0);
 
-	FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(), 0.5);
+	FragColor = toonshade();
 }

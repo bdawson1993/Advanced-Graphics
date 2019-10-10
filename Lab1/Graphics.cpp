@@ -89,6 +89,9 @@ WindowCamera& Graphics::GetCamera()
 
 int Graphics::BeginDraw()
 {
+	vec3 lightPos = vec3(0, 1, 0);
+
+
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
@@ -99,6 +102,7 @@ int Graphics::BeginDraw()
 		{
 			scenceShapes[i]->Draw(cam);
 			scenceShapes[i]->Update();
+			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 		}
 		
 		//update logic
@@ -121,6 +125,7 @@ int Graphics::BeginDraw()
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
 			cam->Translate(vec3_right);
+			
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_Q))
@@ -132,6 +137,28 @@ int Graphics::BeginDraw()
 		{
 			cam->Rotate(vec3_right);
 		}
+
+		if (glfwGetKey(window, GLFW_KEY_LEFT))
+		{
+			lightPos += vec3_right;
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_RIGHT))
+		{
+			lightPos += vec3_left;
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_UP))
+		{
+			lightPos += vec3_down;
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_DOWN))
+		{
+			lightPos += vec3_up;
+		}
+
+		scenceShapes[2]->SetPosition(lightPos);
 
 #pragma endregion Cam_Update
 

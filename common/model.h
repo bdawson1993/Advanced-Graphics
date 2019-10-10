@@ -113,6 +113,7 @@ public:
 	void Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader & shader);
 	void SetPosition(glm::vec3 newpos);
 	void SetRotation(glm::quat newRot);
+	void SetScale(glm::vec3 scale);
 	Mesh * GetMesh(unsigned int index);
 };
 

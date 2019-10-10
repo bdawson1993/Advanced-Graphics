@@ -11,6 +11,9 @@ using namespace std;
 class IGameObject : public Model
 {
 public:
+
+	Shader shader;
+
 	//Path - path of the model to load
 	//shader name - the name of the shader to load. must be like 
 	//shaderName.fragmentshader, shaderName.vertexshader on the disk to be
@@ -41,5 +44,5 @@ public:
 	};
 
 protected:
-	Shader shader;
+	
 };
