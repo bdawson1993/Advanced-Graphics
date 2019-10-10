@@ -3,6 +3,10 @@
 #include "common/model.h"
 #include "common/shader.h"
 #include "common/GLError.h"
+#include <iostream>
+
+
+using namespace std;
 
 class IGameObject : public Model
 {
@@ -16,6 +20,7 @@ public:
 		//load shader
 		string vert = shaderName + ".vertexshader";
 		string frag = shaderName + ".fragmentshader";
+		cout << "Compiling..." << shaderName << endl;
 		shader = Shader(vert.c_str(), frag.c_str());
 	};
 
