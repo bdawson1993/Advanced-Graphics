@@ -22,6 +22,7 @@ in here..
 #include <assimp/material.h>
 // Include GLEW
 #include <GL/glew.h>
+#include <iostream>
 
 
 

@@ -32,10 +32,11 @@ public:
         std::ifstream fShaderFile;
         std::ifstream gShaderFile;
         
+		
 
-		if (((std::experimental::filesystem::exists(vertexPath)) &&
+		/*if (((std::experimental::filesystem::exists(vertexPath)) &&
 			(std::experimental::filesystem::exists(fragmentPath))))
-		{
+		{*/
 
 			// open files
 			vShaderFile.open(vertexPath);
@@ -59,11 +60,11 @@ public:
 				gShaderFile.close();
 				geometryCode = gShaderStream.str();
 			}
-		}
+		/*}
 		else
 		{
 			std::cout << "Fragment or vertex shader doesn't exist" << std::endl;
-		}
+		}*/
        
         const char* vShaderCode = vertexCode.c_str();
         const char * fShaderCode = fragmentCode.c_str();

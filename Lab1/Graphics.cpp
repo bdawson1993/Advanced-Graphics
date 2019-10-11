@@ -109,12 +109,12 @@ int Graphics::BeginDraw()
 #pragma region
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			cam->Translate(vec3_up);
+			cam->Translate(vec3_forward);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			cam->Translate(vec3_down);
+			cam->Translate(vec3_backward);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))

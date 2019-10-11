@@ -21,6 +21,7 @@ void WindowCamera::Translate(vec3 vector)
 {
 
 	position += vector;
+	lookingAt += vector;
 	view = glm::lookAt(
 		position, // Camera is at (4,3,3), in World Space
 		lookingAt, // and looks at the origin

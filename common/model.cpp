@@ -410,12 +410,14 @@ Mesh Model::ProcessMesh(aiMesh * mesh, const aiScene * scene)
 			indices.push_back(face.mIndices[j]);
 	}
 	
+	/////////////////////////////////////////////////////////////////////////////////////////////Texture loading
 	// process materials (basically load textures associated with materials)
 	// this could be improved somewhat!!
 	if (mesh->mMaterialIndex >= 0)
 	{
 		aiMaterial *material = scene->mMaterials[mesh->mMaterialIndex];
 		// diffuse (aka albedo)
+		
 		std::vector<MeshTexture> diffuseMaps = loadMaterialTextures(material,aiTextureType_DIFFUSE, "texture_diffuse");
 		textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
 		// TODO: Add handling for all other types of textures that ASSIMP supports here!
@@ -435,11 +437,13 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 	{
 		aiString str;
 		mat->GetTexture(type, i, &str);
+		std::cout << str.C_Str() << std::endl;
 		bool skip = false;
 		for (unsigned int j = 0; j < textures_loaded.size(); j++)
 		{
 			if (std::strcmp(textures_loaded[j].path.data(), str.C_Str()) == 0)
 			{
+				
 				textures.push_back(textures_loaded[j]);
 				skip = true;
 				break;
@@ -449,6 +453,7 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 		{   // if texture hasn't been loaded already, load it
 			MeshTexture texture;
 			std::string filename = std::string(str.C_Str());
+			
 			if(directory.length() > 0)
 				filename = directory + '/' + filename;
 			texture.id = -1;

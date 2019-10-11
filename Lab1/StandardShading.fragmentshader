@@ -24,15 +24,16 @@ vec3 BlinnPhongShading(vec3 color)
 	return ambient + diffuse + specular;
 }
 
-vec3 toonshade()
+vec3 toonshade(vec3 color)
 {
 	vec3 lightToEye = lightPos - -FragmentPosition_WorldSpace;
 
 	vec3 n = normalize(Normal);
 	vec3 s = normalize(normalize(lightToEye));
-	vec3 ambient = vec3(0.45) * vec3(0.6);
+
+	vec3 ambient =  vec3(0.45) * vec3(0.6);
 	float sDotN = max(dot(s, n), 0.0);
-	vec3 diffuse = vec3(0.45) * ceil(sDotN * 3) * 1.0;
+	vec3 diffuse = color * vec3(0.45) * ceil(sDotN * 3) * 1.0;
 	return ambient + vec3(0.45) * diffuse;
 }
 
@@ -45,8 +46,10 @@ void main()
 	
 
 
-	//FragColor = texture(texture_diffuse1, UV);
+	//FragColor = texture(texture_diffuse1, UV).rgb;
     //FragColor += vec4(toon,1.0);
 
-	FragColor = toonshade();
+	//FragColor = toonshade();
+
+	FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(vec3(0,0,1)), 0.5f).rgb;
 }

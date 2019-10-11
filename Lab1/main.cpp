@@ -9,9 +9,10 @@ int main()
 	graphics->CreateGraphicsContext();
 
 
-	IGameObject* mat = new IGameObject("../3dcontent/models/link/pose.obj",
+	IGameObject* mat = new IGameObject("../3dcontent/models/link2/scene.gltf",
 		"StandardShading");
 	mat->SetScale(vec3(0.1));
+	mat->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
 	
 	IGameObject* plane = new IGameObject("../3dcontent/models/plane/plane.fbx",
 		"StandardShading");
