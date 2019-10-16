@@ -90,7 +90,7 @@ WindowCamera& Graphics::GetCamera()
 int Graphics::BeginDraw()
 {
 	vec3 lightPos = vec3(0, 1, 0);
-
+	vec3 amint = vec3(0.1);
 
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
@@ -103,6 +103,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->Draw(cam);
 			scenceShapes[i]->Update();
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
+			scenceShapes[i]->shader.setVec3("ambint", amint);
 		}
 		
 		//update logic
@@ -156,6 +157,18 @@ int Graphics::BeginDraw()
 		if (glfwGetKey(window, GLFW_KEY_DOWN))
 		{
 			lightPos += vec3_up;
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_I))
+		{
+			amint += vec3(0.1);
+			cout << amint.x << " "  << amint.y << " " << amint.z << endl;
+		}
+
+		if (glfwGetKey(window, GLFW_KEY_K))
+		{
+			amint -= vec3(0.1);
+			cout << amint.x << " " << amint.y << " " << amint.z << endl;
 		}
 
 		scenceShapes[2]->SetPosition(lightPos);
