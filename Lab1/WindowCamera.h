@@ -18,6 +18,7 @@ public:
 	void Rotate(vec3 rotat);
 	glm::mat4 GetView();
 	glm::mat4 GetProjection();
+	void LookAt(vec3 postion, vec3 dir, vec3 down);
 
 private:
 	glm::mat4 view;

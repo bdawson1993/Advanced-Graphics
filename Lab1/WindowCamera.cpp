@@ -44,6 +44,8 @@ void WindowCamera::Rotate(vec3 rotat)
 
 
 
+
+
 glm::mat4 WindowCamera::GetView()
 {
 	return view;
@@ -52,5 +54,19 @@ glm::mat4 WindowCamera::GetView()
 glm::mat4 WindowCamera::GetProjection()
 {
 	return projection;
+}
+
+void WindowCamera::LookAt(vec3 postion, vec3 dir, vec3 down)
+{
+	view = glm::lookAt(
+		position,
+		dir,
+		down
+	);
+	this->position = position;
+	this->lookingAt = dir;
+
+
+
 }
 

@@ -1,17 +1,37 @@
-#version 330 core
+#version 400 core
 out vec3 FragColor;
-
 in vec2 UV;
-smooth in vec3 Normal;
+in vec3 Normal;
 in vec3 FragmentPosition_WorldSpace;
+in vec4 FragPosLightSpace;
 
 
 uniform sampler2D texture_diffuse1;
+uniform sampler2DShadow shadowMap;
 uniform vec3 lightPos;
 
 
 
+
+in vec4 ShadowCoord;
+
 uniform vec3 ambint;
+
+float ShadowCalculation(vec4 fragPosLightSpace)
+{
+    // perform perspective divide
+    vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
+    // transform to [0,1] range
+    projCoords = projCoords * 0.5 + 0.5;
+    // get closest depth value from light's perspective (using [0,1] range fragPosLight as coords)
+    float closestDepth = texture(shadowMap, projCoords.xyz); 
+    // get depth of current fragment from light's perspective
+    float currentDepth = projCoords.z;
+    // check whether current frag pos is in shadow
+    float shadow = currentDepth > closestDepth  ? 1.0 : 0.0;
+
+    return shadow;
+}  
 
 vec3 BlinnPhongShading(vec3 color)
 {
@@ -23,28 +43,53 @@ vec3 BlinnPhongShading(vec3 color)
 
 	vec3 diffuse = color * max(0.0, dot(lightDir, normalize(FragmentPosition_WorldSpace))) * 0.6;
 	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), halfVector)), alpha) * 1.0;
-
-	return ambient + diffuse + specular;
+	vec3 lighting = (ambient + (1.0 - ShadowCalculation(FragPosLightSpace)) * (diffuse + specular));
+	return lighting;
 }
 
-
-vec3 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
+vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 {
-	vec3 lightToEye = lightPos - -FragmentPosition_WorldSpace;
+	vec3 viewDir = normalize(-FragmentPosition_WorldSpace);
+	vec3 lightDir = vec3(0,1,0);
+	vec3 halfVector = normalize(lightDir + viewDir);
 
+
+	vec3 lightToEye = lightPos - -FragmentPosition_WorldSpace;
 	vec3 n = normalize(Normal);
 	vec3 s = normalize(normalize(lightToEye));
 
-	vec3 ambient =  amInt * vec3(0.6);
+	vec3 ambient =  amInt * vec3(0.3);
 	float sDotN = max(dot(s, n), 0.0);
-	vec3 diffuse = color * diffInt * ceil(sDotN * 1) * 0.2;
+	vec3 diffuse = color * vec3(0.3) * floor(sDotN * 2) * (1.0 /2);
 
-	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), lightToEye)), 0.2) * 1.0;
+	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), halfVector)), 0.2) * 1.0;
+	
+	float shadow = ShadowCalculation(FragPosLightSpace);
+	
+	vec3 diffSpec = vec3(diffuse + specular);
 
-	return ambient + specular * diffuse;
+	vec3 lighting = (ambient + (1.0 + shadow) * (diffuse + specular));
+
+	return vec4(lighting, 1.0);
 }
 
 
+subroutine void RenderPassType();
+subroutine uniform RenderPassType RenderPass;
+
+subroutine(RenderPassType) 
+void shadeWithToon() 
+{
+	//FragColor = toonshade(vec3(1,0,0), vec3(0.45), vec3(0.1)).rgb;
+	FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(vec3(1,1,1), vec3(0.1), vec3(0.1)).rgb, 0.5f).rgb;
+	//FragColor = mix(BlinnPhongShading(vec3(1,0,0).r);
+}
+
+subroutine(RenderPassType)
+void RecordDepth()
+{
+
+}
 
 
 void main()
@@ -54,6 +99,6 @@ void main()
     //FragColor += vec4(toon,1.0);
 
 	//FragColor = toonshade();
-
-	FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(vec3(255,255,204), vec3(0.45), vec3(0.1)), 0.5f).rgb;
+	RenderPass();
+	
 }
