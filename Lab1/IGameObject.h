@@ -39,13 +39,11 @@ public:
 	};
 
 	virtual void Draw(WindowCamera* cam) {
-		shader.use();
 		Render(cam->GetView(), cam->GetProjection(), shader);
 	};
 
 	virtual void Draw(WindowCamera* cam, Shader shad)
 	{
-		shad.use();
 		Render(cam->GetView(), cam->GetProjection(), shad);
 	};
 

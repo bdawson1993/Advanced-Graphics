@@ -12,7 +12,7 @@ out vec2 UV;
 out vec3 Normal;
 out vec3 FragmentPosition_WorldSpace;
 out vec4 FragPosLightSpace;
-out vec4 ShadowCoord;
+out vec2 ShadowCoord;
 
 // Values that stay constant for the whole mesh.
 uniform mat4 MVP;	// application input: Model-View-Projection matrix
@@ -32,7 +32,7 @@ void main(){
 	// UV of the vertex. No special space for this one.
 	UV = vertexUV;
 
-	ShadowCoord = shadowMatrix * vec4(vertexPosition_modelspace, 1.0);
+	ShadowCoord = vec2(shadowMatrix * vec4(vertexPosition_modelspace, 1.0));
 	FragPosLightSpace = shadowMatrix * vec4(FragmentPosition_WorldSpace, 1.0);
 
 	// Output position of the vertex, in clip space : MVP * position

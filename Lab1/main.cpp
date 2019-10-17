@@ -17,18 +17,14 @@ int main()
 	IGameObject* plane = new IGameObject("../3dcontent/models/plane/plane.fbx",
 		"StandardShading");
 
-	IGameObject* cube = new IGameObject("../3dcontent/models/mat_scaled/mat_scaled.obj",
-		"basicColor");
-	cube->SetScale(vec3(1));
-
-
+	
 	plane->SetRotation(glm::quat(sqrt(0.5), sqrt(0.5), 0, 0));
 	plane->SetPosition(vec3(0, -1, 0));
 
 
 	graphics->AddObjectToScene(mat);
 	graphics->AddObjectToScene(plane);
-	graphics->AddObjectToScene(cube);
+	//graphics->AddObjectToScene(cube);
 	graphics->BeginDraw();
 
 

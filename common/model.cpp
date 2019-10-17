@@ -41,10 +41,13 @@ void Mesh::Draw(Shader & shader)
 	unsigned int heightNr = 1;
 	unsigned int aoNr = 1;
 	unsigned int emissiveNr = 1;
+	
+
+	
 
 	for (unsigned int i = 0; i < textures.size(); i++)
 	{
-		glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding
+		glActiveTexture(GL_TEXTURE0 + i + 1); // active proper texture unit before binding
 										  // retrieve texture number (the N in diffuse_textureN)
 		string number;
 		string name = textures[i].type;
@@ -62,9 +65,8 @@ void Mesh::Draw(Shader & shader)
 			number = std::to_string(emissiveNr++); // transfer unsigned int to stream
 		// now set the sampler to the correct texture unit
 		std::string texturename = name + number;
-		glUniform1i(glGetUniformLocation(shader.ID, (texturename).c_str()), i);
+		glUniform1i(glGetUniformLocation(shader.ID, (texturename).c_str()), i + 1);
 		//check_gl_error();
-
 		// and finally bind the texture
 		glBindTexture(GL_TEXTURE_2D, textures[i].id);
 		//check_gl_error();
@@ -83,7 +85,7 @@ void Mesh::Draw(Shader & shader)
 	// reset all texture samplers we've used to 0
 	for (unsigned int i = 0; i < textures.size(); i++)
 	{
-		glActiveTexture(GL_TEXTURE0 + i); // activate the texture unit
+		glActiveTexture(GL_TEXTURE0 + i + 1); // activate the texture unit
 		// bind texture unit back to 0
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
@@ -437,7 +439,7 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 	{
 		aiString str;
 		mat->GetTexture(type, i, &str);
-		std::cout << str.C_Str() << std::endl;
+		//std::cout << str.C_Str() << std::endl;
 		bool skip = false;
 		for (unsigned int j = 0; j < textures_loaded.size(); j++)
 		{
@@ -471,6 +473,7 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 // which means that all meshes have to be rendered with the same shader! maybe this is a bad idea?
 void Model::Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader & shader)
 {
+	shader.use();
 	shader.setMat4("V", viewmat);
 	shader.setMat4("P", projmat);
 
