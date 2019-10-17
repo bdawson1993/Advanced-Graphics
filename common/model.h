@@ -105,7 +105,7 @@ public:
 	}
 
 	
-
+	void AddTexture(MeshTexture text);
 	void LoadModelFromFile(std::string filename);
 	void ProcessNode(aiNode * node, const aiScene *scene);
 	void DebugWriteMesh(aiMesh * mesh, const aiScene * scene);

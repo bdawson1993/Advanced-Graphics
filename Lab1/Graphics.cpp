@@ -77,23 +77,22 @@ int Graphics::CreateGraphicsContext()
 void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 {
 	glGenFramebuffers(1, &depthMapFBO);
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+
 	glGenTextures(1, &depthMap);
 	glBindTexture(GL_TEXTURE_2D, depthMap);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT,
-		width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthMap, 0);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_R_TO_TEXTURE);
+
+	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthMap, 0);
 	glDrawBuffer(GL_NONE);
-	glReadBuffer(GL_NONE);
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-
+	
 
 	//GLfloat border[] = { 1.0f,0.0f,0.0f,0.0f };
 
@@ -127,41 +126,52 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 
 void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 {
+	glBindFramebuffer(GL_FRAMEBUFFER, depthMap);
+	glEnable(GL_CULL_FACE);
 
-	glViewport(0, 0, 1024, 1024);
-
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+	glCullFace(GL_BACK);
 
 
-
-	glClear(GL_DEPTH_BUFFER_BIT);
-	//glEnable(GL_CULL_FACE);
-
-	//glCullFace(GL_FRONT);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	
 
 	//render Shadows
 	//iterare through shapes in scene vector
 	glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 1.0f, 7.5f);
-	glm::mat4 view = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f),
+	glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 5.0, 0.0f),
 		glm::vec3(0.0f, 0.0f, 0.0f),
 		glm::vec3(0.0f, 1.0f, 0.0f));
 
 	glm::mat4 lightMatrix = lightProjection * view;
 
+	
+	//glm::mat4 depthBiasMVP = biasMatrix * depthMVP;
+
+
+	WindowCamera Lightcam = WindowCamera();
+	Lightcam.LookAt(glm::vec3(0.0f, 5.0f, 0.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f,1.0f,0.0f));
+	Lightcam.SetProjection(lightProjection);
+
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{
-		scenceShapes[i]->shader.setMat4("lightSpaceMatrix", lightMatrix);
-		scenceShapes[i]->Draw(cam, shader);
+		shader.use();
+		scenceShapes[i]->Draw(&Lightcam, shader);
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glViewport(0, 0, 1024, 768);
-	//glDisable(GL_CULL_FACE);
+	glDisable(GL_CULL_FACE);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 }
 
 void Graphics::AddObjectToScene(IGameObject* object)
 {
+	//bind shadow
+	MeshTexture text;
+	text.id = depthMap;
+	text.type = "shadow_map";
+
+	object->AddTexture(text);
 	scenceShapes.push_back(object);
 }
 
@@ -186,19 +196,19 @@ int Graphics::BeginDraw()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 		
 		RenderShadow(lightPos, amint);
-
+		glm::mat4 biasMatrix(
+			0.5, 0.0, 0.0, 0.0,
+			0.0, 0.5, 0.0, 0.0,
+			0.0, 0.0, 0.5, 0.0,
+			0.5, 0.5, 0.5, 1.0
+		);
 		
 		//render scene
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
-
-			//bind shadow
-			glActiveTexture(GL_TEXTURE0);
-			shader.setInt("shadowMap", depthMap);
-			glBindTexture(GL_TEXTURE_2D, depthMap);
-
+			scenceShapes[i]->shader.setMat4("depthBias", biasMatrix);
 			scenceShapes[i]->Draw(cam, scenceShapes[i]->shader);
 			scenceShapes[i]->Update();
 		}

@@ -31,7 +31,7 @@ void Mesh::Init(std::vector<MeshVertex> verts, std::vector<unsigned int> inds, s
 }
 
 
-void Mesh::Draw(Shader & shader)
+void Mesh::Draw(Shader& shader)
 {
 	// setup texture samplers... 
 	// bind appropriate textures
@@ -41,13 +41,14 @@ void Mesh::Draw(Shader & shader)
 	unsigned int heightNr = 1;
 	unsigned int aoNr = 1;
 	unsigned int emissiveNr = 1;
-	
+	unsigned int shadowMap = 1;
 
-	
+
+
 
 	for (unsigned int i = 0; i < textures.size(); i++)
 	{
-		glActiveTexture(GL_TEXTURE0 + i + 1); // active proper texture unit before binding
+		glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding
 										  // retrieve texture number (the N in diffuse_textureN)
 		string number;
 		string name = textures[i].type;
@@ -62,10 +63,13 @@ void Mesh::Draw(Shader & shader)
 		else if (name == "texture_ao")
 			number = std::to_string(aoNr++); // transfer unsigned int to stream
 		else if (name == "texture_emissive")
-			number = std::to_string(emissiveNr++); // transfer unsigned int to stream
+			number = std::to_string(emissiveNr++);
+		else if (name == "shadow_map")
+			number = std::to_string(shadowMap++);
+		// transfer unsigned int to stream
 		// now set the sampler to the correct texture unit
 		std::string texturename = name + number;
-		glUniform1i(glGetUniformLocation(shader.ID, (texturename).c_str()), i + 1);
+		glUniform1i(glGetUniformLocation(shader.ID, (texturename).c_str()), i);
 		//check_gl_error();
 		// and finally bind the texture
 		glBindTexture(GL_TEXTURE_2D, textures[i].id);
@@ -76,16 +80,16 @@ void Mesh::Draw(Shader & shader)
 	glBindVertexArray(VAO);
 	//check_gl_error();
 
-	glDrawElements(GL_TRIANGLES,(GLsizei)indices.size(), GL_UNSIGNED_INT, (void *)0);
+	glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, (void*)0);
 	//check_gl_error();
 
 	glBindVertexArray(0);
 	//check_gl_error();
-	
+
 	// reset all texture samplers we've used to 0
 	for (unsigned int i = 0; i < textures.size(); i++)
 	{
-		glActiveTexture(GL_TEXTURE0 + i + 1); // activate the texture unit
+		glActiveTexture(GL_TEXTURE0 + i); // activate the texture unit
 		// bind texture unit back to 0
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
@@ -207,6 +211,14 @@ void Mesh::SetupMesh()
 	//check_gl_error();
 }
 
+
+void Model::AddTexture(MeshTexture text)
+{
+	for (int i = 0; i < meshes.size(); i++)
+	{
+		meshes[i].textures.push_back(text);
+	}
+}
 
 // Should be reasonably understandable what this does
 void Model::LoadModelFromFile(std::string filename)

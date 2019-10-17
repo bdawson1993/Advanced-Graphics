@@ -30,6 +30,7 @@ public:
 	~IGameObject() {} ;
 
 public:
+	
 	virtual void Start() {
 	
 	};

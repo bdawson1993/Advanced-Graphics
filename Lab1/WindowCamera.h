@@ -19,6 +19,7 @@ public:
 	glm::mat4 GetView();
 	glm::mat4 GetProjection();
 	void LookAt(vec3 postion, vec3 dir, vec3 down);
+	void SetProjection(glm::mat4 proje);
 
 private:
 	glm::mat4 view;

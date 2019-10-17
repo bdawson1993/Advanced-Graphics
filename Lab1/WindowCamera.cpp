@@ -63,10 +63,16 @@ void WindowCamera::LookAt(vec3 postion, vec3 dir, vec3 down)
 		dir,
 		down
 	);
+
 	this->position = position;
 	this->lookingAt = dir;
 
 
 
+}
+
+void WindowCamera::SetProjection(glm::mat4 proje)
+{
+	projection = proje;
 }
 
