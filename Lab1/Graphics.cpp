@@ -127,6 +127,7 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMap);
+	glViewport(0, 0, 1024, 1024);
 	glEnable(GL_CULL_FACE);
 
 	glCullFace(GL_BACK);
@@ -137,30 +138,26 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 
 	//render Shadows
 	//iterare through shapes in scene vector
-	glm::mat4 lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 1.0f, 7.5f);
-	glm::mat4 view = glm::lookAt(glm::vec3(0.0f, 5.0, 0.0f),
-		glm::vec3(0.0f, 0.0f, 0.0f),
-		glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
+	glm::vec3 lightInvDir = glm::vec3(0.5f, 2, 2);
 
-	glm::mat4 lightMatrix = lightProjection * view;
-
-	
 	//glm::mat4 depthBiasMVP = biasMatrix * depthMVP;
 
 
 	WindowCamera Lightcam = WindowCamera();
-	Lightcam.LookAt(glm::vec3(0.0f, 5.0f, 0.0f),
-		glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f,1.0f,0.0f));
+	Lightcam.LookAt(lightPos,
+		lightPos -lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
 	Lightcam.SetProjection(lightProjection);
 
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{
-		shader.use();
 		scenceShapes[i]->Draw(&Lightcam, shader);
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glViewport(0, 0, 1024, 768);
 	glDisable(GL_CULL_FACE);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
 
 }
 
@@ -187,7 +184,7 @@ WindowCamera& Graphics::GetCamera()
 
 int Graphics::BeginDraw()
 {
-	vec3 lightPos = vec3(0, 5, 0);
+	vec3 lightPos = vec3(0.5, 20, 20);
 	vec3 amint = vec3(0.1);
 
 	//scenceShapes[0]->Translate();
@@ -209,7 +206,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 			scenceShapes[i]->shader.setMat4("depthBias", biasMatrix);
-			scenceShapes[i]->Draw(cam, scenceShapes[i]->shader);
+			scenceShapes[i]->Draw(cam);
 			scenceShapes[i]->Update();
 		}
 

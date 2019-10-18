@@ -5,8 +5,9 @@ in vec3 Normal;
 in vec3 FragmentPosition_WorldSpace;
 in vec4 FragPosLightSpace;
 
-uniform sampler2DShadow shadow_map1;
+
 uniform sampler2D texture_diffuse1;
+uniform sampler2DShadow shadow_map1;
 
 uniform vec3 lightPos;
 
@@ -51,11 +52,11 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	
 	vec3 text = texture(texture_diffuse1, UV).rgb;
 
-	float shadow = 0;
+	float shadow = texture(shadow_map1, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w));
 	vec3 diffSpec = vec3(diffuse + specular);
 
 
-	vec3 lighting = (ambient + (1.0 - shadow) * (diffuse + specular)) * text;   
+	vec3 lighting = (ambient + shadow * (diffuse + specular)) * text;   
 
 	return vec4(lighting, 1.0);
 }
@@ -67,17 +68,17 @@ void main()
 {    
 	//FragColor = texture(texture_diffuse1, UV).rgb;
     //FragColor += vec4(toon,1.0);
-	//FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f).rgb;
+	FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f).rgb;
 	//FragColor = toonshade(vec3(1,1,1), vec3(1), vec3(1));
 	//FragColor = texture(shadowMap, ShadowCoord);
 
 	// Light emission properties
-	vec3 LightColor = vec3(1,1,1);
+	//vec3 LightColor = vec3(1,1,1);
 	
 	// Material properties
-	vec3 MaterialDiffuseColor = texture( texture_diffuse1, UV ).rgb;
+	//vec3 MaterialDiffuseColor = texture( texture_diffuse1, UV ).rgb;
 
-	float visibility = texture(shadow_map1, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w) );
+	//float visibility = texture(shadow_map1, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w) );
 
-	FragColor = visibility * MaterialDiffuseColor * LightColor;
+	//FragColor = visibility * vec3(;
 }
