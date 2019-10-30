@@ -30,6 +30,7 @@ private:
 	GLuint programID;
 	vector<IGameObject*> scenceShapes;
 	WindowCamera* cam = new WindowCamera();
+	WindowCamera Lightcam = WindowCamera();
 	Shader shader;
 
 	

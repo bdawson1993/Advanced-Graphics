@@ -69,7 +69,7 @@ int Graphics::CreateGraphicsContext()
 		//load basic shader
 		// TODO: you should create a PhongSpec lighting model in these shaders
 		shader = Shader("depthShader.vertexshader", "depthShader.fragmentshader");
-		BuildShadowTexture(1024,1024);
+		BuildShadowTexture(1024 * 2,1024 * 2);
 
 	}
 }
@@ -82,7 +82,7 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 	glGenTextures(1, &depthMap);
 	glBindTexture(GL_TEXTURE_2D, depthMap);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -124,10 +124,11 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 	//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
+//shadow pass
 void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMap);
-	glViewport(0, 0, 1024, 1024);
+	glViewport(0, 0, 1024 * 2, 1024 * 2);
 	glEnable(GL_CULL_FACE);
 
 	glCullFace(GL_BACK);
@@ -141,12 +142,12 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 	glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 	glm::vec3 lightInvDir = glm::vec3(0.5f, 2, 2);
 
-	//glm::mat4 depthBiasMVP = biasMatrix * depthMVP;
+	
 
 
-	WindowCamera Lightcam = WindowCamera();
+	
 	Lightcam.LookAt(lightPos,
-		lightPos -lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
+		-lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
 	Lightcam.SetProjection(lightProjection);
 
 	for (int i = 0; i != scenceShapes.size(); i++)
@@ -199,13 +200,15 @@ int Graphics::BeginDraw()
 			0.0, 0.0, 0.5, 0.0,
 			0.5, 0.5, 0.5, 1.0
 		);
+		glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
+		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * lightProjection * Lightcam.GetView());
 		
 		//render scene
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
-			scenceShapes[i]->shader.setMat4("depthBias", biasMatrix);
+			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
 			scenceShapes[i]->Draw(cam);
 			scenceShapes[i]->Update();
 		}

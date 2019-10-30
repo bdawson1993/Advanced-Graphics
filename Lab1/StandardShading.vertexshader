@@ -19,6 +19,7 @@ uniform mat4 MVP;	// application input: Model-View-Projection matrix
 uniform mat4 V;		// application input: View matrix
 uniform mat4 M;		// application input: Model matrix
 
+
 uniform mat4 shadowMatrix;
 uniform mat4 depthBias;
 
@@ -34,7 +35,11 @@ void main(){
 	// UV of the vertex. No special space for this one.
 	UV = vertexUV;
 
-	ShadowCoord = (depthBias * MVP) * vec4(vertexPosition_modelspace, 1.0);
+	mat4 shadowMatrixM = shadowMatrix * M;
+
+	ShadowCoord = shadowMatrixM * vec4(vertexPosition_modelspace, 1.0);
+
+	
 	FragPosLightSpace = shadowMatrix * vec4(FragmentPosition_WorldSpace, 1.0);
 
 	// Output position of the vertex, in clip space : MVP * position

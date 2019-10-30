@@ -2,9 +2,10 @@
 #include "Graphics.h"
 #include "IGameObject.h"
 
+
 int main()
 {
-
+	
 	Graphics* graphics = Graphics::GetGraphicsContext();
 	graphics->CreateGraphicsContext();
 
@@ -22,8 +23,9 @@ int main()
 	plane->SetPosition(vec3(0, -1, 0));
 
 
-	graphics->AddObjectToScene(mat);
+	
 	graphics->AddObjectToScene(plane);
+	graphics->AddObjectToScene(mat);
 	//graphics->AddObjectToScene(cube);
 	graphics->BeginDraw();
 
