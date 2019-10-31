@@ -75,8 +75,6 @@ add_executable(${LABNAME}
 	${LABNAME}/WindowCamera.h
 	${LABNAME}/IGameObject.h
 	
-	common/controls.hpp
-	common/controls.cpp
 	common/quaternion_utils.hpp
 	common/quaternion_utils.cpp
 	common/model.h
@@ -91,6 +89,10 @@ add_executable(${LABNAME}
 	${LABNAME}/texture.fragmentshader
 	${LABNAME}/StandardShading.vertexshader
 	${LABNAME}/StandardShading.fragmentshader
+	${LABNAME}/wave.fragmentshader
+	${LABNAME}/wave.vertexshader
+	${LABNAME}/depthShader.vertexshader
+	${LABNAME}/depthShader.fragmentshader
 )
 
 target_link_libraries(${LABNAME}
