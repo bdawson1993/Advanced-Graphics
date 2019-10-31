@@ -93,35 +93,6 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthMap, 0);
 	glDrawBuffer(GL_NONE);
 	
-
-	//GLfloat border[] = { 1.0f,0.0f,0.0f,0.0f };
-
-	//glGenTextures(1, &depthID);
-	//glBindTexture(GL_TEXTURE_2D, depthID);
-	//glTexStorage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT, width, height);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-	////glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, border);
-
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LESS);
-
-	//glActiveTexture(GL_TEXTURE0);
-	//glBindTexture(GL_TEXTURE_2D, depthID);
-
-
-	//glGenFramebuffers(1, &shadowFBO);
-	//glBindFramebuffer(GL_FRAMEBUFFER, shadowFBO);
-	//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthID, 0);
-	//glDrawBuffer(GL_NONE);
-	//glReadBuffer(GL_NONE);
-
-
-	//GLenum drawBuffers[] = { GL_NONE };
-	//glDrawBuffers(1,drawBuffers);
-	//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 //shadow pass
@@ -140,16 +111,17 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 	//render Shadows
 	//iterare through shapes in scene vector
 	glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
-	glm::vec3 lightInvDir = glm::vec3(0.5f, 2, 2);
+	glm::vec3 lightInvDir = -lightPos;
 
 	
 
 
 	
 	Lightcam.LookAt(lightPos,
-		-lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
+		lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
 	Lightcam.SetProjection(lightProjection);
 
+	//std::reverse(scenceShapes.begin(), scenceShapes.end());
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{
 		scenceShapes[i]->Draw(&Lightcam, shader);
@@ -185,12 +157,19 @@ WindowCamera& Graphics::GetCamera()
 
 int Graphics::BeginDraw()
 {
-	vec3 lightPos = vec3(0.5, 20, 20);
+	double currentTime = glfwGetTime();
+	double lastTime = currentTime;
+
+
+	vec3 lightPos = vec3(0.5, 10, 10);
 	vec3 amint = vec3(0.1);
 
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
+		currentTime = glfwGetTime();
+		float deltaTime = float(currentTime - lastTime);
+
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 		
 		RenderShadow(lightPos, amint);
@@ -209,6 +188,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
+			scenceShapes[i]->shader.setFloat("time", deltaTime);
 			scenceShapes[i]->Draw(cam);
 			scenceShapes[i]->Update();
 		}
@@ -282,6 +262,7 @@ int Graphics::BeginDraw()
 			amint -= vec3(0.1);
 			cout << amint.x << " " << amint.y << " " << amint.z << endl;
 		}
+		
 
 		
 

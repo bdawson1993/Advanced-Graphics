@@ -212,6 +212,8 @@ void Mesh::SetupMesh()
 }
 
 
+
+
 void Model::AddTexture(MeshTexture text)
 {
 	for (int i = 0; i < meshes.size(); i++)
@@ -467,6 +469,7 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 		{   // if texture hasn't been loaded already, load it
 			MeshTexture texture;
 			std::string filename = std::string(str.C_Str());
+			cout << filename << endl;
 			
 			if(directory.length() > 0)
 				filename = directory + '/' + filename;
@@ -530,7 +533,6 @@ void Model::SetScale(glm::vec3 scale)
 		meshes[i].SetScale(scale);
 	}
 }
-
 
 Mesh * Model::GetMesh(unsigned int index)
 {

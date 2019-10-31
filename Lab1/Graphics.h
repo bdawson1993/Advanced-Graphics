@@ -12,6 +12,7 @@
 #include <random>
 #include "IGameObject.h"
 #include "WindowCamera.h"
+#include "SOIL2.h"
 // the code for both of these is adapted from examples on LearnOpenGL.com
 #include "common/model.h"
 #include "common/shader.h"
@@ -43,6 +44,7 @@ private:
 	#define vec3_backward glm::vec3(0,0,0.1)
 	GLuint depthMap;
 	GLuint depthMapFBO;
+	GLuint waveDisplacement;
 	
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class

@@ -95,6 +95,8 @@ private:
 	std::vector<Mesh> meshes;
 	std::vector<MeshTexture> textures_loaded;
 	bool bDumpDebugOnLoad = false;
+	glm::vec3 postition = glm::vec3(0, 0, 0);
+
 public:
 	// constructor, expects a filepath to a 3D model.
 	Model() {};
@@ -104,7 +106,6 @@ public:
 		LoadModelFromFile(path);
 	}
 
-	
 	void AddTexture(MeshTexture text);
 	void LoadModelFromFile(std::string filename);
 	void ProcessNode(aiNode * node, const aiScene *scene);

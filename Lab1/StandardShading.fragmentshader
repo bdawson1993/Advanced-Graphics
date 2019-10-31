@@ -42,6 +42,7 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	vec3 diffSpec = vec3(diffuse + specular);
 
 
+
 	vec3 lighting = ambient + diffuse + specular;  
 
 	return vec4(lighting, 1.0);
@@ -56,7 +57,7 @@ void main()
     //FragColor += vec4(toon,1.0);
 
 	float shadow = textureProj(shadow_map1, ShadowCoord);
-	FragColor = mix(texture(texture_diffuse1, UV).rgb * shadow, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f);
+	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb * shadow, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f);
 	//FragColor = toonshade(vec3(1,1,1), vec3(1), vec3(1));
 	//FragColor = texture(shadowMap, ShadowCoord);
 
