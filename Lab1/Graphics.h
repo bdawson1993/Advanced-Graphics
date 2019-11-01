@@ -19,6 +19,7 @@
 #include "common/GLError.h"
 #include "ModelRenderer.h"
 
+
 using namespace glm;
 using namespace std;
 
@@ -29,7 +30,7 @@ private:
 	Graphics();
 	GLFWwindow* window;
 	GLuint programID;
-	vector<IGameObject*> scenceShapes;
+	SceneManager* scenceShapes;
 	
 	WindowCamera Lightcam = WindowCamera();
 	Shader shader;
@@ -44,13 +45,13 @@ private:
 	#define vec3_backward glm::vec3(0,0,0.1)
 	GLuint depthMap;
 	GLuint depthMapFBO;
-	GLuint waveDisplacement;
+	
 	
 public:
 	static Graphics* GetGraphicsContext(); //creates or gets window class
 	int CreateGraphicsContext();
 	void BuildShadowTexture(GLsizei width, GLsizei height);
-	void AddObjectToScene(IGameObject* object);
+	void AddSceneManager(SceneManager* object);
 	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
 	int BeginDraw();
 	void ShadowPass(glm::vec3& lightPos, glm::vec3& amint);

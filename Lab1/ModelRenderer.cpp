@@ -15,15 +15,19 @@ void ModelRenderer::Start()
 
 void ModelRenderer::Draw()
 {
-	model.Render(Graphics::GetGraphicsContext()->GetCamera().GetView(), 
-		Graphics::GetGraphicsContext()->GetCamera().GetProjection(), shader);
+	WindowCamera cam = SceneManager::GetCamera()->GetComponent<WindowCamera>("cam");
+	model.Render(cam.GetView(), 
+		cam.GetProjection(), shader);
 }
 
 void ModelRenderer::Update()
 {
 }
 
+
+
 void ModelRenderer::AddTexture(MeshTexture mesh)
 {
 	model.AddTexture(mesh);
 }
+

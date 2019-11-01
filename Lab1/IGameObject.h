@@ -15,19 +15,11 @@ public:
 	
 	Shader shader;
 
-	IGameObject()
-	{
-		
-	};
-
+	IGameObject(string _name) { name = _name; };
 	~IGameObject() {} ;
 
-public:
-	
 	void Start();
-
 	void Update();
-
 	void Draw();
 
 	void AddComponent(Component* comp);
@@ -36,6 +28,11 @@ public:
 	T& GetComponent(string name);
 
 
+	string GetName();
+
+private:
+	string name;
+	
 protected:
 	vector<Component*> componentList;
 	

@@ -46,6 +46,11 @@ void IGameObject::AddComponent(Component* comp)
 	}
 }
 
+string IGameObject::GetName()
+{
+	return name;
+}
+
 template<typename T>
 T& IGameObject::GetComponent(string name)
 {

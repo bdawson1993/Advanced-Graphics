@@ -120,9 +120,9 @@ void Graphics::ShadowPass(glm::vec3& lightPos, glm::vec3& amint)
 	Lightcam.SetProjection(lightProjection);
 
 	//std::reverse(scenceShapes.begin(), scenceShapes.end());
-	for (int i = 0; i != scenceShapes.size(); i++)
+	for (int i = 0; i != scenceShapes->GetSceneObjects().size(); i++)
 	{
-		scenceShapes[i]->Draw();
+		scenceShapes->GetSceneObjects()[i].Draw();
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, 1024, 768);
@@ -132,7 +132,7 @@ void Graphics::ShadowPass(glm::vec3& lightPos, glm::vec3& amint)
 
 }
 
-void Graphics::AddObjectToScene(IGameObject* object)
+void Graphics::AddSceneManager(SceneManager* object)
 {
 	//bind shadow
 	MeshTexture text;
@@ -140,8 +140,10 @@ void Graphics::AddObjectToScene(IGameObject* object)
 	text.type = "shadow_map";
 
 	
-	object->GetComponent<ModelRenderer>("ModelRenderer").AddTexture(text);
-	scenceShapes.push_back(object);
+	for (int i = 0; i != scenceShapes->GetSceneObjects().size(); i++)
+	{
+		scenceShapes->GetSceneObjects()[i].GetComponent<ModelRenderer>("ModelRenderer").AddTexture(text);
+	}
 }
 
 GLuint Graphics::GetProgramID()
@@ -192,10 +194,6 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->Draw();
 			scenceShapes[i]->Update();
 		}
-
-
-
-		
 
 		
 		//update logic

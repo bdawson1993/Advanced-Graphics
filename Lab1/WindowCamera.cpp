@@ -1,6 +1,6 @@
 ﻿#include "WindowCamera.h"
 
-WindowCamera::WindowCamera()
+WindowCamera::WindowCamera() : Component("Camera")
 {
 	// Projection matrix : 45� Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
 	projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
@@ -74,5 +74,17 @@ void WindowCamera::LookAt(vec3 postion, vec3 dir, vec3 down)
 void WindowCamera::SetProjection(glm::mat4 proje)
 {
 	projection = proje;
+}
+
+void WindowCamera::Update()
+{
+}
+
+void WindowCamera::Draw()
+{
+}
+
+void WindowCamera::Start()
+{
 }
 
