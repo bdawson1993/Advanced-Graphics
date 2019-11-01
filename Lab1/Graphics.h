@@ -11,13 +11,13 @@
 #include <vector>
 #include <random>
 #include "IGameObject.h"
-#include "WindowCamera.h"
 #include "SOIL2.h"
 // the code for both of these is adapted from examples on LearnOpenGL.com
 #include "common/model.h"
 #include "common/shader.h"
 // can't remember where this comes from.. there are lots of examples on the internet of similar code
 #include "common/GLError.h"
+#include "ModelRenderer.h"
 
 using namespace glm;
 using namespace std;
@@ -30,7 +30,7 @@ private:
 	GLFWwindow* window;
 	GLuint programID;
 	vector<IGameObject*> scenceShapes;
-	WindowCamera* cam = new WindowCamera();
+	
 	WindowCamera Lightcam = WindowCamera();
 	Shader shader;
 
@@ -53,12 +53,14 @@ public:
 	void AddObjectToScene(IGameObject* object);
 	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
 	int BeginDraw();
-	void RenderShadow(glm::vec3& lightPos, glm::vec3& amint);
+	void ShadowPass(glm::vec3& lightPos, glm::vec3& amint);
 	~Graphics();
 
 	//get accesors
 	GLuint GetProgramID();
 	WindowCamera& GetCamera();
+
+	WindowCamera* cam;
 
 
 };

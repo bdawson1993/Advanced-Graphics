@@ -82,6 +82,8 @@ add_executable(${LABNAME}
 	common/shader.h
 	common/GLError.h
 	common/GLError.cpp
+	common/skybox.h
+	common/skybox.cpp
 
 	${LABNAME}/basicColor.vertexshader
 	${LABNAME}/basicColor.fragmentshader

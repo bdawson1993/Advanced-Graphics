@@ -30,7 +30,6 @@ void Mesh::Init(std::vector<MeshVertex> verts, std::vector<unsigned int> inds, s
 	textures = texs;
 }
 
-
 void Mesh::Draw(Shader& shader)
 {
 	// setup texture samplers... 
@@ -102,7 +101,6 @@ void Mesh::Draw(Shader& shader)
 void Mesh::Clear()
 {
 }
-
 
 bool Mesh::InitFromSceneMesh(const aiMesh * inputmesh)
 {
@@ -210,8 +208,6 @@ void Mesh::SetupMesh()
 	glBindVertexArray(0);
 	//check_gl_error();
 }
-
-
 
 
 void Model::AddTexture(MeshTexture text)

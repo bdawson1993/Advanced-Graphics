@@ -70,7 +70,8 @@ int Graphics::CreateGraphicsContext()
 		// TODO: you should create a PhongSpec lighting model in these shaders
 		shader = Shader("depthShader.vertexshader", "depthShader.fragmentshader");
 		BuildShadowTexture(1024 * 2,1024 * 2);
-
+		
+		
 	}
 }
 
@@ -96,7 +97,7 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 }
 
 //shadow pass
-void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
+void Graphics::ShadowPass(glm::vec3& lightPos, glm::vec3& amint)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMap);
 	glViewport(0, 0, 1024 * 2, 1024 * 2);
@@ -114,9 +115,6 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 	glm::vec3 lightInvDir = -lightPos;
 
 	
-
-
-	
 	Lightcam.LookAt(lightPos,
 		lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
 	Lightcam.SetProjection(lightProjection);
@@ -124,7 +122,7 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 	//std::reverse(scenceShapes.begin(), scenceShapes.end());
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{
-		scenceShapes[i]->Draw(&Lightcam, shader);
+		scenceShapes[i]->Draw();
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, 1024, 768);
@@ -141,7 +139,8 @@ void Graphics::AddObjectToScene(IGameObject* object)
 	text.id = depthMap;
 	text.type = "shadow_map";
 
-	object->AddTexture(text);
+	
+	object->GetComponent<ModelRenderer>("ModelRenderer").AddTexture(text);
 	scenceShapes.push_back(object);
 }
 
@@ -159,7 +158,7 @@ int Graphics::BeginDraw()
 {
 	double currentTime = glfwGetTime();
 	double lastTime = currentTime;
-
+	float deltaTime = 0.0f;
 
 	vec3 lightPos = vec3(0.5, 10, 10);
 	vec3 amint = vec3(0.1);
@@ -168,11 +167,11 @@ int Graphics::BeginDraw()
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
 		currentTime = glfwGetTime();
-		float deltaTime = float(currentTime - lastTime);
+		deltaTime = float(currentTime - lastTime);
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 		
-		RenderShadow(lightPos, amint);
+		ShadowPass(lightPos, amint);
 		glm::mat4 biasMatrix(
 			0.5, 0.0, 0.0, 0.0,
 			0.0, 0.5, 0.0, 0.0,
@@ -182,6 +181,7 @@ int Graphics::BeginDraw()
 		glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * lightProjection * Lightcam.GetView());
 		
+		cout << deltaTime << endl;
 		//render scene
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
@@ -189,7 +189,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
 			scenceShapes[i]->shader.setFloat("time", deltaTime);
-			scenceShapes[i]->Draw(cam);
+			scenceShapes[i]->Draw();
 			scenceShapes[i]->Update();
 		}
 
@@ -267,6 +267,7 @@ int Graphics::BeginDraw()
 		
 
 #pragma endregion Cam_Update
+		lastTime = currentTime;
 
 		// Swap buffers
 		glfwSwapBuffers(window);
