@@ -93,6 +93,8 @@ add_executable(${LABNAME}
 	${LABNAME}/texture.fragmentshader
 	${LABNAME}/StandardShading.vertexshader
 	${LABNAME}/StandardShading.fragmentshader
+	${LABNAME}/wave.fragmentshader
+	${LABNAME}/wave.vertexshader
 )
 
 target_link_libraries(${LABNAME}
