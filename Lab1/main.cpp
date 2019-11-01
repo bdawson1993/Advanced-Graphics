@@ -3,39 +3,23 @@
 
 #include "Graphics.h"
 #include "IGameObject.h"
-#include "ModelRenderer.h"
-#include "SceneManager.h"
+#include <filesystem>
 
-
+#include <experimental/filesystem>
+using namespace std::experimental::filesystem::v1;
 
 
 int main()
 {
+
+	cout << current_path() << endl;
+
 	
 	Graphics* graphics = Graphics::GetGraphicsContext();
 	graphics->CreateGraphicsContext();
 
-	SceneManager* mgr = new SceneManager();
 
-
-
-	//create camera object
-	IGameObject* cam = new IGameObject("cam", mgr);
-	WindowCamera* camera = new WindowCamera();
-	cam->AddComponent(camera);
-
-	//create link object
-	IGameObject* link = new IGameObject("link", mgr);
-	ModelRenderer* linkRender = new ModelRenderer("../3dcontent/models/link/scene.gltf",
-		"StandarsShading");
-	link->AddComponent(linkRender);
-	
-
-	mgr->Add(cam);
-	mgr->Add(link);
-
-
-	/*IGameObject* mat = new IGameObject("../3dcontent/models/link/scene.gltf",
+	IGameObject* mat = new IGameObject("../3dcontent/models/link/scene.gltf",
 		"StandardShading");
 	mat->SetScale(vec3(0.1));
 	mat->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
@@ -43,11 +27,26 @@ int main()
 	IGameObject* plane = new IGameObject("../3dcontent/models/sea-plane/seaPlane.fbx",
 		"wave");
 	plane->SetRotation(glm::quat(sqrt(0.5), sqrt(0.5), 0, 0));
-	plane->SetPosition(vec3(0, -1, 0));*/
+	//plane->SetPosition(vec3(0, -1, 0));
+
+	GLuint waveDisplacement = SOIL_load_OGL_texture(".. /3dcontent/models/sea-plane/displacement.jpg",
+		SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB
+		| SOIL_FLAG_TEXTURE_REPEATS);
+	MeshTexture text;
+	text.id = waveDisplacement;
+	text.type = "texture_height";
+	plane->AddTexture(text);
+	
+
 
 	
-	graphics->AddSceneManager(mgr);
-	//graphics->AddObjectToScene(mat);
+	
+	
+	
+	
+	
+	graphics->AddObjectToScene(plane);
+	graphics->AddObjectToScene(mat);
 
 	//graphics->AddObjectToScene(cube);
 	graphics->BeginDraw();
@@ -57,4 +56,3 @@ int main()
 	//delete(triangle2);
 	return 0;
 }
-

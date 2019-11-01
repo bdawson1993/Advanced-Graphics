@@ -4,38 +4,50 @@
 #include "common/shader.h"
 #include "common/GLError.h"
 #include <iostream>
-#include "Components.h"
-#include <vector>
+
 
 using namespace std;
 
-class IGameObject
+class IGameObject : public Model
 {
 public:
-	
+
 	Shader shader;
 
-	IGameObject(string _name) { name = _name; };
+	//Path - path of the model to load
+	//shader name - the name of the shader to load. must be like 
+	//shaderName.fragmentshader, shaderName.vertexshader on the disk to be
+	//loaded correctly
+	IGameObject(const string path, string shaderName) : Model(path) 
+	{
+		//load shader
+		string vert = shaderName + ".vertexshader";
+		string frag = shaderName + ".fragmentshader";
+		cout << "Compiling..." << shaderName << endl;
+		shader = Shader(vert.c_str(), frag.c_str());
+	};
+
 	~IGameObject() {} ;
 
-	void Start();
-	void Update();
-	void Draw();
-
-	void AddComponent(Component* comp);
-
-	template <typename T>
-	T& GetComponent(string name);
-
-
-	string GetName();
-
-private:
-	string name;
+public:
 	
+	virtual void Start() {
+	
+	};
+
+	virtual void Update() { 
+		
+	};
+
+	virtual void Draw(WindowCamera* cam) {
+		Render(cam->GetView(), cam->GetProjection(), shader);
+	};
+
+	virtual void Draw(WindowCamera* cam, Shader shad)
+	{
+		Render(cam->GetView(), cam->GetProjection(), shad);
+	};
+
 protected:
-	vector<Component*> componentList;
 	
 };
-
-
