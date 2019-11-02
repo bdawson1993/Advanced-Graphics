@@ -34,6 +34,8 @@ private:
 	WindowCamera Lightcam = WindowCamera();
 	Shader shader;
 
+	GLFWmonitor* primaryMonitor;
+	const GLFWvidmode* mode;
 	
 	//vector macros
 	#define vec3_up glm::vec3(0.0,-0.1,0.0)

@@ -1,4 +1,4 @@
-﻿include "Graphics.h"
+﻿#include "Graphics.h"
 
 Graphics* Graphics::instance = 0;
 
@@ -32,9 +32,11 @@ int Graphics::CreateGraphicsContext()
 		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+		primaryMonitor = glfwGetPrimaryMonitor();
+		mode = glfwGetVideoMode(primaryMonitor);
 
 		// Open a window and create its OpenGL context
-		window = glfwCreateWindow(1024, 768, "Test", NULL, NULL);
+		window = glfwCreateWindow(mode->width, mode->height, "Test", NULL, NULL);
 		if (window == NULL) {
 			fprintf(stderr, "Failed to open GLFW window\n");
 			getchar();
@@ -98,11 +100,12 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 //shadow pass
 void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 {
+	
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMap);
 	glViewport(0, 0, 1024 * 2, 1024 * 2);
 	glEnable(GL_CULL_FACE);
 
-	glCullFace(GL_BACK);
+	glCullFace(GL_FRONT);
 
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
@@ -117,8 +120,9 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 
 
 	
-	Lightcam.LookAt(lightPos,
-		lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
+	Lightcam.LookAt(vec3(0,10,0),
+		vec3(0,90,0), glm::vec3(0.0f,1.0f,0.0f));
+
 	Lightcam.SetProjection(lightProjection);
 
 	//std::reverse(scenceShapes.begin(), scenceShapes.end());
@@ -127,7 +131,7 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 		scenceShapes[i]->Draw(&Lightcam, shader);
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glViewport(0, 0, 1024, 768);
+	glViewport(0, 0, mode->width, mode->height);
 	glDisable(GL_CULL_FACE);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
@@ -159,7 +163,9 @@ int Graphics::BeginDraw()
 {
 	double currentTime = glfwGetTime();
 	double lastTime = currentTime;
-
+	bool wave = true;
+	float deltaTime;
+	float timeElapsed = 0;
 
 	vec3 lightPos = vec3(0.5, 10, 10);
 	vec3 amint = vec3(0.1);
@@ -168,8 +174,10 @@ int Graphics::BeginDraw()
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
 		currentTime = glfwGetTime();
-		float deltaTime = float(currentTime - lastTime);
-
+		deltaTime = float(currentTime - lastTime);
+		timeElapsed += deltaTime;
+		cout << deltaTime << endl;
+		
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 		
 		RenderShadow(lightPos, amint);
@@ -188,7 +196,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
-			scenceShapes[i]->shader.setFloat("time", deltaTime);
+			scenceShapes[i]->shader.setFloat("time", timeElapsed);
 			scenceShapes[i]->Draw(cam);
 			scenceShapes[i]->Update();
 		}
@@ -267,7 +275,8 @@ int Graphics::BeginDraw()
 		
 
 #pragma endregion Cam_Update
-
+		
+		lastTime = currentTime;
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();

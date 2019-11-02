@@ -24,6 +24,8 @@ uniform mat4 shadowMatrix;
 uniform mat4 depthBias;
 
 
+
+
 void main(){
 
 	// Position of the vertex, in worldspace : M * position
@@ -40,7 +42,7 @@ void main(){
 	ShadowCoord = shadowMatrixM * vec4(vertexPosition_modelspace, 1.0);
 
 	
-	FragPosLightSpace = shadowMatrix * vec4(FragmentPosition_WorldSpace, 1.0);
+	FragPosLightSpace = depthBias * vec4(FragmentPosition_WorldSpace, 1.0);
 
 	// Output position of the vertex, in clip space : MVP * position
 	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);

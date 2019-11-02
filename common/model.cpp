@@ -487,6 +487,10 @@ void Model::Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader & shader)
 	shader.use();
 	shader.setMat4("V", viewmat);
 	shader.setMat4("P", projmat);
+	
+	
+
+	
 
 	for (unsigned int i = 0; i < meshes.size(); i++)
 	{

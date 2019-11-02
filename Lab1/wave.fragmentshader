@@ -4,14 +4,31 @@
 in vec2 UV;
 in vec3 Normal;
 in vec3 FragPosWorldSpace;
+in vec3 FragmentPosition_WorldSpace;
 
 // Ouput data
 out vec3 color;
 
 // Values that stay constant for the whole mesh.
 uniform sampler2D texture_diffuse1;
+uniform sampler2DShadow shadow_map1;
+in vec4 ShadowCoord;
 
 
 void main(){
-	color = vec3(0,0,1);
+	float z = textureProj(shadow_map1, ShadowCoord);
+
+
+	if(z < 0.2f)
+	{
+	
+		color =  vec3(1,1,1);
+	}
+	else
+	{
+		color = vec3(0,0,1);
+	}
+
+
+	
 	}

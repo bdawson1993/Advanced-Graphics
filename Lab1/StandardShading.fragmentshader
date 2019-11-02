@@ -9,9 +9,9 @@ uniform sampler2D texture_diffuse1;
 uniform sampler2DShadow shadow_map1;
 
 uniform vec3 lightPos;
-in vec4 ShadowCoord;
-uniform vec3 ambint;
 
+uniform vec3 ambint;
+in vec4 ShadowCoord;
 
 
 vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
@@ -31,7 +31,13 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	float sDotN = max(dot(noEye, normal), 0.0);
 	vec3 diffuse = color * vec3(0.3) * floor(sDotN * 2) * (1.0 /2);
 	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), halfVector)), 0.2) * 1.0;
-	vec3 lighting = ambient + diffuse + specular;  
+
+
+
+
+	float shadow = textureProj(shadow_map1, ShadowCoord);
+
+	vec3 lighting = shadow * ambient + shadow * diffuse +  shadow * specular; //fixed full black issue 
 
 
 	return vec4(lighting, 1.0);
@@ -42,6 +48,8 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 
 void main()
 {    
-	float shadow = textureProj(shadow_map1, ShadowCoord);
-	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb * shadow, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f);
+	
+
+	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
+	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f);
 }

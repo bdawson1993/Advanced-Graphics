@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Components.h"
+
 #include <iostream>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -9,7 +9,7 @@ using namespace glm;
 using namespace std;
 
 
-class WindowCamera : public Component
+class WindowCamera
 {
 public:
 	WindowCamera();
@@ -21,10 +21,6 @@ public:
 	glm::mat4 GetProjection();
 	void LookAt(vec3 postion, vec3 dir, vec3 down);
 	void SetProjection(glm::mat4 proje);
-
-	virtual void Update() override;
-	virtual void Draw() override;
-	virtual void Start() override;
 
 private:
 	glm::mat4 view;
