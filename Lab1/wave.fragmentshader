@@ -1,34 +1,64 @@
 #version 330 core
-
-// Interpolated values from the vertex shaders
+out vec3 FragColor;
 in vec2 UV;
 in vec3 Normal;
-in vec3 FragPosWorldSpace;
 in vec3 FragmentPosition_WorldSpace;
+in vec4 FragPosLightSpace;
 
-// Ouput data
-out vec3 color;
-
-// Values that stay constant for the whole mesh.
 uniform sampler2D texture_diffuse1;
 uniform sampler2DShadow shadow_map1;
+
+uniform vec3 lightPos;
+
+uniform vec3 ambint;
 in vec4 ShadowCoord;
 
 
-void main(){
-	float z = textureProj(shadow_map1, ShadowCoord);
+vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
+{
+	//compute half vector 
+	vec3 viewDir = normalize(-FragmentPosition_WorldSpace);
+	vec3 lightDir = vec3(0,1,0);
+	vec3 halfVector = normalize(lightDir + viewDir);
+
+	//normalise vectors
+	vec3 lightToEye = lightPos - -FragmentPosition_WorldSpace;
+	vec3 normal = normalize(Normal);
+	vec3 noEye = normalize(normalize(lightToEye));
+
+	//compute ADS - floor the diffuse for the flat light effecting
+	vec3 ambient =  amInt * vec3(0.3);
+	float sDotN = max(dot(noEye, normal), 0.0);
+	vec3 diffuse = color * vec3(0.3) * floor(sDotN * 2) * (1.0 /2);
+	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), halfVector)), 0.2) * 1.0;
 
 
-	if(z < 0.2f)
+
+
+	float shadow = textureProj(shadow_map1, ShadowCoord);
+	vec3 lighting;
+	if(shadow == 1)
 	{
-	
-		color =  vec3(1,1,1);
+		lighting = vec3(0,0,1) * ambient + vec3(0,0,1) * diffuse +  vec3(0,0,1) * specular; //fixed full black issue 
 	}
 	else
 	{
-		color = vec3(0,0,1);
+		lighting = vec3(1,1,1);
 	}
 
 
+	 //fixed full black issue 
+
+	return vec4(lighting, 1.0);
+}
+
+
+
+
+void main()
+{    
 	
-	}
+
+	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
+	FragColor = toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb;
+}

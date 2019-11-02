@@ -1,69 +1,52 @@
 #version 330 core
 
-// Input vertex data, different for all executions of this shader.
+// Input vertex data, this uses interleaved data in one struct called a MeshVertex within the CPP model loading code
 layout(location = 0) in vec3 vertexPosition_modelspace;
-layout(location = 1) in vec2 vertexUV;
-layout(location = 2) in vec3 normalPosition_modelspace;
+layout(location = 1) in vec3 vertexNormal_modelspace;
+layout(location = 2) in vec2 vertexUV;
+layout(location = 3) in vec2 vertexUV1;
+layout(location = 4) in vec4 vertexColour;
 
 // Output data ; will be interpolated for each fragment.
 out vec2 UV;
 out vec3 Normal;
-
+out vec3 FragmentPosition_WorldSpace;
+out vec4 FragPosLightSpace;
+out vec4 ShadowCoord;
 
 // Values that stay constant for the whole mesh.
-uniform mat4 MVP;
-uniform mat4 WVP;
-uniform mat4 V;
-uniform mat4 M;
-uniform mat4 P;
-
-uniform float time;
-out vec3 FragmentPosition_WorldSpace;
+uniform mat4 MVP;	// application input: Model-View-Projection matrix
+uniform mat4 V;		// application input: View matrix
+uniform mat4 M;		// application input: Model matrix
 
 
-out vec4 ShadowCoord;
 uniform mat4 shadowMatrix;
+uniform mat4 depthBias;
 
-vec4 DisplacmentVector()
-{
-	vec3 pos = vertexPosition_modelspace;
+
+
+
+void main(){
+
+	// Position of the vertex, in worldspace : M * position
+	FragmentPosition_WorldSpace = (M * vec4(vertexPosition_modelspace,1)).xyz;
+
+	// normal 
+	Normal = mat3(transpose(inverse(M))) * vertexNormal_modelspace; 
 	
-	float x = pos.x;
-	float y = pos.y;
-	float z = pos.z;
+	// UV of the vertex. No special space for this one.
+	UV = vertexUV;
 
-	return normalize( vec4(x,y,z,1));
-
-}
-
-
-void main()
-{
 	mat4 shadowMatrixM = shadowMatrix * M;
 
 	ShadowCoord = shadowMatrixM * vec4(vertexPosition_modelspace, 1.0);
 
+	
+	FragPosLightSpace = depthBias * vec4(FragmentPosition_WorldSpace, 1.0);
 
-	float waveWidth = 3;
-	float waveHeight = 0.04;
-	Normal = normalPosition_modelspace;
-    UV = vertexUV;
-    
-	vec4 v = vec4( vertexPosition_modelspace, 1.0 );
+	// Output position of the vertex, in clip space : MVP * position
+	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
 
 	
-	v.z += (
-	    // Add some offset to the waves to make it slightly less regular
-	    sin(waveWidth * vertexPosition_modelspace.x + time * 1.3) *
-	    cos(waveWidth * vertexPosition_modelspace.y + time * 0.9) * waveHeight
-    ) + (
-        // Extra waves to add interest
-	    cos(waveWidth * 2.0 * vertexPosition_modelspace.x + time * -.3) *
-	    sin(waveWidth * 4.0 * vertexPosition_modelspace.y + time * 3.9) * ( waveHeight / 2.0 )
-    );
-   // vHeight = v.z;
-    
-    gl_Position = MVP * v;
-    
-	
+
 }
