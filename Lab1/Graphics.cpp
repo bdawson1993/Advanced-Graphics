@@ -173,7 +173,7 @@ int Graphics::BeginDraw()
 	float timeElapsed = 0;
 
 	//light
-	vec3 lightPos = vec3(0.5, 10, 10);
+	vec3 lightPos = vec3(10, 40, 40);
 	vec3 amint = vec3(0.1);
 
 
@@ -213,11 +213,11 @@ int Graphics::BeginDraw()
 
 
 		//shadow pass
-		RenderShadow(lightPos, shadow, *Lightcam, GL_FRONT);
+		RenderShadow(vec3(0.5, 10, 10), shadow, *Lightcam, GL_FRONT);
 		
 		//border pass
-		scenceShapes[1]->SetScale(vec3(2.05));
-		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
+		scenceShapes[1]->SetScale(vec3(2.21));
+		RenderShadow(vec3(10, 40, 40), wave, *waveCam);
 		scenceShapes[1]->SetScale(vec3(2));
 		
 
@@ -237,7 +237,7 @@ int Graphics::BeginDraw()
 		
 		//glm::mat4 shadowMatrix =  lightProjection * Lightcam.GetView();
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
-		glm::mat4 waveMatrix = glm::mat4(waveCam->GetProjection() * waveCam->GetView());
+		glm::mat4 waveMatrix = glm::mat4(biasMatrix * waveCam->GetProjection() * waveCam->GetView() * cam->GetView());
 
 	
 		for (int i = 0; i != scenceShapes.size(); i++)
@@ -324,6 +324,7 @@ int Graphics::BeginDraw()
 
 #pragma endregion Cam_Update
 		
+		cout << lightPos.x << " " << lightPos.y << " " << lightPos.z << endl;
 		lastTime = currentTime;
 		// Swap buffers
 		glfwSwapBuffers(window);

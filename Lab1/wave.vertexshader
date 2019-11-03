@@ -36,9 +36,9 @@ void main(){
 	// UV of the vertex. No special space for this one.
 	UV = vertexUV;
 
-	mat4 shadowMatrixM = M * waveMatrix;
+	//mat4 shadowMatrixM = M * waveMatrix;
 
-	ShadowCoord = shadowMatrixM * vec4(vertexPosition_modelspace, 1.0);
+	ShadowCoord = (waveMatrix * M) * vec4(vertexPosition_modelspace,1);
 
 
 	// Output position of the vertex, in clip space : MVP * position

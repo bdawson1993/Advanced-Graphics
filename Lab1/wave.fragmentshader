@@ -36,16 +36,18 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	vec3 projCoors = ShadowCoord.xyz / ShadowCoord.w;
 	projCoors = projCoors * 0.5 + 0.5;
 
+	//texelFetch(shadow_map2, 0);
+
+
+	float depth = texture(shadow_map2, UV).r;
+	depth = depth * 2.0 - 1.0;
 	
-
-
-	float shadow = texture(shadow_map2, projCoors.xy).z;
 	vec3 lighting;
-	if(shadow == 1)
+	if(depth == 1.0)
 	{
 		lighting = vec3(0,0,1) * ambient + vec3(0,0,1) * diffuse +  vec3(0,0,1) * specular; //fixed full black issue 
 	}
-	else
+	else if(depth < 0.3)
 	{
 		lighting = vec3(1,1,1);
 	}
@@ -61,8 +63,18 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 
 void main()
 {    
-	
+	vec3 projCoors = ShadowCoord.xyz / ShadowCoord.w;
+	projCoors = projCoors * 0.5 + 0.5;
 
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
-	FragColor = toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb;
+	float depth = texture(shadow_map2, ShadowCoord.xy).r;
+	
+	if(depth == 1)
+	{
+		FragColor = vec3(0,0,1);
+	}
+	else
+	{
+		FragColor = vec3(1,1,1);
+	}
 }
