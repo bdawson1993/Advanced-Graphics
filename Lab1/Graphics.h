@@ -69,9 +69,8 @@ public:
 	int CreateGraphicsContext();
 	TextureIDs BuildDepthTexture(GLsizei width, GLsizei height);
 	void AddObjectToScene(IGameObject* object);
-	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
 	int BeginDraw();
-	void RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera& cam);
+	void RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera& cam, GLuint cullingMode = GL_BACK);
 	~Graphics();
 
 	//get accesors

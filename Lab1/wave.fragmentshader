@@ -3,10 +3,9 @@ out vec3 FragColor;
 in vec2 UV;
 in vec3 Normal;
 in vec3 FragmentPosition_WorldSpace;
-in vec4 FragPosLightSpace;
 
 uniform sampler2D texture_diffuse1;
-uniform sampler2DShadow shadow_map2;
+uniform sampler2D shadow_map2;
 
 uniform vec3 lightPos;
 
@@ -34,8 +33,13 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 
 
 
+	vec3 projCoors = ShadowCoord.xyz / ShadowCoord.w;
+	projCoors = projCoors * 0.5 + 0.5;
 
-	float shadow = textureProj(shadow_map2, ShadowCoord);
+	
+
+
+	float shadow = texture(shadow_map2, projCoors.xy).z;
 	vec3 lighting;
 	if(shadow == 1)
 	{

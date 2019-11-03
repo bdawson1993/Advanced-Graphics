@@ -88,7 +88,7 @@ TextureIDs Graphics::BuildDepthTexture(GLsizei width, GLsizei height)
 	glBindTexture(GL_TEXTURE_2D, depthMap);
 
 	
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -108,7 +108,7 @@ TextureIDs Graphics::BuildDepthTexture(GLsizei width, GLsizei height)
 }
 
 //shadow pass
-void Graphics::RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera& cam )
+void Graphics::RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera& cam, GLuint cullingMode)
 {
 	//glClear(GL_DEPTH_BUFFER_BIT);
 	
@@ -116,7 +116,9 @@ void Graphics::RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera&
 	glViewport(0, 0, 1024 * 2, 1024 * 2);
 	glEnable(GL_CULL_FACE);
 
-	glCullFace(GL_BACK);
+	glCullFace(cullingMode);
+
+	
 
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
@@ -211,11 +213,10 @@ int Graphics::BeginDraw()
 
 
 		//shadow pass
-		RenderShadow(lightPos, shadow, *Lightcam);
+		RenderShadow(lightPos, shadow, *Lightcam, GL_FRONT);
 		
 		//border pass
-	
-		scenceShapes[1]->SetScale(vec3(2.2));
+		scenceShapes[1]->SetScale(vec3(2.05));
 		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
 		scenceShapes[1]->SetScale(vec3(2));
 		
@@ -229,12 +230,14 @@ int Graphics::BeginDraw()
 			0.5, 0.5, 0.5, 1.0
 		);
 
+		
+
 		//glm::mat4 lightProjection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
 		//glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 		
 		//glm::mat4 shadowMatrix =  lightProjection * Lightcam.GetView();
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
-		glm::mat4 waveMatrix = glm::mat4(biasMatrix * waveCam->GetProjection() * waveCam->GetView());
+		glm::mat4 waveMatrix = glm::mat4(waveCam->GetProjection() * waveCam->GetView());
 
 	
 		for (int i = 0; i != scenceShapes.size(); i++)
@@ -245,7 +248,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
-			scenceShapes[i]->shader.setMat4("waveMatrix", shadowMatrix);
+			scenceShapes[i]->shader.setMat4("waveMatrix", waveMatrix);
 
 			scenceShapes[i]->Draw(cam);
 			

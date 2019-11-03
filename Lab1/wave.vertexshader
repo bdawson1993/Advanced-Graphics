@@ -11,7 +11,6 @@ layout(location = 4) in vec4 vertexColour;
 out vec2 UV;
 out vec3 Normal;
 out vec3 FragmentPosition_WorldSpace;
-out vec4 FragPosLightSpace;
 out vec4 ShadowCoord;
 
 // Values that stay constant for the whole mesh.
@@ -37,12 +36,10 @@ void main(){
 	// UV of the vertex. No special space for this one.
 	UV = vertexUV;
 
-	mat4 shadowMatrixM = waveMatrix * M;
+	mat4 shadowMatrixM = M * waveMatrix;
 
 	ShadowCoord = shadowMatrixM * vec4(vertexPosition_modelspace, 1.0);
 
-	
-	FragPosLightSpace = depthBias * vec4(FragmentPosition_WorldSpace, 1.0);
 
 	// Output position of the vertex, in clip space : MVP * position
 	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
