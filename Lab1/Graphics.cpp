@@ -68,25 +68,29 @@ int Graphics::CreateGraphicsContext()
 		
 		
 		
-		//load basic shader
-		// TODO: you should create a PhongSpec lighting model in these shaders
 		shader = Shader("depthShader.vertexshader", "depthShader.fragmentshader");
-		BuildShadowTexture(1024 * 2,1024 * 2);
+		shadow = BuildDepthTexture(1024 * 2, 1024 * 2);
+		wave = BuildDepthTexture(1024 * 2, 1024 * 2);
 
 	}
 }
 
-void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
+TextureIDs Graphics::BuildDepthTexture(GLsizei width, GLsizei height)
 {
+	GLuint depthMapFBO = 0;
+	GLuint depthMap = 0;
+
+
 	glGenFramebuffers(1, &depthMapFBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
 
 	glGenTextures(1, &depthMap);
 	glBindTexture(GL_TEXTURE_2D, depthMap);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, width, height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL);
@@ -94,22 +98,28 @@ void Graphics::BuildShadowTexture(GLsizei width, GLsizei height)
 
 	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthMap, 0);
 	glDrawBuffer(GL_NONE);
+
+	TextureIDs depth;
+	depth.FBO = depthMapFBO;
+	depth.textureID = depthMap;
+
+	return depth;
 	
 }
 
 //shadow pass
-void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
+void Graphics::RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera& cam )
 {
-	scenceShapes[1]->SetScale(vec3(2.05));
-	glBindFramebuffer(GL_FRAMEBUFFER, depthMap);
+	//glClear(GL_DEPTH_BUFFER_BIT);
+	
+	glBindFramebuffer(GL_FRAMEBUFFER, mapID.FBO);
 	glViewport(0, 0, 1024 * 2, 1024 * 2);
 	glEnable(GL_CULL_FACE);
 
-	glCullFace(GL_FRONT);
+	glCullFace(GL_BACK);
 
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	
 
 	//render Shadows
 	//iterare through shapes in scene vector
@@ -117,37 +127,28 @@ void Graphics::RenderShadow(glm::vec3& lightPos, glm::vec3& amint)
 	glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 	glm::vec3 lightInvDir = -lightPos;
 
-	
 
-
-	
-	Lightcam.LookAt(vec3(0,0,10),
-		vec3(5,90,40), glm::vec3(0.0f,1.0f,0.0f));
-	Lightcam.SetProjection(lightProjection);
+	cam.LookAt(lightPos,
+		lightInvDir, glm::vec3(0.0f,1.0f,0.0f));
+	cam.SetProjection(lightProjection);
 
 
 	//std::reverse(scenceShapes.begin(), scenceShapes.end());
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{	
-		scenceShapes[i]->Draw(&Lightcam, shader);
+		scenceShapes[i]->Draw(&cam, shader);
 	}
+	//std::reverse(scenceShapes.begin(), scenceShapes.end());
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glViewport(0, 0, mode->width, mode->height);
 	glDisable(GL_CULL_FACE);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	scenceShapes[1]->SetScale(vec3(2));
-
+	
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 }
 
 void Graphics::AddObjectToScene(IGameObject* object)
 {
-	//bind shadow
-	MeshTexture text;
-	text.id = depthMap;
-	text.type = "shadow_map";
-
-	object->AddTexture(text);
 	scenceShapes.push_back(object);
 }
 
@@ -163,53 +164,93 @@ WindowCamera& Graphics::GetCamera()
 
 int Graphics::BeginDraw()
 {
+	//time computations
 	double currentTime = glfwGetTime();
 	double lastTime = currentTime;
-	bool wave = true;
 	float deltaTime;
 	float timeElapsed = 0;
 
+	//light
 	vec3 lightPos = vec3(0.5, 10, 10);
 	vec3 amint = vec3(0.1);
 
+
+
+	//add depth textures to the models
+	//render scene
+	for (int i = 0; i != scenceShapes.size(); i++)
+	{
+
+		MeshTexture shadowt;
+		shadowt.id = shadow.textureID;
+		shadowt.type = "shadow_map";
+
+		MeshTexture wavet;
+		wavet.id = wave.textureID;
+		wavet.type = "shadow_map";
+
+		
+		
+		scenceShapes[i]->AddTexture(shadowt);
+		scenceShapes[i]->AddTexture(wavet);
+
+	}
+
+	
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	do {
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
+
+		//compute delta time
 		currentTime = glfwGetTime();
 		deltaTime = float(currentTime - lastTime);
 		timeElapsed += deltaTime;
-		cout << deltaTime << endl;
 		
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 		
-		RenderShadow(lightPos, amint);
+
+
+		//shadow pass
+		RenderShadow(lightPos, shadow, *Lightcam);
+		
+		//border pass
+	
+		scenceShapes[1]->SetScale(vec3(2.2));
+		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
+		scenceShapes[1]->SetScale(vec3(2));
+		
+
+
+		//render scene
 		glm::mat4 biasMatrix(
 			0.5, 0.0, 0.0, 0.0,
 			0.0, 0.5, 0.0, 0.0,
 			0.0, 0.0, 0.5, 0.0,
 			0.5, 0.5, 0.5, 1.0
 		);
+
 		//glm::mat4 lightProjection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
-		glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
-		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * lightProjection * Lightcam.GetView());
-		//glm::mat4 shadowMatrix =  lightProjection * Lightcam.GetView();
+		//glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 		
-		//render scene
+		//glm::mat4 shadowMatrix =  lightProjection * Lightcam.GetView();
+		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
+		glm::mat4 waveMatrix = glm::mat4(biasMatrix * waveCam->GetProjection() * waveCam->GetView());
+
+	
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
+			
+
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
+
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
-			scenceShapes[i]->shader.setFloat("time", timeElapsed);
+			scenceShapes[i]->shader.setMat4("waveMatrix", shadowMatrix);
+
 			scenceShapes[i]->Draw(cam);
-			scenceShapes[i]->Update();
+			
 		}
 
-
-
-		
-
-		
 		//update logic
 #pragma region
 		if (glfwGetKey(window, GLFW_KEY_W))

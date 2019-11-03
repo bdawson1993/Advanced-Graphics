@@ -19,8 +19,16 @@
 // can't remember where this comes from.. there are lots of examples on the internet of similar code
 #include "common/GLError.h"
 
+
 using namespace glm;
 using namespace std;
+
+struct TextureIDs
+{
+	GLuint FBO;
+	GLuint textureID;
+};
+
 
 class Graphics
 {
@@ -31,7 +39,9 @@ private:
 	GLuint programID;
 	vector<IGameObject*> scenceShapes;
 	WindowCamera* cam = new WindowCamera();
-	WindowCamera Lightcam = WindowCamera();
+
+	WindowCamera* Lightcam = new WindowCamera();
+	WindowCamera* waveCam = new WindowCamera();
 	Shader shader;
 
 	GLFWmonitor* primaryMonitor;
@@ -44,18 +54,24 @@ private:
 	#define vec3_left glm::vec3(0.1,0.0,0.0)
 	#define vec3_forward glm::vec3(0,0,-0.1)
 	#define vec3_backward glm::vec3(0,0,0.1)
-	GLuint depthMap;
-	GLuint depthMapFBO;
-	GLuint waveDisplacement;
+
+
+	TextureIDs shadow;
+	TextureIDs wave;
+
+	
 	
 public:
+
+	
+
 	static Graphics* GetGraphicsContext(); //creates or gets window class
 	int CreateGraphicsContext();
-	void BuildShadowTexture(GLsizei width, GLsizei height);
+	TextureIDs BuildDepthTexture(GLsizei width, GLsizei height);
 	void AddObjectToScene(IGameObject* object);
 	//void AddShapeBuffer(const GLfloat vertices[], size_t size);
 	int BeginDraw();
-	void RenderShadow(glm::vec3& lightPos, glm::vec3& amint);
+	void RenderShadow(glm::vec3& lightPos, TextureIDs mapID, WindowCamera& cam);
 	~Graphics();
 
 	//get accesors
@@ -64,3 +80,5 @@ public:
 
 
 };
+
+

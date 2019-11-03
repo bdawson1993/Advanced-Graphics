@@ -36,6 +36,7 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 
 
 	float shadow = textureProj(shadow_map1, ShadowCoord);
+	
 
 	vec3 lighting = shadow * ambient + shadow * diffuse +  shadow * specular; //fixed full black issue 
 

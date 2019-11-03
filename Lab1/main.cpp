@@ -1,9 +1,10 @@
 #pragma once
-#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+
+
 
 #include "Graphics.h"
 #include "IGameObject.h"
-#include <filesystem>
+
 
 
 
@@ -19,7 +20,7 @@ int main()
 		"StandardShading");
 	mat->SetScale(vec3(0.1));
 	mat->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
-	mat->SetPosition(glm::vec3(0, 0, 0.7));
+	mat->SetPosition(glm::vec3(0, 0, 0.8));
 	
 	IGameObject* water = new IGameObject("../3dcontent/models/sea-plane/seaPlane.fbx",
 		"wave");
@@ -35,14 +36,13 @@ int main()
 	
 	
 
+	
+
 	graphics->AddObjectToScene(water);
-
-
 	graphics->AddObjectToScene(island);
 	graphics->AddObjectToScene(mat);
-
-
-	//graphics->AddObjectToScene(cube);
+	
+	
 	graphics->BeginDraw();
 
 

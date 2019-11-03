@@ -20,7 +20,7 @@ uniform mat4 V;		// application input: View matrix
 uniform mat4 M;		// application input: Model matrix
 
 
-uniform mat4 shadowMatrix;
+uniform mat4 waveMatrix;
 uniform mat4 depthBias;
 
 
@@ -37,7 +37,7 @@ void main(){
 	// UV of the vertex. No special space for this one.
 	UV = vertexUV;
 
-	mat4 shadowMatrixM = shadowMatrix * M;
+	mat4 shadowMatrixM = waveMatrix * M;
 
 	ShadowCoord = shadowMatrixM * vec4(vertexPosition_modelspace, 1.0);
 

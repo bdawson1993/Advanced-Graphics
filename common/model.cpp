@@ -43,9 +43,7 @@ void Mesh::Draw(Shader& shader)
 	unsigned int shadowMap = 1;
 
 
-
-
-	for (unsigned int i = 0; i < textures.size(); i++)
+	for (unsigned int i = 0; i != textures.size(); i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding
 										  // retrieve texture number (the N in diffuse_textureN)
@@ -65,9 +63,15 @@ void Mesh::Draw(Shader& shader)
 			number = std::to_string(emissiveNr++);
 		else if (name == "shadow_map")
 			number = std::to_string(shadowMap++);
+
+
+			
+		
 		// transfer unsigned int to stream
 		// now set the sampler to the correct texture unit
+
 		std::string texturename = name + number;
+		
 		glUniform1i(glGetUniformLocation(shader.ID, (texturename).c_str()), i);
 		//check_gl_error();
 		// and finally bind the texture
@@ -215,6 +219,7 @@ void Model::AddTexture(MeshTexture text)
 	for (int i = 0; i < meshes.size(); i++)
 	{
 		meshes[i].textures.push_back(text);
+		
 	}
 }
 
