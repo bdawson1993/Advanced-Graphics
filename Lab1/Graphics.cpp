@@ -214,9 +214,11 @@ int Graphics::BeginDraw()
 
 		//shadow pass
 		RenderShadow(vec3(0.5, 10, 10), shadow, *Lightcam, GL_FRONT);
-		
+		//float result = std::abs(std::remainder(timeElapsed * 1, 2.4 * 2));
+		//cout << result  << endl;
+
 		//border pass
-		scenceShapes[1]->SetScale(vec3(2.21));
+		scenceShapes[1]->SetScale(vec3(2.05));
 		RenderShadow(vec3(10, 40, 40), wave, *waveCam);
 		scenceShapes[1]->SetScale(vec3(2));
 		
@@ -324,7 +326,7 @@ int Graphics::BeginDraw()
 
 #pragma endregion Cam_Update
 		
-		cout << lightPos.x << " " << lightPos.y << " " << lightPos.z << endl;
+		//cout << lightPos.x << " " << lightPos.y << " " << lightPos.z << endl;
 		lastTime = currentTime;
 		// Swap buffers
 		glfwSwapBuffers(window);

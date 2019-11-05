@@ -34,6 +34,8 @@ int main()
 	island->SetPosition(vec3(0, 0, -0.1));
 
 	
+
+	
 	
 
 	
@@ -41,6 +43,7 @@ int main()
 	graphics->AddObjectToScene(water);
 	graphics->AddObjectToScene(island);
 	graphics->AddObjectToScene(mat);
+	
 	
 	
 	graphics->BeginDraw();
