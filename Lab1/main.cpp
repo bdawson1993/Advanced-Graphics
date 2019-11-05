@@ -20,7 +20,7 @@ int main()
 		"StandardShading");
 	mat->SetScale(vec3(0.1));
 	mat->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
-	mat->SetPosition(glm::vec3(0, 0, 0.8));
+	mat->SetPosition(glm::vec3(2, 0, 0.8));
 	
 	IGameObject* water = new IGameObject("../3dcontent/models/sea-plane/seaPlane.fbx",
 		"wave");
