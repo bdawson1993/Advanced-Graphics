@@ -6,7 +6,7 @@ in vec3 FragmentPosition_WorldSpace;
 
 
 uniform sampler2D texture_diffuse1;
-uniform sampler2DShadow shadow_map1;
+uniform sampler2D shadow_map1;
 
 uniform vec3 lightPos;
 
@@ -38,7 +38,7 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	
 
 
-	float shadow = textureProj(shadow_map1, ShadowCoord);
+	float shadow = texture(shadow_map1, ShadowCoord.xy).r;
 	
 
 	vec3 lighting =  shadow * ambient + shadow * (diffuse * lambert) +  shadow * specular; //fixed full black issue 

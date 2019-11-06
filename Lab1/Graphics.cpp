@@ -173,9 +173,11 @@ int Graphics::BeginDraw()
 	float timeElapsed = 0;
 
 	//light
-	vec3 lightPos = vec3(10, 40, 40);
+	vec3 lightPos = vec3(0.5, 10, 10);
+	vec3 wavepos = vec3(0, 90, 0);
 	vec3 amint = vec3(0.1);
-
+	IGameObject* light = new IGameObject("../3dcontent/models/cube/cube.mtl",
+		"basicColor");
 
 
 
@@ -184,7 +186,7 @@ int Graphics::BeginDraw()
 	//render scene
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{
-		
+
 
 		MeshTexture shadowt;
 		shadowt.id = shadow.textureID;
@@ -194,39 +196,49 @@ int Graphics::BeginDraw()
 		wavet.id = wave.textureID;
 		wavet.type = "shadow_map";
 
-		
-		
+
+
 		scenceShapes[i]->AddTexture(shadowt);
 		scenceShapes[i]->AddTexture(wavet);
 
 	}
 
-	
+
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
+	float scale = 2.002;
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
-
-		
 
 		//compute delta time
 		currentTime = glfwGetTime();
 		deltaTime = float(currentTime - lastTime);
 		timeElapsed += deltaTime;
-		
-		
+
+
 
 
 		//shadow pass
-		RenderShadow(vec3(0.5, 10, 10), shadow, *Lightcam, GL_FRONT);
-		//float result = std::abs(std::remainder(timeElapsed * 0.5, 2.1 * 2));
+		RenderShadow(lightPos, shadow, *Lightcam, GL_FRONT);
+		//float result = std::abs(std::remainder(timeElapsed * 0.5, 2.1 * 1));
 		//cout << result  << endl;
 
 		//border pass
-		scenceShapes[1]->SetScale(vec3(2.001));
-		RenderShadow(vec3(10, 40, 40), wave, *waveCam);
+		if (scale >= 2.015)
+		{
+			scale = 2.002;
+		}
+		else
+		{
+			scale += 0.01 * deltaTime;
+		}
+
+
+		//waveCam->LookAt(vec3(0, 0, 0), vec3(0, 90, 0), vec3(0, 1, 0));
+		scenceShapes[1]->SetScale(vec3(2.01));
+		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
 		scenceShapes[1]->SetScale(vec3(2));
-		
+
 
 
 		//render scene
@@ -237,19 +249,20 @@ int Graphics::BeginDraw()
 			0.5, 0.5, 0.5, 1.0
 		);
 
-		
+
 
 		//glm::mat4 lightProjection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
 		//glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
-		
+
 		//glm::mat4 shadowMatrix =  lightProjection * Lightcam.GetView();
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
-		glm::mat4 waveMatrix = glm::mat4(biasMatrix * waveCam->GetProjection() * waveCam->GetView() * cam->GetView());
+		glm::mat4 waveMatrix = glm::mat4(biasMatrix  * waveCam->GetProjection() * waveCam->GetView());
 
-		
-		
+
+
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
+			scenceShapes[i]->shader.use();
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 
@@ -257,45 +270,48 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->shader.setMat4("waveMatrix", waveMatrix);
 
 			scenceShapes[i]->Draw(cam);
-			
+
 		}
-		
+		//light->Draw(cam);
+
 		//update logic
 #pragma region
+		double xpos, ypos;
+		glfwGetCursorPos(window, &xpos, &ypos);
+
 		if (glfwGetKey(window, GLFW_KEY_W))
 		{
-			cam->Translate(vec3_forward);
+			cam->Update(deltaTime, xpos, ypos, mode->width, mode->height, GLFW_KEY_W);
+			glfwSetCursorPos(window, mode->width / 2, mode->height / 2);
+
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_S))
 		{
-			cam->Translate(vec3_backward);
+			cam->Update(deltaTime, xpos, ypos, mode->width, mode->height, GLFW_KEY_S);
+			glfwSetCursorPos(window, mode->width / 2, mode->height / 2);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_A))
 		{
-			cam->Translate(vec3_left);
+			cam->Update(deltaTime, xpos, ypos, mode->width, mode->height, GLFW_KEY_A);
+			glfwSetCursorPos(window, mode->width / 2, mode->height / 2);
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_D))
 		{
-			cam->Translate(vec3_right);
-			
+			cam->Update(deltaTime, xpos, ypos, mode->width, mode->height, GLFW_KEY_D);
+			glfwSetCursorPos(window, mode->width / 2, mode->height / 2);
+
 		}
 
-		if (glfwGetKey(window, GLFW_KEY_Q))
-		{
-			cam->Rotate(vec3_left);
-		}
 
-		if (glfwGetKey(window, GLFW_KEY_E))
-		{
-			cam->Rotate(vec3_right);
-		}
 
 		if (glfwGetKey(window, GLFW_KEY_LEFT))
 		{
 			lightPos += vec3_right;
+
+
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_RIGHT))
@@ -303,51 +319,57 @@ int Graphics::BeginDraw()
 			lightPos += vec3_left;
 		}
 
+
 		if (glfwGetKey(window, GLFW_KEY_UP))
 		{
 			lightPos += vec3_down;
+
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_DOWN))
 		{
 			lightPos += vec3_up;
+
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_I))
 		{
 			amint += vec3(0.1);
-			cout << amint.x << " "  << amint.y << " " << amint.z << endl;
+			//cout << amint.x << " " << amint.y << " " << amint.z << endl;
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_K))
 		{
 			amint -= vec3(0.1);
-			cout << amint.x << " " << amint.y << " " << amint.z << endl;
+			//cout << amint.x << " " << amint.y << " " << amint.z << endl;
 		}
-		
 
-		
+
+
 
 #pragma endregion Cam_Update
-		
-		//cout << lightPos.x << " " << lightPos.y << " " << lightPos.z << endl;
-		lastTime = currentTime;
-		// Swap buffers
-		glfwSwapBuffers(window);
-		glfwPollEvents();
 
-	} // Check if the ESC key was pressed or the window was closed
-	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
-	
+			//cout << pos.x << " " << pos.y << " " << pos.z << endl;
+			lastTime = currentTime;
+			cout << deltaTime << endl;
 
-	// Close OpenGL window and terminate GLFW
-	glfwTerminate();
-	
-	
+			// Swap buffers
+			glfwSwapBuffers(window);
+			glfwPollEvents();
 
-	return 0;
+		} // Check if the ESC key was pressed or the window was closed
+		while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
+			glfwWindowShouldClose(window) == 0);
+
+
+		// Close OpenGL window and terminate GLFW
+		glfwTerminate();
+
+
+
+		return 0;
 }
+
 
 
 
