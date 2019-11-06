@@ -178,10 +178,13 @@ int Graphics::BeginDraw()
 
 
 
+
+
 	//add depth textures to the models
 	//render scene
 	for (int i = 0; i != scenceShapes.size(); i++)
 	{
+		
 
 		MeshTexture shadowt;
 		shadowt.id = shadow.textureID;
@@ -204,6 +207,8 @@ int Graphics::BeginDraw()
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 
+		
+
 		//compute delta time
 		currentTime = glfwGetTime();
 		deltaTime = float(currentTime - lastTime);
@@ -214,11 +219,11 @@ int Graphics::BeginDraw()
 
 		//shadow pass
 		RenderShadow(vec3(0.5, 10, 10), shadow, *Lightcam, GL_FRONT);
-		//float result = std::abs(std::remainder(timeElapsed * 1, 2.4 * 2));
+		//float result = std::abs(std::remainder(timeElapsed * 0.5, 2.1 * 2));
 		//cout << result  << endl;
 
 		//border pass
-		scenceShapes[1]->SetScale(vec3(2.05));
+		scenceShapes[1]->SetScale(vec3(2.001));
 		RenderShadow(vec3(10, 40, 40), wave, *waveCam);
 		scenceShapes[1]->SetScale(vec3(2));
 		
@@ -241,11 +246,10 @@ int Graphics::BeginDraw()
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
 		glm::mat4 waveMatrix = glm::mat4(biasMatrix * waveCam->GetProjection() * waveCam->GetView() * cam->GetView());
 
-	
+		
+		
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
-			
-
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
 			scenceShapes[i]->shader.setVec3("ambint", amint);
 
@@ -255,7 +259,7 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->Draw(cam);
 			
 		}
-
+		
 		//update logic
 #pragma region
 		if (glfwGetKey(window, GLFW_KEY_W))

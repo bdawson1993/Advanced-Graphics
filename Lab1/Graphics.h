@@ -18,6 +18,7 @@
 #include "common/shader.h"
 // can't remember where this comes from.. there are lots of examples on the internet of similar code
 #include "common/GLError.h"
+#include "common/skybox.h"
 
 
 using namespace glm;
@@ -42,7 +43,10 @@ private:
 
 	WindowCamera* Lightcam = new WindowCamera();
 	WindowCamera* waveCam = new WindowCamera();
+
 	Shader shader;
+	
+	
 
 	GLFWmonitor* primaryMonitor;
 	const GLFWvidmode* mode;

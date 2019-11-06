@@ -4,6 +4,7 @@ in vec2 UV;
 in vec3 Normal;
 in vec3 FragmentPosition_WorldSpace;
 
+
 uniform sampler2D texture_diffuse1;
 uniform sampler2DShadow shadow_map1;
 
@@ -47,8 +48,11 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 
 void main()
 {    
+
 	
+
 
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
 	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f);
+	
 }

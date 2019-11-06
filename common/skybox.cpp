@@ -124,6 +124,7 @@ void Skybox::Draw(glm::mat4x4 View, glm::mat4x4 Projection, Shader& shader)
 	//check_gl_error();
 	// skybox will be drawn first, so disallow writing into depth buffer
 	glDepthMask(GL_FALSE);
+
 	//check_gl_error();
 	// and don't depth test
 	//glDepthFunc(GL_ALWAYS);
@@ -166,5 +167,5 @@ void Skybox::Draw(glm::mat4x4 View, glm::mat4x4 Projection, Shader& shader)
 	//check_gl_error();
  
 	glDepthMask(GL_TRUE);
-	glDepthFunc(GL_LESS);
+	//glDepthFunc(GL_LESS);
 }

@@ -10,6 +10,7 @@ public:
 	GLuint vbo = 0;			// vertex buffer object id
 
 	Skybox(std::string path, std::string xposimg,std::string xnegimg,std::string yposimg,std::string ynegimg,std::string zposimg,	std::string znegimg );
+	Skybox() {};
 	~Skybox();
 
 	void Init();
