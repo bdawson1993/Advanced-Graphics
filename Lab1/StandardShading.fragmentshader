@@ -19,11 +19,14 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	vec3 viewDir = normalize(-FragmentPosition_WorldSpace);
 	vec3 lightDir = vec3(0,1,0);
 	vec3 halfVector = normalize(lightDir + viewDir);
+	
+
 
 	//normalise vectors
 	vec3 lightToEye = lightPos - -FragmentPosition_WorldSpace;
 	vec3 normal = normalize(Normal);
 	vec3 noEye = normalize(normalize(lightToEye));
+	float lambert = dot(Normal,lightDir) * 0.5 + 0.5;
 
 	//compute ADS - floor the diffuse for the flat light effecting
 	vec3 ambient =  amInt * vec3(0.3);
@@ -31,13 +34,13 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	vec3 diffuse = color * vec3(0.3) * floor(sDotN * 2) * (1.0 /2);
 	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), halfVector)), 0.2) * 1.0;
 
-
+	
 
 
 	float shadow = textureProj(shadow_map1, ShadowCoord);
 	
 
-	vec3 lighting = shadow * ambient + shadow * diffuse +  shadow * specular; //fixed full black issue 
+	vec3 lighting =  shadow * ambient + shadow * (diffuse * lambert) +  shadow * specular; //fixed full black issue 
 
 	return vec4(lighting, 1.0);
 }
@@ -47,8 +50,6 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 
 void main()
 {    
-	
-
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
 	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.5), vec3(0.5)).rgb, 0.5f);
 }
