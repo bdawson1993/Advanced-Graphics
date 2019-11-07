@@ -1,54 +1,20 @@
 #version 330 core
 out vec3 FragColor;
-uniform sampler2D shadow_map2;
-in vec4 ShadowCoord;
+in vec2 UV;
+in vec3 Normal;
+in vec3 FragmentPosition_WorldSpace;
+
+
+uniform sampler2D texture_diffuse1;
+
 
 
 void main()
 {    
-
-	
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
-	//float depth = texture(shadow_map2, ShadowCoord.xy).r;
-	
-	float offset = 0.001;
+	vec3 color = texture(texture_diffuse1,UV).rgb;
 
-	//check all neigbours - if all !1 render blue
-	float centre = texture(shadow_map2, ShadowCoord.xy).r;
-	float top = texture(shadow_map2, vec2(ShadowCoord.x, ShadowCoord.y + offset)).r;
-	float bottom = texture(shadow_map2, vec2(ShadowCoord.x, ShadowCoord.y - offset)).r;
 
-	float left = texture(shadow_map2, vec2(ShadowCoord.x - offset, ShadowCoord.y)).r;
-	float right = texture(shadow_map2, vec2(ShadowCoord.x + offset, ShadowCoord.y)).r;
+	FragColor = vec3(0,0,1);
 
-	float topLeft = texture(shadow_map2, vec2(ShadowCoord.x + offset, ShadowCoord.y + offset)).r;
-	float topRight = texture(shadow_map2, vec2(ShadowCoord.x - offset, ShadowCoord.y + offset)).r;
-
-	float centreLeft = texture(shadow_map2, vec2(ShadowCoord.x - offset, ShadowCoord.y)).r;
-	float centreRight = texture(shadow_map2, vec2(ShadowCoord.x - offset, ShadowCoord.y)).r;
-
-	float bottomLeft =  texture(shadow_map2, vec2(ShadowCoord.x - offset, ShadowCoord.y - offset)).r;
-	float bottomRight =  texture(shadow_map2, vec2(ShadowCoord.x - offset, ShadowCoord.y - offset)).r;
-
-	//compute the border of the depth
-	
-	vec3 color;
-	bool neigboursHoodCheck = ((top != 1) && (bottom != 1) && (left != 1) && (right != 1) && (topLeft != 1) && (topRight != 1) && (centreLeft != 1) && (centreRight != 1) && (bottomLeft != 1) && (bottomRight != 1));
-	if(centre != 1)
-	{
-		if(neigboursHoodCheck == true)
-		{
-			color = vec3(0,0,1);
-		}
-		else //if not true assume we're on the border
-		{
-			color = vec3(1,1,1);
-		}
-	}
-	else
-	{
-		color = vec3(0,0,1); //if 1 no depth value present no check needed
-	}
-
-	FragColor = color;
 }

@@ -5,9 +5,9 @@
 class Skybox
 {
 public:
-	GLuint cubemaptextureID = 0;
-	GLuint vao = 0;			// vertex array object id
-	GLuint vbo = 0;			// vertex buffer object id
+	GLuint cubemaptextureID;
+	GLuint vao;			// vertex array object id
+	GLuint vbo;			// vertex buffer object id
 
 	Skybox(std::string path, std::string xposimg,std::string xnegimg,std::string yposimg,std::string ynegimg,std::string zposimg,	std::string znegimg );
 	Skybox() {};

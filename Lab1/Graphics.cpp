@@ -173,11 +173,16 @@ int Graphics::BeginDraw()
 	float timeElapsed = 0;
 
 	//light
-	vec3 lightPos = vec3(0.5, 10, 10);
+	vec3 lightPos = vec3(0, 5, 0);
 	vec3 wavepos = vec3(0, 90, 0);
 	vec3 amint = vec3(0.1);
-	IGameObject* light = new IGameObject("../3dcontent/models/cube/cube.mtl",
+
+	IGameObject* light = new IGameObject("../3dcontent/models/sphere/sphere.fbx",
 		"basicColor");
+	//light->SetScale(vec3(110));
+
+	
+	
 
 
 
@@ -224,18 +229,19 @@ int Graphics::BeginDraw()
 		//cout << result  << endl;
 
 		//border pass
-		if (scale >= 2.015)
-		{
-			scale = 2.002;
-		}
-		else
+		if (scale <= 2.015)
 		{
 			scale += 0.01 * deltaTime;
 		}
+		else
+		{
+			scale = 2.002;
+		}
+		
 
 
 		//waveCam->LookAt(vec3(0, 0, 0), vec3(0, 90, 0), vec3(0, 1, 0));
-		scenceShapes[1]->SetScale(vec3(2.01));
+		scenceShapes[1]->SetScale(vec3(scale));
 		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
 		scenceShapes[1]->SetScale(vec3(2));
 
@@ -258,8 +264,6 @@ int Graphics::BeginDraw()
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
 		glm::mat4 waveMatrix = glm::mat4(biasMatrix  * waveCam->GetProjection() * waveCam->GetView());
 
-
-
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
 			scenceShapes[i]->shader.use();
@@ -272,7 +276,9 @@ int Graphics::BeginDraw()
 			scenceShapes[i]->Draw(cam);
 
 		}
-		//light->Draw(cam);
+		light->shader.use();
+		light->SetPosition(lightPos);
+		light->Draw(cam);
 
 		//update logic
 #pragma region
@@ -322,36 +328,23 @@ int Graphics::BeginDraw()
 
 		if (glfwGetKey(window, GLFW_KEY_UP))
 		{
-			lightPos += vec3_down;
+			lightPos += vec3_forward;
 
 		}
 
 		if (glfwGetKey(window, GLFW_KEY_DOWN))
 		{
-			lightPos += vec3_up;
+			lightPos += vec3_backward;
 
 		}
 
-		if (glfwGetKey(window, GLFW_KEY_I))
-		{
-			amint += vec3(0.1);
-			//cout << amint.x << " " << amint.y << " " << amint.z << endl;
-		}
-
-		if (glfwGetKey(window, GLFW_KEY_K))
-		{
-			amint -= vec3(0.1);
-			//cout << amint.x << " " << amint.y << " " << amint.z << endl;
-		}
-
-
-
+		
 
 #pragma endregion Cam_Update
 
 			//cout << pos.x << " " << pos.y << " " << pos.z << endl;
 			lastTime = currentTime;
-			cout << deltaTime << endl;
+			//cout << deltaTime << endl;
 
 			// Swap buffers
 			glfwSwapBuffers(window);

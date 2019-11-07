@@ -16,22 +16,26 @@ int main()
 	graphics->CreateGraphicsContext();
 
 
-	IGameObject* mat = new IGameObject("../3dcontent/models/link/scene.gltf",
-		"StandardShading");
-	mat->SetScale(vec3(0.1));
-	mat->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
-	mat->SetPosition(glm::vec3(2, 0, 0.8));
+	IGameObject* link = new IGameObject("../3dcontent/models/link/scene.gltf",
+		"toon");
+	link->SetScale(vec3(0.1));
+	link->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
+	link->SetPosition(glm::vec3(0, 0, 0.8));
 	
 	IGameObject* water = new IGameObject("../3dcontent/models/sea-plane/seaPlane.fbx",
-		"wave");
+		"water");
 	water->SetRotation(glm::quat(sqrt(0.5), sqrt(0.5), 0, 0));
 	//plane->SetPosition(vec3(0, 5, 0));
+	water->SetScale(vec3(12));
 
 	IGameObject* island = new IGameObject("../3dcontent/models/island/island.fbx",
-		"StandardShading");
+		"toon");
 	island->SetScale(vec3(2));
 	island->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
 	island->SetPosition(vec3(0, 0, -0.1));
+
+
+	
 
 	
 
@@ -42,7 +46,7 @@ int main()
 
 	graphics->AddObjectToScene(water);
 	graphics->AddObjectToScene(island);
-	graphics->AddObjectToScene(mat);
+	graphics->AddObjectToScene(link);
 	
 	
 	
