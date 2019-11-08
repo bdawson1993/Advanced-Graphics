@@ -2,10 +2,7 @@
 
 // Input vertex data, this uses interleaved data in one struct called a MeshVertex within the CPP model loading code
 layout(location = 0) in vec3 vertexPosition_modelspace;
-layout(location = 1) in vec3 vertexNormal_modelspace;
-layout(location = 2) in vec2 vertexUV;
-layout(location = 3) in vec2 vertexUV1;
-layout(location = 4) in vec4 vertexColour;
+
 
 // Output data ; will be interpolated for each fragment.
 out vec4 ShadowCoord;
@@ -23,11 +20,13 @@ void main(){
 
 	//mat4 shadowMatrixM = M * waveMatrix;
 	ShadowCoord = (waveMatrix * M) * vec4(vertexPosition_modelspace,1);
-
+	
 
 	// Output position of the vertex, in clip space : MVP * position
-	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
+	gl_Position =  MVP * vec4(vertexPosition_modelspace,1) * 2;
 
+
+	
 	
 
 }

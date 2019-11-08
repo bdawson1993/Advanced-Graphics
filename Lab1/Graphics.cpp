@@ -175,13 +175,17 @@ int Graphics::BeginDraw()
 	//light
 	vec3 lightPos = vec3(0, 5, 0);
 	vec3 wavepos = vec3(0, 90, 0);
-	vec3 amint = vec3(0.1);
+	
 
+	//create light to show in lights position
 	IGameObject* light = new IGameObject("../3dcontent/models/sphere/sphere.fbx",
 		"basicColor");
-	//light->SetScale(vec3(110));
+	light->SetScale(vec3(0.2));
 
 	
+	//setup skybox shader and obj
+	Shader skyboxShader("skybox.vertexshader", "skybox.fragmentshader");
+	Skybox sky("../3dcontent/skybox/tropicalsunnyday/", "TropicalSunnyDayRight.png", "TropicalSunnyDayLeft.png", "TropicalSunnyDayUp.png", "TropicalSunnyDayDown.png", "TropicalSunnyDayBack.png", "TropicalSunnyDayFront.png");
 	
 
 
@@ -211,7 +215,7 @@ int Graphics::BeginDraw()
 
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
-	float scale = 2.002;
+	float scale = 2.015;
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 
@@ -229,13 +233,14 @@ int Graphics::BeginDraw()
 		//cout << result  << endl;
 
 		//border pass
-		if (scale <= 2.015)
+		if (scale >= 2.002)
 		{
-			scale += 0.01 * deltaTime;
+			scale -= 0.01 * deltaTime;
 		}
 		else
 		{
-			scale = 2.002;
+			
+			scale = 2.015;
 		}
 		
 
@@ -264,11 +269,12 @@ int Graphics::BeginDraw()
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
 		glm::mat4 waveMatrix = glm::mat4(biasMatrix  * waveCam->GetProjection() * waveCam->GetView());
 
+		sky.Draw(cam->GetView(), cam->GetProjection(), skyboxShader);
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
 			scenceShapes[i]->shader.use();
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
-			scenceShapes[i]->shader.setVec3("ambint", amint);
+			
 
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
 			scenceShapes[i]->shader.setMat4("waveMatrix", waveMatrix);

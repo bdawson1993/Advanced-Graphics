@@ -138,8 +138,8 @@ void Skybox::Draw(glm::mat4x4 View, glm::mat4x4 Projection, Shader& shader)
 	glm::mat3x3 rotview = glm::mat3(View);
 	glm::mat4x4 rotmat = glm::mat4(rotview);
 
-
-	shader.setMat4("MVR", Projection * rotmat);
+	
+	shader.setMat4("MVP", Projection * rotmat);
 	shader.setMat4("P", Projection);
 
 

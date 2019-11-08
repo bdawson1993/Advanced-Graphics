@@ -38,7 +38,7 @@ void main()
 	{
 		if(neigboursHoodCheck == true)
 		{
-			color = vec3(0,0,1);
+			color = vec3(0,255,255); //the color of the pixel with the island
 		}
 		else //if not true assume we're on the border
 		{
@@ -47,7 +47,8 @@ void main()
 	}
 	else
 	{
-		color = vec3(0,0,1); //if 1 no depth value present no check needed
+		//the color of the genral sea
+		color = vec3(0,0,255); //if 1 no depth value present no check needed
 	}
 
 	FragColor = color;

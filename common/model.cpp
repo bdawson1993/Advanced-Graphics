@@ -84,6 +84,7 @@ void Mesh::Draw(Shader& shader)
 	//check_gl_error();
 
 	glDrawElements(GL_TRIANGLES, (GLsizei)indices.size(), GL_UNSIGNED_INT, (void*)0);
+	
 	//check_gl_error();
 
 	glBindVertexArray(0);
@@ -487,7 +488,7 @@ std::vector<MeshTexture> Model::loadMaterialTextures(aiMaterial * mat, aiTexture
 
 // sets model, view, projection matrices into the shader uniforms and then calls draw on each child mesh
 // which means that all meshes have to be rendered with the same shader! maybe this is a bad idea?
-void Model::Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader & shader)
+void Model::Render(glm::mat4x4 viewmat, glm::mat4x4 projmat, Shader& shader)
 {
 	shader.use();
 	shader.setMat4("V", viewmat);

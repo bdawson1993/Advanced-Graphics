@@ -34,6 +34,8 @@ int main()
 	island->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
 	island->SetPosition(vec3(0, 0, -0.1));
 
+	
+
 
 	
 
@@ -47,6 +49,7 @@ int main()
 	graphics->AddObjectToScene(water);
 	graphics->AddObjectToScene(island);
 	graphics->AddObjectToScene(link);
+	
 	
 	
 	
