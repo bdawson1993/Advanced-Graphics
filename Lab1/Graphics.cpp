@@ -164,6 +164,52 @@ WindowCamera& Graphics::GetCamera()
 	return *cam;
 }
 
+GLuint secondTexture = 0;
+GLuint frameBuffer = 0;
+void Graphics::SetupRenderTargets()
+{
+	glGenFramebuffers(1, &frameBuffer);
+	glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+	
+	glGenTextures(1, &secondTexture);
+	glBindTexture(GL_TEXTURE_2D, secondTexture);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, mode->width, mode->height, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+
+	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, secondTexture, 0);
+
+
+	GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
+	glDrawBuffers(1, DrawBuffers);
+}
+
+unsigned int quadVAO, quadVBO;
+void Graphics::SetupScreenQuad()
+{
+	float quadVertices[] = {
+		-1.0f,  1.0f,  0.0f, 1.0f,
+		-1.0f, -1.0f,  0.0f, 0.0f,
+		 1.0f, -1.0f,  1.0f, 0.0f,
+
+		-1.0f,  1.0f,  0.0f, 1.0f,
+		 1.0f, -1.0f,  1.0f, 0.0f,
+		 1.0f,  1.0f,  1.0f, 1.0f
+	};
+
+	
+	glGenVertexArrays(1, &quadVAO);
+	glGenBuffers(1, &quadVBO);
+	glBindVertexArray(quadVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), &quadVertices, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+}
+
 int Graphics::BeginDraw()
 {
 	//time computations
@@ -187,8 +233,11 @@ int Graphics::BeginDraw()
 	Shader skyboxShader("skybox.vertexshader", "skybox.fragmentshader");
 	Skybox sky("../3dcontent/skybox/tropicalsunnyday/", "TropicalSunnyDayRight.png", "TropicalSunnyDayLeft.png", "TropicalSunnyDayUp.png", "TropicalSunnyDayDown.png", "TropicalSunnyDayBack.png", "TropicalSunnyDayFront.png");
 	
+	//create texture for second target and setup shader
+	Shader screenShader("screenSpace.vertexshader", "screenSpace.fragmentshader");
 
-
+	
+	SetupRenderTargets();
 
 
 	//add depth textures to the models
@@ -216,6 +265,8 @@ int Graphics::BeginDraw()
 	//scenceShapes[0]->Translate();
 	//scenceShapes[0]->SetColor(1.0f, 1.0f, 1.0f);
 	float scale = 2.015;
+
+	//start rendering
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear buffers
 
@@ -269,13 +320,16 @@ int Graphics::BeginDraw()
 		glm::mat4 shadowMatrix = glm::mat4(biasMatrix * Lightcam->GetProjection() * Lightcam->GetView());
 		glm::mat4 waveMatrix = glm::mat4(biasMatrix  * waveCam->GetProjection() * waveCam->GetView());
 
+
+		glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+		//glActiveTexture(GL_TEXTURE0 + 4);
+		//glBindTexture(GL_TEXTURE_2D, secondColorTexture);
 		sky.Draw(cam->GetView(), cam->GetProjection(), skyboxShader);
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
 			scenceShapes[i]->shader.use();
 			scenceShapes[i]->shader.setVec3("lightPos", lightPos);
-			
-
+		
 			scenceShapes[i]->shader.setMat4("shadowMatrix", shadowMatrix);
 			scenceShapes[i]->shader.setMat4("waveMatrix", waveMatrix);
 
@@ -285,6 +339,22 @@ int Graphics::BeginDraw()
 		light->shader.use();
 		light->SetPosition(lightPos);
 		light->Draw(cam);
+
+		//screen space - effects
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+		glClear(GL_COLOR_BUFFER_BIT);
+		glDisable(GL_DEPTH_TEST);
+
+
+		screenShader.use();
+
+		glBindVertexArray(quadVAO);
+		
+		//glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, secondTexture);
+		screenShader.setInt("screenTexture", 0);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 
 		//update logic
 #pragma region
@@ -353,6 +423,7 @@ int Graphics::BeginDraw()
 			//cout << deltaTime << endl;
 
 			// Swap buffers
+			
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 
@@ -381,4 +452,5 @@ Graphics::~Graphics()
 Graphics::Graphics()
 {
 	
+
 }

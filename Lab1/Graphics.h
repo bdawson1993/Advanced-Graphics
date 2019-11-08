@@ -80,6 +80,8 @@ public:
 	//get accesors
 	GLuint GetProgramID();
 	WindowCamera& GetCamera();
+	void SetupRenderTargets();
+	void SetupScreenQuad();
 
 
 };

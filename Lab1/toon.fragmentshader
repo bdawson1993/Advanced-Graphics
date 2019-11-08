@@ -1,5 +1,7 @@
 #version 330 core
-out vec3 FragColor;
+layout(location = 0) out vec3 FragColor;
+layout(location = 1) out vec3 secondColor;
+
 in vec2 UV;
 in vec3 Normal;
 in vec3 FragmentPosition_WorldSpace;
@@ -59,5 +61,6 @@ void main()
 {    
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
 	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.1), vec3(0.1)).rgb, 0.5f);
+	secondColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.1), vec3(0.1)).rgb, 0.5f);
 
 }
