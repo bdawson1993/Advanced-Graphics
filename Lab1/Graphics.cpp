@@ -68,10 +68,11 @@ int Graphics::CreateGraphicsContext()
 		
 		
 		
+		
+
 		shader = Shader("depthShader.vertexshader", "depthShader.fragmentshader");
 		shadow = BuildDepthTexture(1024 * 2, 1024 * 2);
 		wave = BuildDepthTexture(1024 * 2, 1024 * 2);
-
 	}
 }
 
@@ -166,57 +167,63 @@ WindowCamera& Graphics::GetCamera()
 
 GLuint secondTexture = 0;
 GLuint frameBuffer = 0;
+GLuint thirdTexture = 0;
+
+//render targets for color pass
 void Graphics::SetupRenderTargets()
 {
+	//create frame buffer
+	GLuint depthMap;
 	glGenFramebuffers(1, &frameBuffer);
 	glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
 	
+	//create texture slot - 1
 	glGenTextures(1, &secondTexture);
 	glBindTexture(GL_TEXTURE_2D, secondTexture);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, mode->width, mode->height, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, mode->width, mode->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, secondTexture, 0);
 
-	glFramebufferTexture(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, secondTexture, 0);
+
+	//create texture slot 2
+	glGenTextures(1, &thirdTexture);
+	glBindTexture(GL_TEXTURE_2D, thirdTexture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA16F, mode->width, mode->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, thirdTexture, 0);
 
 
-	GLenum DrawBuffers[1] = { GL_COLOR_ATTACHMENT0 };
-	glDrawBuffers(1, DrawBuffers);
+	//create depth map
+	glGenTextures(1, &depthMap);
+	glBindTexture(GL_TEXTURE_2D, depthMap);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, mode->width, mode->height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, 0);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_R_TO_TEXTURE);
+
+	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthMap, 0);
+
+	GLenum DrawBuffers[2] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1 };
+	glDrawBuffers(2, DrawBuffers);
 }
 
-unsigned int quadVAO, quadVBO;
-void Graphics::SetupScreenQuad()
-{
-	float quadVertices[] = {
-		-1.0f,  1.0f,  0.0f, 1.0f,
-		-1.0f, -1.0f,  0.0f, 0.0f,
-		 1.0f, -1.0f,  1.0f, 0.0f,
 
-		-1.0f,  1.0f,  0.0f, 1.0f,
-		 1.0f, -1.0f,  1.0f, 0.0f,
-		 1.0f,  1.0f,  1.0f, 1.0f
-	};
 
-	
-	glGenVertexArrays(1, &quadVAO);
-	glGenBuffers(1, &quadVBO);
-	glBindVertexArray(quadVAO);
-	glBindBuffer(GL_ARRAY_BUFFER, quadVBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(quadVertices), &quadVertices, GL_STATIC_DRAW);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
-}
 
 int Graphics::BeginDraw()
 {
+	ScreenSpace sSpace;
 	//time computations
 	double currentTime = glfwGetTime();
 	double lastTime = currentTime;
 	float deltaTime;
 	float timeElapsed = 0;
+
 
 	//light
 	vec3 lightPos = vec3(0, 5, 0);
@@ -233,12 +240,9 @@ int Graphics::BeginDraw()
 	Shader skyboxShader("skybox.vertexshader", "skybox.fragmentshader");
 	Skybox sky("../3dcontent/skybox/tropicalsunnyday/", "TropicalSunnyDayRight.png", "TropicalSunnyDayLeft.png", "TropicalSunnyDayUp.png", "TropicalSunnyDayDown.png", "TropicalSunnyDayBack.png", "TropicalSunnyDayFront.png");
 	
-	//create texture for second target and setup shader
-	Shader screenShader("screenSpace.vertexshader", "screenSpace.fragmentshader");
-
 	
+	//setup screen space
 	SetupRenderTargets();
-
 
 	//add depth textures to the models
 	//render scene
@@ -278,7 +282,7 @@ int Graphics::BeginDraw()
 
 
 
-		//shadow pass
+		//--------------------------------------------- shadow pass
 		RenderShadow(lightPos, shadow, *Lightcam, GL_FRONT);
 		//float result = std::abs(std::remainder(timeElapsed * 0.5, 2.1 * 1));
 		//cout << result  << endl;
@@ -295,7 +299,7 @@ int Graphics::BeginDraw()
 		}
 		
 
-
+		//------------------------------- wave pass
 		//waveCam->LookAt(vec3(0, 0, 0), vec3(0, 90, 0), vec3(0, 1, 0));
 		scenceShapes[1]->SetScale(vec3(scale));
 		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
@@ -303,6 +307,7 @@ int Graphics::BeginDraw()
 
 
 
+		//--------------------- color pass
 		//render scene
 		glm::mat4 biasMatrix(
 			0.5, 0.0, 0.0, 0.0,
@@ -310,9 +315,6 @@ int Graphics::BeginDraw()
 			0.0, 0.0, 0.5, 0.0,
 			0.5, 0.5, 0.5, 1.0
 		);
-
-
-
 		//glm::mat4 lightProjection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
 		//glm::mat4 lightProjection = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 
@@ -322,8 +324,7 @@ int Graphics::BeginDraw()
 
 
 		glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-		//glActiveTexture(GL_TEXTURE0 + 4);
-		//glBindTexture(GL_TEXTURE_2D, secondColorTexture);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		sky.Draw(cam->GetView(), cam->GetProjection(), skyboxShader);
 		for (int i = 0; i != scenceShapes.size(); i++)
 		{
@@ -339,22 +340,10 @@ int Graphics::BeginDraw()
 		light->shader.use();
 		light->SetPosition(lightPos);
 		light->Draw(cam);
-
-		//screen space - effects
-		glBindFramebuffer(GL_FRAMEBUFFER, 0);
-		glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
-		glClear(GL_COLOR_BUFFER_BIT);
-		glDisable(GL_DEPTH_TEST);
-
-
-		screenShader.use();
-
-		glBindVertexArray(quadVAO);
 		
-		//glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, secondTexture);
-		screenShader.setInt("screenTexture", 0);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		
+		//------------------render to screen
+		sSpace.Draw(secondTexture);
 
 		//update logic
 #pragma region
@@ -423,7 +412,7 @@ int Graphics::BeginDraw()
 			//cout << deltaTime << endl;
 
 			// Swap buffers
-			
+			//glEnable(GL_DEPTH_TEST);
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 

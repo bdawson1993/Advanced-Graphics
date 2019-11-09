@@ -1,6 +1,6 @@
 #version 330 core
 layout(location = 0) out vec3 FragColor;
-layout(location = 1) out vec3 secondColor;
+layout(location = 1) out vec4 secondColor;
 
 in vec2 UV;
 in vec3 Normal;
@@ -43,12 +43,8 @@ vec4 toonshade(vec3 color, vec3 amInt, vec3 diffInt)
 	vec3 diffuse = color * diffInt * floor(sDotN * 2) * (1.0 /2);
 	vec3 specular = vec3(1) * pow(max(0.0, dot(normalize(FragmentPosition_WorldSpace), halfVector)), 0.2) * 1.0;
 
-	
-
-
 	float shadow = textureProj(shadow_map1, ShadowCoord);
 	
-
 	vec3 lighting =  (shadow * ambient) + (shadow * (diffuse * lambert)); //fixed full black issue 
 
 	return vec4(lighting, 1.0);
@@ -61,6 +57,16 @@ void main()
 {    
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
 	FragColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.1), vec3(0.1)).rgb, 0.5f);
-	secondColor = mix(texture(texture_diffuse1, UV + 1).rgb, toonshade(vec3(1,1,1), vec3(0.1), vec3(0.1)).rgb, 0.5f);
+	
+	float brigtness = dot(FragColor.rgb, vec3(0.1126, 0.7152,0.0722));
+	if(brigtness > 0.5)
+	{
+		secondColor = vec4(FragColor.rgb,1);
+	}
+	else
+	{
+		secondColor = vec4(0,0,0,0);
+		//secondColor = vec4(brigtness,0,0,0); --used for debugging
+	}
 
 }

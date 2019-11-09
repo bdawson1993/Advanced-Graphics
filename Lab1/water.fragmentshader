@@ -42,13 +42,13 @@ void main()
 		}
 		else //if not true assume we're on the border
 		{
-			color = vec3(1,1,1);
+			color = vec3(1.0,1.0,1.0);
 		}
 	}
 	else
 	{
 		//the color of the genral sea
-		color = vec3(0,0,255); //if 1 no depth value present no check needed
+		color = vec3(0.0,0.0,255.0); //if 1 no depth value present no check needed
 	}
 
 	FragColor = color;

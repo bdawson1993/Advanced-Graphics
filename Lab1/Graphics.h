@@ -19,6 +19,7 @@
 // can't remember where this comes from.. there are lots of examples on the internet of similar code
 #include "common/GLError.h"
 #include "common/skybox.h"
+#include "ScreenSpace.h"
 
 
 using namespace glm;
@@ -45,8 +46,8 @@ private:
 	WindowCamera* waveCam = new WindowCamera();
 
 	Shader shader;
-	
-	
+	Shader screenShader;
+	GLuint quadVAO, quadVBO;
 
 	GLFWmonitor* primaryMonitor;
 	const GLFWvidmode* mode;
@@ -62,6 +63,7 @@ private:
 
 	TextureIDs shadow;
 	TextureIDs wave;
+	
 
 	
 	
@@ -81,7 +83,7 @@ public:
 	GLuint GetProgramID();
 	WindowCamera& GetCamera();
 	void SetupRenderTargets();
-	void SetupScreenQuad();
+	void DrawQuad();
 
 
 };
