@@ -1,4 +1,6 @@
 #include "ScreenSpace.h"
+ 
+//implmented based on -- https://learnopengl.com/Advanced-Lighting/Bloom
 
 ScreenSpace::ScreenSpace()
 {
