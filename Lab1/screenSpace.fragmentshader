@@ -4,8 +4,15 @@ out vec4 FragColor;
 in vec2 TexCoords;
 
 uniform sampler2D screenTexture;
+uniform sampler2D screenTexture2;
 
 void main()
 { 
-    FragColor = texture(screenTexture, TexCoords);
+	vec3 colorTexture = texture(screenTexture,TexCoords).rgb;
+	vec3 lightTexture = texture(screenTexture2,TexCoords).rgb;
+	colorTexture += lightTexture;
+
+	vec3 result = vec3(1.0) - exp(-colorTexture * 2.5);
+	result = pow(result, vec3(1.0 / 2.2));
+	FragColor = vec4(result,1);
 }

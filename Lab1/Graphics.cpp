@@ -218,6 +218,8 @@ void Graphics::SetupRenderTargets()
 int Graphics::BeginDraw()
 {
 	ScreenSpace sSpace;
+	sSpace.SetupBuffers(mode->width, mode->height);
+
 	//time computations
 	double currentTime = glfwGetTime();
 	double lastTime = currentTime;
@@ -343,7 +345,7 @@ int Graphics::BeginDraw()
 		
 		
 		//------------------render to screen
-		sSpace.Draw(secondTexture);
+		sSpace.Draw(secondTexture, thirdTexture);
 
 		//update logic
 #pragma region
