@@ -34,6 +34,12 @@ int main()
 	island->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
 	island->SetPosition(vec3(0, 0, -0.1));
 
+	IGameObject* tree = new IGameObject("../3dcontent/models/tree/scene.gltf",
+		"toon");
+	tree->SetPosition(vec3(6, 0.0, 0.4));
+	//tree->SetScale(vec3(0.1));
+	tree->SetRotation(glm::quat(sqrt(0.5), -sqrt(0.5), 0, 0));
+
 	
 
 
@@ -49,6 +55,7 @@ int main()
 	graphics->AddObjectToScene(water);
 	graphics->AddObjectToScene(island);
 	graphics->AddObjectToScene(link);
+	graphics->AddObjectToScene(tree);
 	
 	
 	

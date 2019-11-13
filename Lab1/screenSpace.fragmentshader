@@ -12,6 +12,7 @@ void main()
 	vec3 lightTexture = texture(screenTexture2,TexCoords).rgb;
 	colorTexture += lightTexture;
 
+	//map colors
 	vec3 result = vec3(1.0) - exp(-colorTexture * 2.5);
 	result = pow(result, vec3(1.0 / 2.2));
 	FragColor = vec4(result,1);

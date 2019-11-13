@@ -304,8 +304,12 @@ int Graphics::BeginDraw()
 		//------------------------------- wave pass
 		//waveCam->LookAt(vec3(0, 0, 0), vec3(0, 90, 0), vec3(0, 1, 0));
 		scenceShapes[1]->SetScale(vec3(scale));
+		
+
 		RenderShadow(vec3(0, 90, 0), wave, *waveCam);
+
 		scenceShapes[1]->SetScale(vec3(2));
+		
 
 
 
