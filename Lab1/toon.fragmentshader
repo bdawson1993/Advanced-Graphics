@@ -58,15 +58,6 @@ void main()
 	//float shadow = textureProj(shadow_map1, ShadowCoord) - removed as shadow was full black;
 	FragColor = mix(texture(texture_diffuse1, UV).rgb, toonshade(texture(texture_diffuse1, UV).rgb, vec3(0.1), vec3(0.5)).rgb, 0.5f);
 	
-	//float brigtness = dot(FragColor.rgb, vec3(0.2126, 0.7152,0.0722));
-	//if(brigtness > 0.5)
-	//{
-		//secondColor = vec4(FragColor.rgb,1);
-	//}
-	//else
-	//{
-		//secondColor = vec4(0.0,0.0,0.0,1.0);
-		//secondColor = vec4(brigtness,0,0,0); --used for debugging
-	//}
+	
 
 }
