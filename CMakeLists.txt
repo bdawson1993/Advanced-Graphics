@@ -91,8 +91,8 @@ add_executable(${LABNAME}
 	${LABNAME}/basicColor.fragmentshader
 	${LABNAME}/texture.vertexshader
 	${LABNAME}/texture.fragmentshader
-	${LABNAME}/StandardShading.vertexshader
-	${LABNAME}/StandardShading.fragmentshader
+	${LABNAME}/toon.vertexshader
+	${LABNAME}/toon.fragmentshader
 	${LABNAME}/wave.fragmentshader
 	${LABNAME}/wave.vertexshader
 )
