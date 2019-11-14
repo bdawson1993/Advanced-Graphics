@@ -55,7 +55,7 @@ int main()
 	graphics->AddObjectToScene(water);
 	graphics->AddObjectToScene(island);
 	graphics->AddObjectToScene(link);
-	graphics->AddObjectToScene(tree);
+	//graphics->AddObjectToScene(tree);
 	
 	
 	
